@@ -41,14 +41,26 @@ services:
       WP_ADMIN_EMAIL: ${WP_ADMIN_EMAIL:-}
     volumes:
       - uploads:/var/www/html/wp-content/uploads
+      # TLS certificate folder from the host. When it holds origin.crt + origin.key
+      # (e.g. a Cloudflare Origin Certificate on the live server), Apache serves
+      # HTTPS on :443; when empty (local, CI), the site is HTTP-only.
+      - ${SSL_DIR:-./ssl}:/etc/ssl/mdev:ro
     labels:
       - "traefik.enable=true"
       - "traefik.docker.network=traenet"
+      # HTTP: Traefik proxies plain requests to Apache :80.
       - "traefik.http.routers.${COMPOSE_PROJECT_NAME}_wp.rule=Host(`${WP_DOMAIN}`)"
       - "traefik.http.routers.${COMPOSE_PROJECT_NAME}_wp.entrypoints=${TRAEFIK_ENTRYPOINTS:-http}"
-      - "traefik.http.routers.${COMPOSE_PROJECT_NAME}_wp.tls=${TRAEFIK_TLS:-false}"
       - "traefik.http.routers.${COMPOSE_PROJECT_NAME}_wp.service=${COMPOSE_PROJECT_NAME}_wp"
       - "traefik.http.services.${COMPOSE_PROJECT_NAME}_wp.loadbalancer.server.port=80"
+      # HTTPS: Traefik passes TLS for WP_DOMAIN through untouched (by SNI) to
+      # Apache :443, which terminates it with the mounted certificate. The shared
+      # Traefik needs no certificate config; other domains are unaffected.
+      - "traefik.tcp.routers.${COMPOSE_PROJECT_NAME}_wps.rule=HostSNI(`${WP_DOMAIN}`)"
+      - "traefik.tcp.routers.${COMPOSE_PROJECT_NAME}_wps.entrypoints=${TRAEFIK_TLS_ENTRYPOINTS:-https}"
+      - "traefik.tcp.routers.${COMPOSE_PROJECT_NAME}_wps.tls.passthrough=true"
+      - "traefik.tcp.routers.${COMPOSE_PROJECT_NAME}_wps.service=${COMPOSE_PROJECT_NAME}_wps"
+      - "traefik.tcp.services.${COMPOSE_PROJECT_NAME}_wps.loadbalancer.server.port=443"
     healthcheck:
       test: ["CMD", "curl", "-fsS", "-o", "/dev/null", "http://localhost/wp-includes/images/blank.gif"]
       interval: 10s
@@ -68,7 +80,9 @@ services:
       MARIADB_PASSWORD: ${DB_PASSWORD}
       MARIADB_ROOT_PASSWORD: ${DB_ROOT_PASSWORD}
     volumes:
-      - db_data:/var/lib/mysql
+      # Host directory (relative to the project root unless absolute). Never
+      # committed or sent to the image build context; see .gitignore/.dockerignore.
+      - ${DB_DATA_DIR:-./data/mariadb}:/var/lib/mysql
     healthcheck:
       test: ["CMD", "healthcheck.sh", "--connect", "--innodb_initialized"]
       interval: 5s
@@ -82,7 +96,6 @@ services:
           - ${COMPOSE_PROJECT_NAME}-db
 
 volumes:
-  db_data:
   uploads:
 
 networks:

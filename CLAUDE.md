@@ -9,6 +9,9 @@ Third-party plugins are Composer (wpackagist) dependencies in the root
 - Environment-specific values go in `.env` only (template: `.env.example`).
 - New blocks go in `wp-content/plugins/mdev-gb/blocks/<name>/`; they are
   auto-registered from the build manifest.
+- Block naming: `name` is `mdev-gb/<slug>` (lowercase only, as WordPress
+  requires), `title` is prefixed `mDev ` (e.g. "mDev Callout"), and
+  `category` is `mdev` (shown as "mDev" in the inserter).
 
 ## ewpDOT
 

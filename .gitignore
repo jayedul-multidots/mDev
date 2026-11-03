@@ -9,6 +9,12 @@
 .vscode/
 *.log
 
+# Runtime data (database files) and TLS certificates/keys
+/data/
+/ssl/
+*.key
+*.pem
+
 # Tooling
 /vendor/
 node_modules/

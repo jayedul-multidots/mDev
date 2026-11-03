@@ -12,6 +12,9 @@ services:
       - ./wp-content/plugins:/var/www/html/wp-content/plugins
       - ./wp-content/themes/mdev-block:/var/www/html/wp-content/themes/mdev-block
       - ./wp-content/themes/mdev-fse:/var/www/html/wp-content/themes/mdev-fse
+      # Whole repo outside the docroot, so vendor/ and tooling are never web-exposed.
+      # Used by `composer test` etc. inside the container (MDEV_ROOT=/app).
+      - ./:/app
 
   # One-off tooling containers, so the host needs neither PHP nor Composer.
   #   docker compose run --rm composer install

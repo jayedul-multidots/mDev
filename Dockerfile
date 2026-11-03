@@ -41,6 +41,13 @@ COPY docker/wordpress/php.ini /usr/local/etc/php/conf.d/zz-mdev.ini
 COPY docker/wordpress/wp-config-mdev.php /usr/local/etc/mdev/wp-config-mdev.php
 COPY --chmod=0755 docker/wordpress/mdev-provision.sh /usr/local/bin/mdev-provision
 
+# Optional HTTPS vhost; it only activates when certificates are mounted at
+# /etc/ssl/mdev (SSL_DIR in .env), e.g. a Cloudflare Origin Certificate.
+# ports.conf is reduced to :80 because the vhost file declares `Listen 443`
+# itself, only when the certificate files exist.
+COPY docker/wordpress/apache-ssl.conf /etc/apache2/sites-available/mdev-ssl.conf
+RUN a2enmod ssl headers && a2ensite mdev-ssl && echo 'Listen 80' > /etc/apache2/ports.conf
+
 # Bake core into the docroot so the upstream entrypoint never copies files at
 # start-up (which would also write into bind mounts). Bundled sample plugins
 # are dropped; plugins are managed through Composer.
@@ -58,6 +65,13 @@ ENV WORDPRESS_CONFIG_EXTRA="require_once '/usr/local/etc/mdev/wp-config-mdev.php
 # Local development.
 # -----------------------------------------------------------------------------
 FROM base AS dev
+
+# Composer for running the quality toolchain inside the container
+# (the repository is mounted at /app by docker-compose.override.yml).
+COPY --from=composer:2 /usr/bin/composer /usr/local/bin/composer
+ENV COMPOSER_HOME=/tmp/composer \
+	COMPOSER_ALLOW_SUPERUSER=1 \
+	MDEV_ROOT=/app
 
 # -----------------------------------------------------------------------------
 # Production.
