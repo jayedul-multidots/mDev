@@ -1,0 +1,33 @@
+/**
+ * Front-end and editor styles for mdev-gb/callout.
+ * Accent colours meet WCAG AA against light backgrounds; themes can override
+ * --mdev-gb-callout-accent.
+ */
+.wp-block-mdev-gb-callout {
+	--mdev-gb-callout-accent: #1d4ed8;
+
+	border-inline-start: 4px solid var(--mdev-gb-callout-accent);
+	padding: var(--wp--preset--spacing--30, 1rem) var(--wp--preset--spacing--40, 1.25rem);
+	background-color: color-mix(in srgb, var(--mdev-gb-callout-accent) 8%, transparent);
+
+	&.is-tone-success {
+		--mdev-gb-callout-accent: #15803d;
+	}
+
+	&.is-tone-warning {
+		--mdev-gb-callout-accent: #b45309;
+	}
+
+	&.is-tone-danger {
+		--mdev-gb-callout-accent: #b91c1c;
+	}
+}
+
+.wp-block-mdev-gb-callout__heading {
+	margin-block: 0 0.5em;
+	font-weight: 700;
+}
+
+.wp-block-mdev-gb-callout__content > :last-child {
+	margin-block-end: 0;
+}

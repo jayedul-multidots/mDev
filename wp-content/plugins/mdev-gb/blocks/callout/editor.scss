@@ -1,0 +1,6 @@
+/**
+ * Editor-only styles for mdev-gb/callout.
+ */
+.wp-block-mdev-gb-callout__heading:empty::before {
+	opacity: 0.6;
+}

@@ -1,0 +1,58 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "mdev-gb/callout",
+	"version": "0.1.0",
+	"title": "mDev Callout",
+	"category": "mdev",
+	"icon": "megaphone",
+	"description": "Highlight a note, tip, or warning.",
+	"keywords": [ "notice", "alert", "tip" ],
+	"textdomain": "mdev-gb",
+	"attributes": {
+		"tone": {
+			"type": "string",
+			"enum": [ "info", "success", "warning", "danger" ],
+			"default": "info"
+		},
+		"heading": {
+			"type": "string",
+			"default": ""
+		}
+	},
+	"supports": {
+		"anchor": true,
+		"align": [ "wide", "full" ],
+		"html": false,
+		"color": {
+			"background": true,
+			"text": true,
+			"link": true
+		},
+		"spacing": {
+			"margin": true,
+			"padding": true
+		},
+		"typography": {
+			"fontSize": true
+		}
+	},
+	"example": {
+		"attributes": {
+			"tone": "warning",
+			"heading": "Heads up"
+		},
+		"innerBlocks": [
+			{
+				"name": "core/paragraph",
+				"attributes": {
+					"content": "Callouts draw attention to important information."
+				}
+			}
+		]
+	},
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"style": "file:./style-index.css",
+	"render": "file:./render.php"
+}

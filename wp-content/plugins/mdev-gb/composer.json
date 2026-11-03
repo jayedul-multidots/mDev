@@ -1,0 +1,26 @@
+{
+    "name": "mdev/mdev-gb",
+    "description": "Custom block editor blocks for the mdev site. Quality tooling lives in the repository root composer.json.",
+    "type": "wordpress-plugin",
+    "version": "0.1.0",
+    "license": "GPL-2.0-or-later",
+    "require": {
+        "php": ">=8.3"
+    },
+    "autoload": {
+        "psr-4": {
+            "Mdev\\Gb\\": "src/"
+        }
+    },
+    "scripts": {
+        "test": "@php \"${MDEV_ROOT:-../../..}/vendor/bin/phpunit\" --configuration \"${MDEV_ROOT:-../../..}/phpunit.xml.dist\" --testsuite mdev-gb"
+    },
+    "scripts-descriptions": {
+        "test": "Run the mdev-gb PHPUnit suite with the repository root toolchain (MDEV_ROOT, default ../../..). Run `composer install` in the root first."
+    },
+    "config": {
+        "platform": {
+            "php": "8.3.0"
+        }
+    }
+}
