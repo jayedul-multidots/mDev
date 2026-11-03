@@ -32,7 +32,8 @@
     "autoload-dev": {
         "psr-4": {
             "Mdev\\Gb\\": "wp-content/plugins/mdev-gb/src/",
-            "Mdev\\Gb\\Tests\\": "wp-content/plugins/mdev-gb/tests/"
+            "Mdev\\Gb\\Tests\\": "wp-content/plugins/mdev-gb/tests/",
+            "Mdev\\Gb\\Tests\\Unit\\": "wp-content/plugins/mdev-gb/tests/unit/"
         }
     },
     "extra": {
