@@ -2,7 +2,7 @@
 /**
  * Plugin Name:       mdev Gutenberg Blocks
  * Description:       Custom block editor blocks for the mdev site.
- * Version:           0.1.0
+ * Version:           0.2.0
  * Requires at least: 6.8
  * Requires PHP:      8.3
  * Author:            mdev
@@ -19,7 +19,7 @@ namespace Mdev\Gb;
 
 defined( 'ABSPATH' ) || exit;
 
-const VERSION = '0.1.0';
+const VERSION = '0.2.0';
 
 /**
  * Show an admin notice when the Composer autoloader has not been generated.

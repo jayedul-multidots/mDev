@@ -1,0 +1,129 @@
+/**
+ * mdev-gb/post-gallery: front end and editor preview.
+ * Colours and fonts come from the theme (currentColor / presets).
+ */
+.wp-block-mdev-gb-post-gallery {
+	--mdev-pg-gap: var(--wp--preset--spacing--40, 1.5rem);
+	--mdev-pg-min-card: 14rem;
+
+	// The `hidden` attribute must win over the display rules below.
+	[hidden] {
+		display: none !important;
+	}
+}
+
+.wp-block-mdev-gb-post-gallery__filters {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: flex-end;
+	gap: 0.75rem 1rem;
+	margin-block-end: var(--mdev-pg-gap);
+}
+
+.wp-block-mdev-gb-post-gallery__field {
+	display: flex;
+	flex: 1 1 14rem;
+	flex-direction: column;
+	gap: 0.25rem;
+
+	label {
+		font-size: 0.875em;
+		font-weight: 600;
+	}
+
+	input,
+	select {
+		min-height: 2.75rem;
+		padding: 0.5rem 0.75rem;
+		border: 1px solid currentcolor;
+		border-radius: 4px;
+		background: transparent;
+		color: inherit;
+		font: inherit;
+	}
+}
+
+.wp-block-mdev-gb-post-gallery__summary {
+	margin-block: 0 1rem;
+	font-size: 0.9em;
+}
+
+// At most --mdev-pg-columns columns, wrapping to fewer on narrow screens.
+.wp-block-mdev-gb-post-gallery__grid {
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(max(min(100%, var(--mdev-pg-min-card)), calc((100% - (var(--mdev-pg-columns, 3) - 1) * var(--mdev-pg-gap)) / var(--mdev-pg-columns, 3))), 1fr));
+	gap: var(--mdev-pg-gap);
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	transition: opacity 0.2s ease;
+
+	.is-loading > & {
+		opacity: 0.55;
+	}
+}
+
+.wp-block-mdev-gb-post-gallery__card {
+	display: flex;
+	flex-direction: column;
+	gap: 0.5rem;
+	height: 100%;
+}
+
+.wp-block-mdev-gb-post-gallery__media img {
+	display: block;
+	width: 100%;
+	height: auto;
+	aspect-ratio: 16 / 10;
+	object-fit: cover;
+	border-radius: 6px;
+}
+
+.wp-block-mdev-gb-post-gallery__title {
+	margin: 0;
+	font-size: var(--wp--preset--font-size--large, 1.25rem);
+
+	a {
+		text-decoration: none;
+
+		&:hover,
+		&:focus-visible {
+			text-decoration: underline;
+		}
+	}
+}
+
+.wp-block-mdev-gb-post-gallery__date {
+	font-size: 0.875em;
+}
+
+.wp-block-mdev-gb-post-gallery__excerpt {
+	margin: 0;
+}
+
+.wp-block-mdev-gb-post-gallery__error {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	gap: 0.75rem;
+	margin-block: var(--mdev-pg-gap) 0;
+	padding: 0.75rem 1rem;
+	border-inline-start: 4px solid #b91c1c;
+}
+
+.wp-block-mdev-gb-post-gallery__more {
+	margin-block: var(--mdev-pg-gap) 0;
+	text-align: center;
+
+	a[aria-disabled="true"] {
+		opacity: 0.6;
+		pointer-events: none;
+	}
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+	.wp-block-mdev-gb-post-gallery__grid {
+		transition: none;
+	}
+}

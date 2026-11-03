@@ -1,6 +1,6 @@
 {
 	"name": "mdev-gb",
-	"version": "0.1.0",
+	"version": "0.2.0",
 	"private": true,
 	"description": "Custom block editor blocks for the mdev site.",
 	"license": "GPL-2.0-or-later",
@@ -8,8 +8,8 @@
 		"node": ">=22.13"
 	},
 	"scripts": {
-		"build": "wp-scripts build --webpack-src-dir=blocks --blocks-manifest",
-		"start": "wp-scripts start --webpack-src-dir=blocks --blocks-manifest",
+		"build": "wp-scripts build --webpack-src-dir=blocks --blocks-manifest --experimental-modules",
+		"start": "wp-scripts start --webpack-src-dir=blocks --blocks-manifest --experimental-modules",
 		"lint:js": "wp-scripts lint-js blocks",
 		"lint:css": "wp-scripts lint-style \"blocks/**/*.scss\"",
 		"test:unit": "wp-scripts test-unit-js",
@@ -24,6 +24,10 @@
 		"@wordpress/block-editor": "^18.1.0",
 		"@wordpress/blocks": "^16.2.0",
 		"@wordpress/components": "^42.0.0",
-		"@wordpress/i18n": "^6.30.0"
+		"@wordpress/core-data": "^8.2.0",
+		"@wordpress/data": "^10.57.0",
+		"@wordpress/i18n": "^6.30.0",
+		"@wordpress/interactivity": "^7.0.0",
+		"@wordpress/server-side-render": "^6.33.0"
 	}
 }

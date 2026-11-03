@@ -11,6 +11,7 @@ namespace Mdev\Gb;
 
 use Mdev\Gb\Blocks\BlockCategory;
 use Mdev\Gb\Blocks\BlockRegistrar;
+use Mdev\Gb\PostGallery\Feature as PostGallery;
 
 /**
  * Instantiates the plugin features and wires them to WordPress hooks.
@@ -42,5 +43,7 @@ final class Plugin {
 
 		add_action( 'init', [ $registrar, 'register' ] );
 		add_filter( 'block_categories_all', [ $category, 'register' ] );
+
+		( new PostGallery( $this->plugin_dir ) )->register();
 	}
 }

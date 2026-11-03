@@ -1,0 +1,80 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "mdev-gb/post-gallery",
+	"version": "0.2.0",
+	"title": "mDev Post Gallery",
+	"category": "mdev",
+	"icon": "screenoptions",
+	"description": "A grid of posts that visitors can search, sort and load more of without leaving the page.",
+	"keywords": [ "posts", "grid", "search", "filter", "archive" ],
+	"textdomain": "mdev-gb",
+	"attributes": {
+		"postType": {
+			"type": "string",
+			"default": "post"
+		},
+		"categories": {
+			"type": "array",
+			"items": { "type": "integer" },
+			"default": []
+		},
+		"perPage": {
+			"type": "integer",
+			"default": 9
+		},
+		"defaultSort": {
+			"type": "string",
+			"enum": [
+				"relevance",
+				"newest",
+				"oldest",
+				"title-asc",
+				"title-desc",
+				"most-discussed"
+			],
+			"default": "newest"
+		},
+		"columns": {
+			"type": "integer",
+			"default": 3
+		},
+		"showSearch": {
+			"type": "boolean",
+			"default": true
+		},
+		"showSort": {
+			"type": "boolean",
+			"default": true
+		},
+		"showExcerpt": {
+			"type": "boolean",
+			"default": true
+		},
+		"showDate": {
+			"type": "boolean",
+			"default": true
+		},
+		"headingLevel": {
+			"type": "integer",
+			"default": 3
+		},
+		"imageSize": {
+			"type": "string",
+			"default": "medium_large"
+		}
+	},
+	"supports": {
+		"align": [ "wide", "full" ],
+		"anchor": true,
+		"html": false,
+		"interactivity": true,
+		"spacing": {
+			"margin": true,
+			"padding": true
+		}
+	},
+	"editorScript": "file:./index.js",
+	"style": "file:./style-index.css",
+	"viewScriptModule": "file:./view.js"
+}
