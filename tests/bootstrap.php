@@ -13,3 +13,8 @@ require_once dirname( __DIR__ ) . '/vendor/autoload.php';
 if ( ! defined( 'ABSPATH' ) ) {
 	define( 'ABSPATH', '/tmp/wordpress/' );
 }
+if ( ! defined( 'MINUTE_IN_SECONDS' ) ) {
+	define( 'MINUTE_IN_SECONDS', 60 );
+}
+
+require_once dirname( __DIR__ ) . '/wp-content/plugins/mdev-gb/tests/stubs/wordpress-classes.php';

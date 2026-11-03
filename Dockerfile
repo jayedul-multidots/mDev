@@ -8,6 +8,7 @@
 
 ARG WP_VERSION=7.1
 ARG PHP_VERSION=8.3
+ARG NODE_VERSION=22
 
 # -----------------------------------------------------------------------------
 # Block editor assets for mdev-gb.
@@ -62,15 +63,26 @@ ENV WORDPRESS_CONFIG_EXTRA="require_once '/usr/local/etc/mdev/wp-config-mdev.php
 	WP_CLI_CACHE_DIR=/tmp/wp-cli-cache
 
 # -----------------------------------------------------------------------------
+# Node.js runtime for the dev image (glibc build, to match the Debian base).
+# -----------------------------------------------------------------------------
+FROM node:${NODE_VERSION}-slim AS node
+
+# -----------------------------------------------------------------------------
 # Local development.
 # -----------------------------------------------------------------------------
 FROM base AS dev
 
-# Composer for running the quality toolchain inside the container
-# (the repository is mounted at /app by docker-compose.override.yml).
+# Composer and Node/npm for running the quality toolchain and JS tests inside
+# the container (the repository is mounted at /app by docker-compose.override.yml).
 COPY --from=composer:2 /usr/bin/composer /usr/local/bin/composer
+COPY --from=node /usr/local/bin/node /usr/local/bin/node
+COPY --from=node /usr/local/lib/node_modules /usr/local/lib/node_modules
+RUN ln -s ../lib/node_modules/npm/bin/npm-cli.js /usr/local/bin/npm \
+	&& ln -s ../lib/node_modules/npm/bin/npx-cli.js /usr/local/bin/npx
 ENV COMPOSER_HOME=/tmp/composer \
 	COMPOSER_ALLOW_SUPERUSER=1 \
+	npm_config_cache=/tmp/npm-cache \
+	npm_config_update_notifier=false \
 	MDEV_ROOT=/app
 
 # -----------------------------------------------------------------------------
@@ -85,4 +97,5 @@ COPY --chown=www-data:www-data wp-content/themes/mdev-fse/ /var/www/html/wp-cont
 
 COPY --chown=www-data:www-data wp-content/plugins/mdev-gb/mdev-gb.php wp-content/plugins/mdev-gb/readme.txt /var/www/html/wp-content/plugins/mdev-gb/
 COPY --chown=www-data:www-data wp-content/plugins/mdev-gb/src/ /var/www/html/wp-content/plugins/mdev-gb/src/
+COPY --chown=www-data:www-data wp-content/plugins/mdev-gb/views/ /var/www/html/wp-content/plugins/mdev-gb/views/
 COPY --from=assets --chown=www-data:www-data /build/mdev-gb/build/ /var/www/html/wp-content/plugins/mdev-gb/build/

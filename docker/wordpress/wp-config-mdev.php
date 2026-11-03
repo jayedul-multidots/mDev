@@ -31,6 +31,8 @@ if ( filter_var( getenv_docker( 'WP_FORCE_SSL_PROXY', 'false' ), FILTER_VALIDATE
 }
 
 if ( 'local' === WP_ENVIRONMENT_TYPE || 'development' === WP_ENVIRONMENT_TYPE ) {
+	// Skip theme caches (pattern file list, theme.json) so edits show up at once.
+	define( 'WP_DEVELOPMENT_MODE', 'all' );
 	define( 'WP_DEBUG_LOG', '/tmp/wp-debug.log' );
 	define( 'WP_DEBUG_DISPLAY', true );
 	define( 'SCRIPT_DEBUG', true );

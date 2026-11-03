@@ -15,6 +15,12 @@ services:
       # Whole repo outside the docroot, so vendor/ and tooling are never web-exposed.
       # Used by `composer test` etc. inside the container (MDEV_ROOT=/app).
       - ./:/app
+      # Linux node_modules for the container, hiding the host's macOS copy
+      # (native packages like esbuild/rollup are OS-specific). Same volume at
+      # both paths the plugin is reachable from. Install once inside:
+      #   docker compose exec -w /var/www/html/wp-content/plugins/mdev-gb wordpress npm ci
+      - mdev_gb_node_modules:/var/www/html/wp-content/plugins/mdev-gb/node_modules
+      - mdev_gb_node_modules:/app/wp-content/plugins/mdev-gb/node_modules
 
   # One-off tooling containers, so the host needs neither PHP nor Composer.
   #   docker compose run --rm composer install
@@ -43,3 +49,6 @@ services:
       npm_config_cache: /tmp/npm-cache
     volumes:
       - ./:/app
+
+volumes:
+  mdev_gb_node_modules:

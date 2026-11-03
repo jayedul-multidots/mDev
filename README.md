@@ -42,6 +42,19 @@ The custom plugin and themes are bind-mounted, so edits are live. PHP tooling
 runs in a `composer:2` container; npm uses host Node (22.13 or newer) when
 available, otherwise a `node:22` container.
 
+The `wordpress` dev container also has Composer and Node/npm, so tests can run
+inside it:
+
+```sh
+make npm ARGS=ci                 # once: Linux node_modules (kept in a Docker volume)
+make npm ARGS="run test:unit"    # Vitest
+docker compose exec -w /var/www/html/wp-content/plugins/mdev-gb wordpress composer test   # PHPUnit
+```
+
+The container's `node_modules` lives in the `mdev_gb_node_modules` volume and
+hides the host's copy, because packages such as esbuild ship OS-specific
+binaries. Your macOS `node_modules` keeps working on the host.
+
 ## Third-party plugins
 
 Add them to `composer.json`, then refresh the lock:

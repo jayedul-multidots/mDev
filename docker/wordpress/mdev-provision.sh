@@ -108,6 +108,9 @@ wait_for_db
 install_core
 log "Running database upgrades..."
 wp core update-db
+# WordPress caches each theme's pattern file list; a deploy that adds or
+# removes pattern files must clear it or the change is invisible.
+wp eval 'foreach ( wp_get_themes() as $theme ) { $theme->delete_pattern_cache(); }'
 activate_theme
 activate_plugins
 wp cache flush >/dev/null

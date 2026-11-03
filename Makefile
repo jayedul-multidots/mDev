@@ -77,6 +77,10 @@ shell: ## Shell in the wordpress container (www-data)
 wp: ## Run WP-CLI, e.g. make wp ARGS="plugin list"
 	$(WP) $(ARGS)
 
+.PHONY: npm
+npm: ## Run npm for mdev-gb inside the container, e.g. make npm ARGS="run test:unit" (first time: ARGS=ci)
+	$(COMPOSE) exec -w /var/www/html/wp-content/plugins/mdev-gb wordpress npm $(ARGS)
+
 .PHONY: check
 check: lint test ## Run the full quality gate (PHP + JS)
 
