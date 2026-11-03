@@ -80,7 +80,9 @@ needed. See `blocks/callout` for the pattern.
 ### Server preparation (once per environment)
 
 1. Install Docker with the compose plugin and run the Traefik stack on `traenet`.
-   The deploy user must be in the `docker` group.
+   The deploy user needs Docker access: either membership of the `docker` group
+   (`sudo usermod -aG docker ubuntu`, then log in again), or sudo rights plus the
+   `SUDO_PASSWORD` secret below.
 2. Create the deploy directory (e.g. `/home/ubuntu/mdev`) and put a `.env` in it
    based on `.env.example`, with:
    - a unique `COMPOSE_PROJECT_NAME` (e.g. `mdev`, `mdev-staging`), which also names the Traefik router
@@ -91,7 +93,8 @@ needed. See `blocks/callout` for the pattern.
    - `WP_AUTO_INSTALL=true` for a fresh site, or `false` if you import a database
 3. In GitHub → Settings → Environments, create `staging` and/or `production` with:
    - secrets: `SSH_HOST`, `SSH_USER`, `SSH_PRIVATE_KEY` (the private key file, not `.pub`),
-     `SSH_PASSPHRASE` if that key has a passphrase, optional `SSH_KNOWN_HOSTS`,
+     `SSH_PASSPHRASE` if that key has a passphrase, `SUDO_PASSWORD` if the user
+     needs sudo for Docker, optional `SSH_KNOWN_HOSTS`,
      optional `GHCR_PULL_TOKEN` (a PAT with `read:packages`, so the server can pull for manual rollbacks)
    - variables: `DEPLOY_PATH`, optional `SSH_PORT`, optional `SITE_URL`
 
@@ -139,8 +142,10 @@ two files and restart the `wordpress` container.
 ### Rollback
 
 ```sh
-ssh server 'cd /home/ubuntu/mdev && ./scripts/deploy.sh ghcr.io/<owner>/<repo>:sha-<previous>'
+ssh -t server 'cd /home/ubuntu/mdev && ./scripts/deploy.sh ghcr.io/<owner>/<repo>:sha-<previous>'
 ```
+
+`-t` lets sudo ask for your password if the user is not in the `docker` group.
 
 Code rollbacks are image swaps. The database (`DB_DATA_DIR`, default
 `./data/mariadb` in the deploy directory) and uploads (`uploads` volume) are not

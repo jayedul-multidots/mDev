@@ -10,6 +10,7 @@ name: Deploy
 #
 #   secrets: SSH_HOST, SSH_USER, SSH_PRIVATE_KEY
 #            SSH_PASSPHRASE   (only if SSH_PRIVATE_KEY is passphrase-protected)
+#            SUDO_PASSWORD    (only if SSH_USER must use sudo to run docker)
 #            SSH_KNOWN_HOSTS  (optional; falls back to ssh-keyscan)
 #            GHCR_PULL_TOKEN  (optional PAT with read:packages, so the server
 #                              can pull for manual rollbacks after the job ends)
@@ -182,11 +183,14 @@ jobs:
           IMAGE: ${{ needs.build.outputs.image }}
           REGISTRY_USER: ${{ github.actor }}
           REGISTRY_TOKEN: ${{ secrets.GHCR_PULL_TOKEN || secrets.GITHUB_TOKEN }}
+          SUDO_PASSWORD: ${{ secrets.SUDO_PASSWORD }}
         run: |
+          # Secrets travel over SSH stdin (line 1: sudo password, line 2: registry
+          # token), never in a remote command line or process list. deploy.sh uses
+          # sudo only when the SSH user cannot run docker directly.
           # shellcheck disable=SC2029 # values are meant to expand locally, then be quoted remotely
-          echo "$REGISTRY_TOKEN" | ssh target "docker login ghcr.io -u '$REGISTRY_USER' --password-stdin"
-          # shellcheck disable=SC2029
-          ssh target "cd '$DEPLOY_PATH' && ./scripts/deploy.sh '$IMAGE'"
+          printf '%s\n%s\n' "$SUDO_PASSWORD" "$REGISTRY_TOKEN" \
+            | ssh target "cd '$DEPLOY_PATH' && REGISTRY_USER='$REGISTRY_USER' ./scripts/deploy.sh --stdin-secrets '$IMAGE'"
 
       - name: Remove SSH key
         if: always()
