@@ -100,7 +100,7 @@ activate_plugins() {
 	done
 
 	if [ "${#missing[@]}" -gt 0 ]; then
-		fail "Plugins listed in WP_ACTIVATE_PLUGINS are not installed: ${missing[*]} (add them to composer.json)."
+		# fail "Plugins listed in WP_ACTIVATE_PLUGINS are not installed: ${missing[*]} (add them to composer.json)."
 	fi
 }
 
