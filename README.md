@@ -90,7 +90,8 @@ needed. See `blocks/callout` for the pattern.
    - strong DB passwords and salts (`make salts`)
    - `WP_AUTO_INSTALL=true` for a fresh site, or `false` if you import a database
 3. In GitHub → Settings → Environments, create `staging` and/or `production` with:
-   - secrets: `SSH_HOST`, `SSH_USER`, `SSH_PRIVATE_KEY`, optional `SSH_KNOWN_HOSTS`,
+   - secrets: `SSH_HOST`, `SSH_USER`, `SSH_PRIVATE_KEY` (the private key file, not `.pub`),
+     `SSH_PASSPHRASE` if that key has a passphrase, optional `SSH_KNOWN_HOSTS`,
      optional `GHCR_PULL_TOKEN` (a PAT with `read:packages`, so the server can pull for manual rollbacks)
    - variables: `DEPLOY_PATH`, optional `SSH_PORT`, optional `SITE_URL`
 

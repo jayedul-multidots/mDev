@@ -9,6 +9,7 @@ name: Deploy
 # then add to each (with that server's values):
 #
 #   secrets: SSH_HOST, SSH_USER, SSH_PRIVATE_KEY
+#            SSH_PASSPHRASE   (only if SSH_PRIVATE_KEY is passphrase-protected)
 #            SSH_KNOWN_HOSTS  (optional; falls back to ssh-keyscan)
 #            GHCR_PULL_TOKEN  (optional PAT with read:packages, so the server
 #                              can pull for manual rollbacks after the job ends)
@@ -122,12 +123,45 @@ jobs:
       - name: Configure SSH
         env:
           SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
+          SSH_PASSPHRASE: ${{ secrets.SSH_PASSPHRASE }}
           SSH_KNOWN_HOSTS: ${{ secrets.SSH_KNOWN_HOSTS }}
           SSH_HOST: ${{ secrets.SSH_HOST }}
         run: |
           install -m 700 -d ~/.ssh
-          echo "$SSH_PRIVATE_KEY" > ~/.ssh/id_deploy
+          # Strip Windows line endings that copy/paste can introduce.
+          printf '%s\n' "$SSH_PRIVATE_KEY" | tr -d '\r' > ~/.ssh/id_deploy
           chmod 600 ~/.ssh/id_deploy
+
+          # Turn the generic "Permission denied (publickey)" into a specific error.
+          if ! grep -q 'PRIVATE KEY' ~/.ssh/id_deploy && grep -qE '^(ssh-|ecdsa-|sk-)' ~/.ssh/id_deploy; then
+            echo "::error title=SSH_PRIVATE_KEY::This is a PUBLIC key (.pub). Put the private key file (same name, no .pub) in the secret; the .pub line belongs in the server's ~/.ssh/authorized_keys."
+            exit 1
+          fi
+
+          # Passphrase-protected key: unlock this temporary copy on the throwaway
+          # runner (removed again by the cleanup step). The secret stays encrypted.
+          if [ -n "$SSH_PASSPHRASE" ] && ! ssh-keygen -y -P '' -f ~/.ssh/id_deploy >/dev/null 2>&1; then
+            if ! err="$(ssh-keygen -p -q -P "$SSH_PASSPHRASE" -N '' -f ~/.ssh/id_deploy 2>&1)"; then
+              if grep -qiE 'passphrase|incorrect' <<<"$err"; then
+                echo "::error title=SSH_PASSPHRASE::The passphrase does not unlock SSH_PRIVATE_KEY. Check the SSH_PASSPHRASE secret."
+              else
+                echo "::error title=SSH_PRIVATE_KEY::Not a valid private key (${err}). Paste the whole file, including the BEGIN and END lines."
+              fi
+              exit 1
+            fi
+          fi
+
+          if ! err="$(ssh-keygen -y -P '' -f ~/.ssh/id_deploy 2>&1 >/dev/null)"; then
+            if grep -qi 'passphrase' <<<"$err"; then
+              echo "::error title=SSH_PRIVATE_KEY::The key is passphrase-protected. Add its passphrase as the SSH_PASSPHRASE secret in this environment."
+            else
+              echo "::error title=SSH_PRIVATE_KEY::Not a valid private key (${err}). Paste the whole file, including the BEGIN and END lines."
+            fi
+            exit 1
+          fi
+          echo "Deploy key fingerprint: $(ssh-keygen -y -f ~/.ssh/id_deploy | ssh-keygen -lf - | awk '{print $2}')"
+          echo "It must match a line of: ssh-keygen -lf ~/.ssh/authorized_keys  (run on the server as SSH_USER)"
+
           if [ -n "$SSH_KNOWN_HOSTS" ]; then
             echo "$SSH_KNOWN_HOSTS" > ~/.ssh/known_hosts
           else
@@ -153,3 +187,7 @@ jobs:
           echo "$REGISTRY_TOKEN" | ssh target "docker login ghcr.io -u '$REGISTRY_USER' --password-stdin"
           # shellcheck disable=SC2029
           ssh target "cd '$DEPLOY_PATH' && ./scripts/deploy.sh '$IMAGE'"
+
+      - name: Remove SSH key
+        if: always()
+        run: rm -f ~/.ssh/id_deploy
