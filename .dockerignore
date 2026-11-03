@@ -1,0 +1,17 @@
+.git
+.github
+.env
+.env.*
+!.env.example
+**/.DS_Store
+**/node_modules
+**/vendor
+**/build
+.phpunit.cache
+.phpcs.cache
+docker-compose*.yml
+Makefile
+README.md
+tests
+wp-content/plugins/*/tests
+wp-content/uploads

@@ -1,0 +1,15 @@
+includes:
+    - vendor/szepeviktor/phpstan-wordpress/extension.neon
+
+parameters:
+    # Greenfield code: level 8.
+    level: 8
+    paths:
+        - wp-content/plugins/mdev-gb/mdev-gb.php
+        - wp-content/plugins/mdev-gb/src
+        - wp-content/themes/mdev-block/functions.php
+        - wp-content/themes/mdev-fse/functions.php
+    excludePaths:
+        - */vendor/*
+        - */node_modules/*
+        - */build/*

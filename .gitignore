@@ -1,0 +1,31 @@
+# Environment
+.env
+.env.*
+!.env.example
+
+# OS / editors
+.DS_Store
+.idea/
+.vscode/
+*.log
+
+# Tooling
+/vendor/
+node_modules/
+.phpunit.cache/
+.phpcs.cache
+
+# WordPress content: only custom code is versioned.
+# Third-party plugins are installed by Composer (composer.json).
+/wp-content/*
+!/wp-content/plugins/
+!/wp-content/themes/
+/wp-content/plugins/*
+!/wp-content/plugins/mdev-gb/
+/wp-content/themes/*
+!/wp-content/themes/mdev-block/
+!/wp-content/themes/mdev-fse/
+
+# Build artefacts
+/wp-content/plugins/mdev-gb/build/
+/wp-content/plugins/mdev-gb/vendor/

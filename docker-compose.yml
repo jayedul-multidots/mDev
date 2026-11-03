@@ -1,0 +1,90 @@
+# Base stack: used as-is on servers (production/staging).
+# Locally, docker-compose.override.yml is merged on top automatically.
+#
+# All environment specific values come from `.env`.
+
+services:
+  wordpress:
+    image: ${WP_IMAGE:?WP_IMAGE is required}
+    build:
+      context: .
+      target: production
+    restart: unless-stopped
+    depends_on:
+      db:
+        condition: service_healthy
+    environment:
+      WORDPRESS_DB_HOST: ${COMPOSE_PROJECT_NAME}-db
+      WORDPRESS_DB_NAME: ${DB_NAME}
+      WORDPRESS_DB_USER: ${DB_USER}
+      WORDPRESS_DB_PASSWORD: ${DB_PASSWORD}
+      WORDPRESS_TABLE_PREFIX: ${WORDPRESS_TABLE_PREFIX:-wp_}
+      WORDPRESS_DEBUG: ${WORDPRESS_DEBUG:-}
+      WORDPRESS_AUTH_KEY: ${WORDPRESS_AUTH_KEY:-}
+      WORDPRESS_SECURE_AUTH_KEY: ${WORDPRESS_SECURE_AUTH_KEY:-}
+      WORDPRESS_LOGGED_IN_KEY: ${WORDPRESS_LOGGED_IN_KEY:-}
+      WORDPRESS_NONCE_KEY: ${WORDPRESS_NONCE_KEY:-}
+      WORDPRESS_AUTH_SALT: ${WORDPRESS_AUTH_SALT:-}
+      WORDPRESS_SECURE_AUTH_SALT: ${WORDPRESS_SECURE_AUTH_SALT:-}
+      WORDPRESS_LOGGED_IN_SALT: ${WORDPRESS_LOGGED_IN_SALT:-}
+      WORDPRESS_NONCE_SALT: ${WORDPRESS_NONCE_SALT:-}
+      WP_ENVIRONMENT_TYPE: ${WP_ENVIRONMENT_TYPE:-production}
+      WP_HOME: ${WP_HOME}
+      WP_TITLE: ${WP_TITLE:-mdev}
+      WP_FORCE_SSL_PROXY: ${WP_FORCE_SSL_PROXY:-false}
+      WP_DISALLOW_FILE_MODS: ${WP_DISALLOW_FILE_MODS:-true}
+      WP_THEME: ${WP_THEME:-mdev-fse}
+      WP_ACTIVATE_PLUGINS: ${WP_ACTIVATE_PLUGINS:-}
+      WP_AUTO_INSTALL: ${WP_AUTO_INSTALL:-false}
+      WP_ADMIN_USER: ${WP_ADMIN_USER:-}
+      WP_ADMIN_PASSWORD: ${WP_ADMIN_PASSWORD:-}
+      WP_ADMIN_EMAIL: ${WP_ADMIN_EMAIL:-}
+    volumes:
+      - uploads:/var/www/html/wp-content/uploads
+    labels:
+      - "traefik.enable=true"
+      - "traefik.docker.network=traenet"
+      - "traefik.http.routers.${COMPOSE_PROJECT_NAME}_wp.rule=Host(`${WP_DOMAIN}`)"
+      - "traefik.http.routers.${COMPOSE_PROJECT_NAME}_wp.entrypoints=${TRAEFIK_ENTRYPOINTS:-http}"
+      - "traefik.http.routers.${COMPOSE_PROJECT_NAME}_wp.tls=${TRAEFIK_TLS:-false}"
+      - "traefik.http.routers.${COMPOSE_PROJECT_NAME}_wp.service=${COMPOSE_PROJECT_NAME}_wp"
+      - "traefik.http.services.${COMPOSE_PROJECT_NAME}_wp.loadbalancer.server.port=80"
+    healthcheck:
+      test: ["CMD", "curl", "-fsS", "-o", "/dev/null", "http://localhost/wp-includes/images/blank.gif"]
+      interval: 10s
+      timeout: 5s
+      retries: 6
+      start_period: 20s
+    networks:
+      - default
+      - traenet
+
+  db:
+    image: mariadb:11.8
+    restart: unless-stopped
+    environment:
+      MARIADB_DATABASE: ${DB_NAME}
+      MARIADB_USER: ${DB_USER}
+      MARIADB_PASSWORD: ${DB_PASSWORD}
+      MARIADB_ROOT_PASSWORD: ${DB_ROOT_PASSWORD}
+    volumes:
+      - db_data:/var/lib/mysql
+    healthcheck:
+      test: ["CMD", "healthcheck.sh", "--connect", "--innodb_initialized"]
+      interval: 5s
+      timeout: 5s
+      retries: 20
+      start_period: 10s
+    networks:
+      default:
+        # Unique alias so `db` never collides with another service on traenet.
+        aliases:
+          - ${COMPOSE_PROJECT_NAME}-db
+
+volumes:
+  db_data:
+  uploads:
+
+networks:
+  traenet:
+    external: true

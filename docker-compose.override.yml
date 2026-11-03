@@ -1,0 +1,42 @@
+# Local development overrides (merged automatically by `docker compose`).
+# Never deployed: servers run docker-compose.yml only.
+#
+# Custom code is bind-mounted so edits are live; third-party plugins are
+# installed into ./wp-content/plugins by `make composer-install`.
+
+services:
+  wordpress:
+    build:
+      target: dev
+    volumes:
+      - ./wp-content/plugins:/var/www/html/wp-content/plugins
+      - ./wp-content/themes/mdev-block:/var/www/html/wp-content/themes/mdev-block
+      - ./wp-content/themes/mdev-fse:/var/www/html/wp-content/themes/mdev-fse
+
+  # One-off tooling containers, so the host needs neither PHP nor Composer.
+  #   docker compose run --rm composer install
+  #   docker compose run --rm node npm run start
+  composer:
+    image: composer:2
+    profiles: ["tools"]
+    working_dir: /app
+    user: "${MDEV_UID:-1000}:${MDEV_GID:-1000}"
+    environment:
+      COMPOSER_HOME: /tmp/composer
+      # Bind-mounted repo is owned by the host user; let git (used by Composer) read it.
+      GIT_CONFIG_COUNT: "1"
+      GIT_CONFIG_KEY_0: safe.directory
+      GIT_CONFIG_VALUE_0: "*"
+    volumes:
+      - ./:/app
+    entrypoint: ["composer"]
+
+  node:
+    image: node:22-alpine
+    profiles: ["tools"]
+    working_dir: /app/wp-content/plugins/mdev-gb
+    user: "${MDEV_UID:-1000}:${MDEV_GID:-1000}"
+    environment:
+      npm_config_cache: /tmp/npm-cache
+    volumes:
+      - ./:/app
