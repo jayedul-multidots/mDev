@@ -57,6 +57,28 @@ The container's `node_modules` lives in the `mdev_gb_node_modules` volume and
 hides the host's copy, because packages such as esbuild ship OS-specific
 binaries. Your macOS `node_modules` keeps working on the host.
 
+Integration tests (`wp-content/plugins/mdev-gb/tests/integration/`) run the
+plugin in a real WordPress (the core test suite) inside the running
+`wordpress` container: real database, `WP_Query`, REST server and block
+rendering, unlike the unit tests, which mock WordPress. They use a separate
+`<DB_NAME>_test` database, which the suite wipes on every run. Their tooling
+(PHPUnit 9, which the WordPress test suite requires) is in
+`tests/integration/composer.json`. Not part of `make check` (needs `make up`).
+
+```sh
+make test-integration                          # creates the test database and installs tooling if needed
+make test-integration ARGS="--filter Render"   # one test class or method
+```
+
+Once `make test-integration` has run (test database and tooling in place), the
+suite can also be run directly with Composer inside the `wordpress` container
+(`make shell`), from the repository root (`/app`) or the plugin folder:
+
+```sh
+cd /app && composer test:integration [-- --filter Render]
+cd /app/wp-content/plugins/mdev-gb && MDEV_ROOT=/app composer test:integration
+```
+
 End-to-end tests (Playwright, `wp-content/plugins/mdev-gb/tests/e2e/`) run on
 the host against the running site (`WP_HOME` from `.env`, or `WP_BASE_URL`).
 They browse as a visitor and use existing content, e.g. the `/mdev-gallery/`

@@ -17,6 +17,7 @@
 
 # Tooling
 /vendor/
+/tests/integration/vendor/
 node_modules/
 .phpunit.cache/
 .phpcs.cache

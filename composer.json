@@ -57,6 +57,7 @@
         "phpcs:fix": "phpcbf",
         "phpstan": "phpstan analyse --memory-limit=1G",
         "test": "phpunit",
+        "test:integration": "tests/integration/vendor/bin/phpunit --configuration phpunit.integration.xml.dist",
         "check": [
             "@phpcs",
             "@phpstan",

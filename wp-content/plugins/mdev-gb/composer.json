@@ -13,10 +13,12 @@
         }
     },
     "scripts": {
-        "test": "@php \"${MDEV_ROOT:-../../..}/vendor/bin/phpunit\" --configuration \"${MDEV_ROOT:-../../..}/phpunit.xml.dist\" --testsuite mdev-gb"
+        "test": "@php \"${MDEV_ROOT:-../../..}/vendor/bin/phpunit\" --configuration \"${MDEV_ROOT:-../../..}/phpunit.xml.dist\" --testsuite mdev-gb",
+        "test:integration": "@php \"${MDEV_ROOT:-../../..}/tests/integration/vendor/bin/phpunit\" --configuration \"${MDEV_ROOT:-../../..}/phpunit.integration.xml.dist\""
     },
     "scripts-descriptions": {
-        "test": "Run the mdev-gb PHPUnit suite with the repository root toolchain (MDEV_ROOT, default ../../..). Run `composer install` in the root first."
+        "test": "Run the mdev-gb PHPUnit suite with the repository root toolchain (MDEV_ROOT, default ../../..). Run `composer install` in the root first.",
+        "test:integration": "Run the mdev-gb integration tests (real WordPress, separate <DB_NAME>_test database) inside the wordpress container. Run `make test-integration` once first: it creates the test database and installs the tooling."
     },
     "config": {
         "platform": {

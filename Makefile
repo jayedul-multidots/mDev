@@ -100,6 +100,12 @@ test: ## PHPUnit and Vitest
 	$(TOOLS) composer test
 	$(NPM) run test:unit
 
+.PHONY: test-integration
+test-integration: ## Integration tests: real WordPress on a separate <DB_NAME>_test database, e.g. make test-integration ARGS="--filter Render"
+	@$(COMPOSE) exec -T db sh -c 'mariadb -uroot -p"$$MARIADB_ROOT_PASSWORD" -e "CREATE DATABASE IF NOT EXISTS \`$${MARIADB_DATABASE}_test\`; GRANT ALL PRIVILEGES ON \`$${MARIADB_DATABASE}_test\`.* TO \`$$MARIADB_USER\`@\`%\`;"'
+	$(COMPOSE) exec -T -u www-data -e COMPOSER_HOME=/tmp/composer -w /app wordpress composer --working-dir=tests/integration install --no-interaction --no-progress --quiet
+	$(COMPOSE) exec -T -u www-data -w /app wordpress tests/integration/vendor/bin/phpunit -c phpunit.integration.xml.dist $(ARGS)
+
 .PHONY: e2e
 e2e: ## Playwright e2e tests, headless, against WP_HOME from .env (host Node; first time: make e2e-install)
 	npm --prefix wp-content/plugins/mdev-gb run test:e2e $(if $(ARGS),-- $(ARGS))

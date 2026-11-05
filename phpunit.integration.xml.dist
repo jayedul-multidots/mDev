@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+    Integration tests: real WordPress on a separate test database.
+    PHPUnit 9 (tests/integration/composer.json), because the WordPress core
+    test suite does not support PHPUnit 10+. Run with `make test-integration`.
+-->
+<phpunit xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:noNamespaceSchemaLocation="tests/integration/vendor/phpunit/phpunit/phpunit.xsd"
+         bootstrap="tests/integration/bootstrap.php"
+         colors="true"
+         testdox="true"
+         verbose="true"
+         failOnWarning="true"
+         failOnRisky="true"
+         beStrictAboutTestsThatDoNotTestAnything="true"
+         cacheResult="false">
+    <testsuites>
+        <testsuite name="mdev-gb-integration">
+            <directory suffix="Test.php">wp-content/plugins/mdev-gb/tests/integration</directory>
+        </testsuite>
+    </testsuites>
+</phpunit>
