@@ -18,7 +18,16 @@ namespace Mdev\Gb\PostGallery;
  */
 final class GallerySettings {
 
-	public const DEFAULT_POST_TYPE  = 'post';
+	/**
+	 * Preferred post type: the videos registered by the vaultrix theme.
+	 */
+	public const DEFAULT_POST_TYPE = 'deep_pockets_videos';
+
+	/**
+	 * Used when DEFAULT_POST_TYPE is not registered (e.g. another theme is active).
+	 */
+	public const FALLBACK_POST_TYPE = 'post';
+
 	public const DEFAULT_PER_PAGE   = 9;
 	public const MAX_PER_PAGE       = 24;
 	public const DEFAULT_COLUMNS    = 3;
@@ -105,6 +114,18 @@ final class GallerySettings {
 	}
 
 	/**
+	 * Post type used when none (or an invalid one) is given: videos when
+	 * registered, otherwise posts.
+	 *
+	 * @since 0.2.0
+	 *
+	 * @return string
+	 */
+	public static function default_post_type(): string {
+		return self::is_allowed_post_type( self::DEFAULT_POST_TYPE ) ? self::DEFAULT_POST_TYPE : self::FALLBACK_POST_TYPE;
+	}
+
+	/**
 	 * Settings the browser sends back to the REST endpoint.
 	 *
 	 * @since 0.2.0
@@ -121,7 +142,7 @@ final class GallerySettings {
 	}
 
 	/**
-	 * Sanitize a post type, falling back to posts.
+	 * Sanitize a post type, falling back to the default post type.
 	 *
 	 * @param mixed $value Raw value.
 	 * @return string
@@ -129,7 +150,7 @@ final class GallerySettings {
 	private static function sanitize_post_type( mixed $value ): string {
 		$post_type = is_string( $value ) ? sanitize_key( $value ) : '';
 
-		return self::is_allowed_post_type( $post_type ) ? $post_type : self::DEFAULT_POST_TYPE;
+		return self::is_allowed_post_type( $post_type ) ? $post_type : self::default_post_type();
 	}
 
 	/**

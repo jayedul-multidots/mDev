@@ -152,7 +152,7 @@ final class RestController {
 			],
 			'post_type'    => [
 				'type'              => 'string',
-				'default'           => GallerySettings::DEFAULT_POST_TYPE,
+				'default'           => GallerySettings::default_post_type(),
 				'sanitize_callback' => 'sanitize_key',
 				'validate_callback' => [ $this, 'validate_post_type' ],
 			],

@@ -12,7 +12,7 @@
 	"attributes": {
 		"postType": {
 			"type": "string",
-			"default": "post"
+			"default": "deep_pockets_videos"
 		},
 		"categories": {
 			"type": "array",
