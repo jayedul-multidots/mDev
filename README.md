@@ -57,6 +57,18 @@ The container's `node_modules` lives in the `mdev_gb_node_modules` volume and
 hides the host's copy, because packages such as esbuild ship OS-specific
 binaries. Your macOS `node_modules` keeps working on the host.
 
+End-to-end tests (Playwright, `wp-content/plugins/mdev-gb/tests/e2e/`) run on
+the host against the running site (`WP_HOME` from `.env`, or `WP_BASE_URL`).
+They browse as a visitor and use existing content, e.g. the `/mdev-gallery/`
+page; they are not part of `make check`.
+
+```sh
+make e2e-install                 # once: npm dependencies and Chromium
+make e2e                         # run them (headless)
+make e2e-gui                     # run them in a visible browser window
+make e2e-ui                      # Playwright UI mode: pick, run and debug tests
+```
+
 ## Third-party plugins
 
 Add them to `composer.json`, then refresh the lock:

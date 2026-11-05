@@ -36,3 +36,5 @@ node_modules/
 # Build artefacts
 /wp-content/plugins/mdev-gb/build/
 /wp-content/plugins/mdev-gb/vendor/
+# Playwright output (traces, failure screenshots).
+/wp-content/plugins/mdev-gb/tests/e2e/artifacts/

@@ -19,9 +19,12 @@
 export function debounce(
 	fn,
 	wait,
+	// Wrapped, not stored as methods: called as `timers.setTimeout()`, the
+	// browser's native timers throw "Illegal invocation" (wrong `this`).
 	timers = {
-		setTimeout: globalThis.setTimeout,
-		clearTimeout: globalThis.clearTimeout,
+		setTimeout: ( callback, delay ) =>
+			globalThis.setTimeout( callback, delay ),
+		clearTimeout: ( id ) => globalThis.clearTimeout( id ),
 	}
 ) {
 	let timer = null;

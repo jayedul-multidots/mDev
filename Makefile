@@ -15,7 +15,7 @@ export MDEV_GID := $(shell id -g)
 
 .PHONY: help
 help: ## List available targets
-	@grep -E '^[a-zA-Z_-]+:.*?## ' $(MAKEFILE_LIST) | awk 'BEGIN {FS = ":.*?## "}; {printf "  \033[36m%-16s\033[0m %s\n", $$1, $$2}'
+	@grep -E '^[a-zA-Z0-9_-]+:.*?## ' $(MAKEFILE_LIST) | awk 'BEGIN {FS = ":.*?## "}; {printf "  \033[36m%-16s\033[0m %s\n", $$1, $$2}'
 
 .PHONY: init
 init: .env network install build up provision ## First-time setup: deps, assets, containers, WordPress install
@@ -96,9 +96,26 @@ lint: ## PHPCS, PHPStan, ESLint, Stylelint
 	$(NPM) run lint:css
 
 .PHONY: test
-test: ## PHPUnit and Jest
+test: ## PHPUnit and Vitest
 	$(TOOLS) composer test
 	$(NPM) run test:unit
+
+.PHONY: e2e
+e2e: ## Playwright e2e tests, headless, against WP_HOME from .env (host Node; first time: make e2e-install)
+	npm --prefix wp-content/plugins/mdev-gb run test:e2e $(if $(ARGS),-- $(ARGS))
+
+.PHONY: e2e-gui
+e2e-gui: ## Playwright e2e tests in a visible browser window
+	npm --prefix wp-content/plugins/mdev-gb run test:e2e:gui $(if $(ARGS),-- $(ARGS))
+
+.PHONY: e2e-ui
+e2e-ui: ## Playwright e2e tests in Playwright's UI mode (pick, run, watch and debug tests)
+	npm --prefix wp-content/plugins/mdev-gb run test:e2e:ui $(if $(ARGS),-- $(ARGS))
+
+.PHONY: e2e-install
+e2e-install: ## Install npm dependencies and the Chromium browser for make e2e
+	npm --prefix wp-content/plugins/mdev-gb ci
+	npm --prefix wp-content/plugins/mdev-gb exec -- playwright install chromium
 
 .PHONY: image
 image: ## Build the production image locally (mdev/wordpress:prod)
