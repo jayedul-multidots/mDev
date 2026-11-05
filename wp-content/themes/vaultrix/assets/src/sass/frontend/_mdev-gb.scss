@@ -1,0 +1,37 @@
+// mDev Post Gallery block (mdev-gb plugin).
+// The header is absolutely positioned over the content, so, like the theme's
+// own section blocks (e.g. media-text layout-2), the gallery gets a
+// full-width navy band whose top padding clears the header. Inner content is
+// held to the .container width.
+.vaultrix-post-article .entry-content > .wp-block-mdev-gb-post-gallery {
+    max-width: none;
+    margin: 0;
+    padding: 148px max(15px, calc((100% - 1100px) / 2)) 120px;
+    background-color: $primary-theme-color;
+    color: $white-theme-color;
+
+    @include media-breakpoint(max-767) {
+        padding-top: 116px;
+        padding-bottom: 80px;
+    }
+
+    // The card grid is a <ul>; drop the theme's article list indent.
+    .wp-block-mdev-gb-post-gallery__grid {
+        padding: 0;
+    }
+
+    // Theme headings are dark (#20293a) and sized for page sections.
+    .wp-block-mdev-gb-post-gallery__title {
+        color: inherit;
+        font-size: 24px;
+        line-height: 130%;
+        @include media-breakpoint(max-767) {
+            font-size: 20px;
+        }
+    }
+
+    // Native dropdown lists keep a light background; keep options readable.
+    select option {
+        color: $primary-theme-color;
+    }
+}

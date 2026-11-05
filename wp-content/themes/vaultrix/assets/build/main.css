@@ -6602,6 +6602,33 @@ body.admin-bar .video-watch-popup .video-js .vjs-modal-dialog.vjs-text-track-set
     background-size: 20px;
   }
 }
+.vaultrix-post-article .entry-content > .wp-block-mdev-gb-post-gallery {
+  max-width: none;
+  margin: 0;
+  padding: 148px max(15px, (100% - 1100px) / 2) 120px;
+  background-color: #001e4e;
+  color: #ffffff;
+}
+.vaultrix-post-article .entry-content > .wp-block-mdev-gb-post-gallery .wp-block-mdev-gb-post-gallery__grid {
+  padding: 0;
+}
+.vaultrix-post-article .entry-content > .wp-block-mdev-gb-post-gallery .wp-block-mdev-gb-post-gallery__title {
+  color: inherit;
+  font-size: 24px;
+  line-height: 130%;
+}
+.vaultrix-post-article .entry-content > .wp-block-mdev-gb-post-gallery select option {
+  color: #001e4e;
+}
+@media (max-width: 767px) {
+  .vaultrix-post-article .entry-content > .wp-block-mdev-gb-post-gallery {
+    padding-top: 116px;
+    padding-bottom: 80px;
+  }
+  .vaultrix-post-article .entry-content > .wp-block-mdev-gb-post-gallery .wp-block-mdev-gb-post-gallery__title {
+    font-size: 20px;
+  }
+}
 @media print {
   body {
     visibility: hidden;
