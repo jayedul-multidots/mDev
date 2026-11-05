@@ -1,0 +1,1 @@
+{"version":3,"file":"js/blocks/faqs/index.css","mappings":";;;AAAA;EACI;AACJ,C","sources":["webpack://vaultrix/./src/js/blocks/faqs/editor.scss"],"sourcesContent":[".list-ot-items{\n    overflow: hidden;\n}"],"names":[],"sourceRoot":""}

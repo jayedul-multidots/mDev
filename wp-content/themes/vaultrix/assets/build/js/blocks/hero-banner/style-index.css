@@ -1,0 +1,102 @@
+/*!*************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[3].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[3].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[3].use[3]!./src/js/blocks/hero-banner/style.scss ***!
+  \*************************************************************************************************************************************************************************************************************************************************************/
+.hero-banner {
+  height: 100%;
+  background: radial-gradient(319.19% 100% at 0% 50%, #001e4e 0%, rgba(0, 30, 78, 0.99) 38.24%, rgba(0, 30, 78, 0.99) 38.25%, rgba(0, 30, 78, 0) 100%);
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-color: #001e4e;
+  background-position: center 87px;
+}
+.hero-banner .container {
+  max-width: 1130px;
+}
+.hero-banner__wrapper {
+  padding: 264px 0 313px;
+}
+.hero-banner__wrapper .hero-banner__heading {
+  color: white;
+  font-size: 64px;
+  line-height: 130%;
+  margin: 0 0 24px;
+}
+.hero-banner__wrapper .hero-banner__heading .highlighted-text {
+  background: linear-gradient(98deg, #d81425 0%, #ffc371 130.01%);
+  background: var(--primary-gradient, linear-gradient(98deg, #d81425 0%, #ffc371 130.01%));
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.hero-banner__wrapper .hero-banner__description {
+  color: rgba(255, 255, 255, 0.6);
+  margin: 0 0 40px;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 150%;
+}
+.hero-banner__wrapper .hero-banner__highlight-text-list {
+  display: none;
+}
+.hero-banner.left {
+  text-align: left;
+}
+.hero-banner.center {
+  text-align: center;
+}
+.hero-banner.right {
+  text-align: right;
+}
+@media (max-width: 1024px) {
+  .hero-banner .container {
+    max-width: 912px;
+  }
+  .hero-banner__wrapper {
+    padding: 164px 0 230px;
+  }
+  .hero-banner__wrapper .hero-banner__heading {
+    font-size: 48px;
+    margin: 0 0 16px;
+  }
+  .hero-banner__wrapper .hero-banner__description {
+    font-size: 16px;
+    margin: 0 0 32px;
+  }
+}
+@media (max-width: 991px) {
+  .hero-banner {
+    background-size: cover;
+    background-position: 50%;
+  }
+  .hero-banner__wrapper {
+    padding: 164px 0 130px;
+  }
+}
+@media (max-width: 767px) {
+  .hero-banner .container {
+    padding: 0 24px;
+  }
+  .hero-banner__wrapper {
+    padding: 140px 0 130px;
+  }
+  .hero-banner__wrapper .hero-banner__heading {
+    font-size: 40px;
+  }
+  .hero-banner__wrapper .hero-banner__description {
+    font-size: 14px;
+  }
+  .hero-banner__wrapper .btn-main {
+    padding: 13px 48px 13px 24px;
+  }
+  .hero-banner__wrapper .btn-main::before {
+    right: 24px;
+  }
+}
+@media (max-width: 576px) {
+  .hero-banner__wrapper .hero-banner__heading {
+    font-size: 36px;
+  }
+}
+
+/*# sourceMappingURL=style-index.css.map*/

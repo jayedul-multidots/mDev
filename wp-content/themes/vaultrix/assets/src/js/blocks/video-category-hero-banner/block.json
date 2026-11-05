@@ -1,0 +1,97 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"name": "vaultrix/video-category-hero-banner",
+	"version": "0.1.0",
+	"title": "Video Category Trailer Banner",
+	"category": "vaultrix",
+	"icon": "format-image dp-block-icon",
+	"description": "This is Hero Banner block used on categories page.",
+	"keywords": [
+		"Video Category",
+		"Show",
+		"Category",
+		"Hero",
+		"Banner",
+		"Deep Pocket"
+	],
+	"supports": {
+		"html": false
+	},
+	"textdomain": "vaultrix",
+	"attributes": {
+		"blockID": {
+			"type": "string",
+			"default": ""
+		},
+		"bgImage": {
+			"type": "object",
+			"default": {
+				"id": "",
+				"url": "",
+				"alt": "",
+				"width": "",
+				"height": ""
+			}
+		},
+		"showPreHeading": {
+			"type": "boolean",
+			"default": true
+		},
+		"showHeading": {
+			"type": "boolean",
+			"default": true
+		},
+		"showDesc": {
+			"type": "boolean",
+			"default": true
+		},
+		"showButton": {
+			"type": "boolean",
+			"default": true
+		},
+		"preHeading": {
+			"type": "string",
+			"default": ""
+		},
+		"heading": {
+			"type": "string",
+			"default": ""
+		},
+		"description": {
+			"type": "string",
+			"default": ""
+		},
+		"button": {
+			"type": "string",
+			"default": ""
+		},
+		"selectedVideoID": {
+			"type": "number",
+			"default": 0
+		},
+		"bgColor": {
+			"type": "string",
+			"default": ""
+		},
+		"preHeadingColor": {
+			"type": "string",
+			"default": ""
+		},
+		"headingColor": {
+			"type": "string",
+			"default": ""
+		},
+		"descriptionColor": {
+			"type": "string",
+			"default": ""
+		},
+		"contentAlignment": {
+			"type": "string",
+			"default": "left"
+		}
+	},
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"style": "file:./style-index.css",
+	"viewScript": "file:./view.js"
+}

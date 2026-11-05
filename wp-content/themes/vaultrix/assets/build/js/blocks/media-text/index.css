@@ -1,0 +1,25 @@
+/*!*************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[3].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[3].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[3].use[3]!./src/js/blocks/media-text/editor.scss ***!
+  \*************************************************************************************************************************************************************************************************************************************************************/
+.media-text-block .media-text-block__col-wrapper__col-media .image-preview {
+  text-align: center;
+}
+.media-text-block .media-text-block__col-wrapper__col-media .image-preview .upload-wrap {
+  position: relative;
+}
+.media-text-block .media-text-block__col-wrapper__col-text {
+  position: relative;
+}
+.media-text-block.layout-1 {
+  overflow: hidden;
+}
+.media-text-block.layout-1:focus::after {
+  top: 0% !important;
+  left: 50% !important;
+}
+.media-text-block.layout-3 .media-text-block__image-wrapper {
+  text-align: center;
+  margin: 30px;
+}
+
+/*# sourceMappingURL=index.css.map*/

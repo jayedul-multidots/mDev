@@ -1,0 +1,87 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "name": "vaultrix/video",
+  "version": "0.1.0",
+  "title": "Video",
+  "category": "vaultrix",
+  "icon": "video-alt dp-block-icon",
+  "description": "This is Video block to display the Video with a thumbnail",
+  "keywords": [
+    "Vaultrix Video",
+    "Vaultrix"
+  ],
+  "supports": {
+    "html": false
+  },
+  "textdomain": "vaultrix",
+  "attributes": {
+    "blockID": {
+      "type": "string",
+      "default": ""
+    },
+    "selectedVideoID": {
+      "type": "number",
+      "default": 0
+    },
+    "preHeading": {
+      "type": "string",
+      "default": ""
+    },
+    "heading": {
+      "type": "string",
+      "default": ""
+    },
+    "description": {
+      "type": "string",
+      "default": ""
+    },
+    "thumbnailImage": {
+      "type": "object",
+      "default": {
+        "id": "",
+        "url": "",
+        "alt": "",
+        "width": "",
+        "height": ""
+      }
+    },
+    "bgColor": {
+      "type": "string",
+      "default": ""
+    },
+    "headingColor": {
+      "type": "string",
+      "default": ""
+    },
+    "descriptionColor": {
+      "type": "string",
+      "default": ""
+    },
+    "video": {
+      "type": "string",
+      "default": ""
+    },
+    "contentAlignment": {
+      "type": "string",
+      "default": "center"
+    },
+    "showPreheading": {
+      "type": "boolean",
+      "default": false
+    },
+    "showheading": {
+      "type": "boolean",
+      "default": true
+    },
+    "showdesc": {
+      "type": "boolean",
+      "default": true
+    }
+  },
+  "editorScript": "file:./index.js",
+  "viewScript": [
+    "file:./view.js"
+  ],
+  "editorStyle": "file:./index.css",
+  "style": "file:./style-index.css"
+}

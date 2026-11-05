@@ -1,0 +1,38 @@
+/**
+* Padding utility classes
+*/
+
+$spaceAmounts: (5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80);
+
+@each $space in $spaceAmounts {
+
+    .u-padding-a#{$space} {
+      padding: #{$space}px;
+    }
+
+    .u-padding-lr#{$space} {
+      padding-left: #{$space}px;
+      padding-right: #{$space}px;
+    }
+
+    .u-padding-tb#{$space} {
+      padding-top: #{$space}px;
+      padding-bottom: #{$space}px;
+    }
+
+    .u-padding-l#{$space} {
+      padding-left: #{$space}px;
+    }
+
+    .u-padding-r#{$space} {
+      padding-right: #{$space}px;
+    }
+
+    .u-padding-b#{$space} {
+      padding-bottom: #{$space}px;
+    }
+
+    .u-padding-t#{$space} {
+      padding-top: #{$space}px;
+    }
+}

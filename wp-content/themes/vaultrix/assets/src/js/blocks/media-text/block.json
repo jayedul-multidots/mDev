@@ -1,0 +1,73 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "name": "vaultrix/media-text",
+  "version": "0.1.0",
+  "title": "Text & Media",
+  "category": "vaultrix",
+  "icon": "table-col-after dp-block-icon",
+  "description": "This is a media and text block. You can edit texts and also can add the image.",
+  "keywords": ["media", "text"],
+  "supports": {
+    "html": false
+  },
+  "textdomain": "vaultrix",
+  "attributes": {
+    "blockID": {
+			"type": "string",
+			"default": ""
+		},
+    "blockLayout": {
+			"type": "string",
+			"default": "layout-1"
+		},
+    "showHeading": {
+			"type": "boolean",
+			"default": true
+		},
+    "showImage": {
+			"type": "boolean",
+			"default": true
+		},
+    "showDesc": {
+			"type": "boolean",
+			"default": true
+		},
+    "heading": {
+      "type": "string",
+      "default": ""
+    },
+    "description": {
+      "type": "string",
+      "default": ""
+    },
+    "mediaImage": {
+			"type": "object",
+      "default": {
+				"id": "",
+				"url": "",
+				"alt": "",
+				"width": "",
+				"height": ""
+			}
+		},
+    "headingColor": {
+      "type": "string",
+      "default": ""
+    },
+    "descriptionColor": {
+      "type": "string",
+      "default": ""
+    },
+    "backgroundColor": {
+      "type": "string",
+      "default": ""
+    },
+    "contentAlignment": {
+			"type": "string",
+			"default": "center"
+		}
+  },
+  "editorScript": "file:./index.js",
+  "editorStyle": "file:./index.css",
+  "style": "file:./style-index.css"
+}

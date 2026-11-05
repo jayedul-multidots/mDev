@@ -9,9 +9,13 @@ services:
     build:
       target: dev
     volumes:
-      - ./wp-content/plugins:/var/www/html/wp-content/plugins
-      - ./wp-content/themes/mdev-block:/var/www/html/wp-content/themes/mdev-block
-      - ./wp-content/themes/mdev-fse:/var/www/html/wp-content/themes/mdev-fse
+      # The entire wp-content from the host (plugins, themes, mu-plugins,
+      # uploads, caches, ...), so anything added locally is live. This hides the
+      # image's own wp-content, including WordPress's bundled default themes.
+      - ./wp-content:/var/www/html/wp-content
+      # Same target as the base file's `uploads` volume, so this replaces it:
+      # uploads live in ./wp-content/uploads locally.
+      - ./wp-content/uploads:/var/www/html/wp-content/uploads
       # Whole repo outside the docroot, so vendor/ and tooling are never web-exposed.
       # Used by `composer test` etc. inside the container (MDEV_ROOT=/app).
       - ./:/app
@@ -21,6 +25,23 @@ services:
       #   docker compose exec -w /var/www/html/wp-content/plugins/mdev-gb wordpress npm ci
       - mdev_gb_node_modules:/var/www/html/wp-content/plugins/mdev-gb/node_modules
       - mdev_gb_node_modules:/app/wp-content/plugins/mdev-gb/node_modules
+
+  # Database UI, local only: http://localhost:8081 (PMA_PORT in .env).
+  # Bound to 127.0.0.1, so nothing outside this machine can reach it, and
+  # logged in automatically as the WordPress DB user (this database only).
+  phpmyadmin:
+    image: phpmyadmin:5
+    restart: unless-stopped
+    depends_on:
+      db:
+        condition: service_healthy
+    environment:
+      PMA_HOST: ${COMPOSE_PROJECT_NAME}-db
+      PMA_USER: ${DB_USER}
+      PMA_PASSWORD: ${DB_PASSWORD}
+      UPLOAD_LIMIT: 128M
+    ports:
+      - "127.0.0.1:${PMA_PORT:-8081}:80"
 
   # One-off tooling containers, so the host needs neither PHP nor Composer.
   #   docker compose run --rm composer install

@@ -1,0 +1,78 @@
+@import "../../../sass/mixins/breakpoints";
+.video-listing-filter {
+    padding: 24px 0 43px;
+    background: #001e4e;
+    @include media-breakpoint(max-1024) {
+        padding: 24px 0 40px;
+    }
+    @include media-breakpoint(max-767) {
+        padding: 20px 0 80px;
+    }
+    .video-listing-filter__category-tab-wrapper {
+        display: flex;
+        gap: 18px;
+        .video-listing-filter__category-tab {
+            margin: 0 5px;
+            p {
+                margin: 0;
+            }
+        }
+        .slick-arrow {
+            width: 40px;
+            height: 40px;
+            background-color: transparent;
+            background-repeat: no-repeat;
+            background-position: center center;
+            background-image: url(./cheveron-right.svg);
+            position: absolute;
+            padding: 0;
+            z-index: 1;
+            display: block;
+            border: none;
+            top: 50%;
+            color: transparent;
+            border-radius: 80px;
+            transform: translateY(-50%);
+            cursor: pointer;
+            opacity: 1;
+            @include media-breakpoint(max-1024) {
+                width: 56px;
+                height: 56px;
+                background-size: cover;
+                border-radius: 0;
+                background-position: -104px center;
+                background-image: url("./../../../images/video-listing-filter-arrow.png");
+            }
+            @include media-breakpoint(max-767) {
+                width: 50px;
+                height: 50px;
+                background-position: -90px center;
+            }
+            @include media-breakpoint(max-480) {
+                width: 35px;
+                background-position: -100px center;
+            }
+            &::before {
+                display: none;
+            }
+        }
+        .slick-next {
+            right: 0;
+            transform: translateY(-50%);
+            @include media-breakpoint(max-767) {
+                right: -20px;
+            }
+        }
+        .slick-prev {
+            left: 0;
+            transform: translateY(-50%) rotate(-180deg);
+            @include media-breakpoint(max-767) {
+                left: -20px;
+            }
+        }
+        .slick-prev.slick-disabled,
+        .slick-next.slick-disabled {
+            opacity: 0;
+        }
+    }
+}

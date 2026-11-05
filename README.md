@@ -24,7 +24,9 @@ Requires Docker and the Traefik stack on the external `traenet` network, with
 make init     # .env (with fresh salts), composer + npm install, build, up, install WP
 ```
 
-Then open http://mdev.test/wp-admin. Admin credentials are `WP_ADMIN_USER` /
+Then open http://mdev.test/wp-admin. phpMyAdmin is at http://localhost:8081
+(local only, bound to `127.0.0.1`, logged in as the WordPress database user;
+port via `PMA_PORT` in `.env`). Admin credentials are `WP_ADMIN_USER` /
 `WP_ADMIN_PASSWORD` in `.env`.
 
 Daily commands (`make help` lists everything):

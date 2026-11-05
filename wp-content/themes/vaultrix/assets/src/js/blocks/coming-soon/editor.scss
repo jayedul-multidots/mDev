@@ -1,0 +1,95 @@
+.coming-soon-block {
+    &::before,
+    &::after{
+        display: none;
+    }
+    .container{
+        &::before,
+        &::after{
+            display: none;
+        }
+    }
+    .coming-soon-block__btn{
+        margin-top: 30px;
+    }
+    .coming-soon-block-slider__item {
+        .coming-soon-block-slider__bottom-wrap{
+            .upload-wrap{
+                text-align: center;
+            }
+        }
+    }
+    .coming-soon-block-slider__item{
+        border-radius: 0 0 50px 50px;
+    }
+    .slick-slide {
+        margin: 0!important ;
+        > div{
+            margin: 0 12px;
+        }
+    }
+    .slick-track {
+        margin: 0;
+    }
+    .slick-arrow {
+        width: 40px;
+        height: 40px;
+        background-color: #001e4e;
+        background-repeat: no-repeat;
+        background-position: center center;
+        background-image: url("../../../images/cheveron-right.svg");
+        position: absolute;
+        padding: 0;
+        z-index: 1;
+        display: block;
+        border: none;
+        top: 50%;
+        color: transparent;
+        border-radius: 80px;
+        transform: translateY(-50%);
+        cursor: pointer;
+        &::before{
+            content: "";
+        }
+    }
+    .slick-prev {
+        left: 18px;
+    }
+    .slick-next {
+        right: 15px;
+        transform: translateY(-50%) rotate(-180deg);
+    }
+    .slick-disabled {
+        opacity: 0;
+        visibility: hidden;
+    }
+    .slick-dots {
+        display: flex;
+        justify-content: center;
+        margin-top: 24px;
+        padding: 0;
+        li {
+            list-style-type: none;
+            font-size: 0;
+            line-height: normal;
+            button {
+                width: 10px;
+                height: 10px;
+                margin: 0 8px 0 0;
+                background: 0 0;
+                border-radius: 12px;
+                text-indent: -9999px;
+                cursor: pointer;
+                background: rgba(255, 255, 255, 0.3);
+                border: none;
+                padding: 0;
+
+            }
+            &.slick-active {
+                button {
+                    background: linear-gradient(98deg, #d81425 0%, #ffc371 130.01%);
+                }
+            }
+        }
+    }
+}

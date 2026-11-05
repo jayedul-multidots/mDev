@@ -1,0 +1,96 @@
+.site-footer {
+    padding: 80px 0 !important;
+    background: #07101d!important;
+    @include media-breakpoint( max-1024 ) {
+        padding: 56px 0 32px!important;
+    }
+    .container {
+        max-width: 1150px;
+        @include media-breakpoint( max-1024 ) {
+            max-width: 912px;
+        }
+        @include media-breakpoint( max-767 ) {
+            padding: 0 24px;
+        }
+    }
+    .site-footer__top {
+        margin: 0 0 40px;
+    }
+    .site-footer__inner {
+        display: flex;
+        flex-wrap: wrap;
+    }
+    .site-footer__info {
+        flex-basis: 63%;
+        @include media-breakpoint( max-767 ) {
+            flex-basis: 100%;
+            margin: 0 0 40px;
+        }
+    }
+    .site-footer__info__wrapper {
+        width: 67.2%;
+        @include media-breakpoint( max-1024 ) {
+           width: 83%;
+        }
+        @include media-breakpoint( max-767 ) {
+            width: 100%;
+        }
+    }
+    .site-footer__logo {
+        img {
+            margin: 0 0 24px;
+        }
+    }
+    .site-footer__description {
+        color: rgba(255, 255, 255, 0.8);
+        font-size: 16px;
+        font-weight: 500;
+        line-height: 150%; /* 24px */
+        margin: 0;
+    }
+    .site-footer__social-icons {
+        display: flex;
+        gap: 24px;
+        align-items: center;
+        margin: 0 0 80px;
+        @include media-breakpoint( max-767 ) {
+            margin: 0 0 40px;
+        }
+    }
+    .site-footer__sidebar {
+        flex-basis: 18.5%;
+        @include media-breakpoint( max-767 ) {
+            flex-basis: 50%;
+        }
+        .widget-title {
+            color: #fff;
+            font-size: 16px;
+            font-weight: 700;
+            line-height: 150%; /* 24px */
+            margin: 0 0 20px;
+        }
+        .widget_nav_menu {
+            > div {
+                ul {
+                    display: flex;
+                    flex-direction: column;
+                    gap: 20px;
+                    li {
+                        a {
+                            color: #fff;
+                            font-size: 14px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .site-footer__bottom {
+        .site-copyright-info {
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 16px;
+            font-weight: 500;
+            line-height: 150%; /* 24px */
+        }
+    }
+}

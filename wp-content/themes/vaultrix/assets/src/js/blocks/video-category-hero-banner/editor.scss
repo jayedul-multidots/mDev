@@ -1,0 +1,40 @@
+.video-category-hero-banner {
+    .btn-main {
+        .video-category-hero-banner__button-text,
+        .video-category-hero-banner__button-text.block-editor-rich-text__editable {
+            margin: 0;
+            min-width: 120px;
+            flex: 1 1 auto;
+            cursor: text;
+        }
+
+        .play-icon {
+            flex-shrink: 0;
+            pointer-events: none;
+        }
+    }
+}
+
+.prj-dp-block-sidebar {
+    .highlighted-text-settings {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 2px;
+        .components-base-control {
+            margin: 0;
+            .components-base-control__field {
+                margin: 0;
+            }
+        }
+        .item-action-wrap.small-icons {
+            .move-item {
+                display: flex;
+                margin-right: 1px;
+                .dashicons {
+                    margin-right: 1px;
+                }
+            }
+        }
+    }
+}

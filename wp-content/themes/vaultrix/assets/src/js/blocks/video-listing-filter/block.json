@@ -1,0 +1,27 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "name": "vaultrix/video-listing-filter",
+  "version": "0.1.0",
+  "title": "Video Category Tab Navigation",
+  "category": "vaultrix",
+  "icon": "ellipsis dp-block-icon",
+  "description": "This is a dynamic block to display the videos categories in tab navigation format.",
+  "keywords": ["Video", "Category", "Tab", "Navigation", "Deep", "Pockets"],
+  "supports": {
+    "html": false
+  },
+  "textdomain": "vaultrix",
+  "attributes": {
+    "blockID": {
+			"type": "string",
+			"default": "video-listing-filter-80afa3ca-6e04-474e-9f43-51bf00997e1c"
+		},
+    "bgColor": {
+			"type": "string",
+			"default": ""
+		}
+  },
+  "editorScript": "file:./index.js",
+  "style": "file:./style-index.css",
+  "viewScript": "file:./view.js"
+}

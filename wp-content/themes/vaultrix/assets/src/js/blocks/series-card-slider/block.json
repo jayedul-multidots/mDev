@@ -1,0 +1,76 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "name": "vaultrix/series-card-slider",
+  "version": "0.1.0",
+  "title": "Series Card Slider",
+  "category": "vaultrix",
+  "icon": "images-alt2 dp-block-icon",
+  "description": "This is a dynamic block to display the series in slider layout.",
+  "keywords": ["Series", "Card", "Slider", "Deep", "Pockets"],
+  "supports": {
+    "html": false
+  },
+  "textdomain": "vaultrix",
+  "attributes": {
+    "blockID": {
+      "type": "string",
+      "default": "series-card-slider-section-80afa3ca-6e04-474e-9f43-51bf00997e1c"
+    },
+    "blockLayout": {
+			"type": "string",
+			"default": "layout-1"
+		},
+    "description": {
+      "type": "string",
+      "default": ""
+    },
+    "btnText": {
+      "type": "string",
+      "default": "WATCH NOW"
+    },
+    "descriptionColor": {
+      "type": "string",
+      "default": ""
+    },
+    "heading": {
+      "type": "string",
+      "default": ""
+    },
+    "headingColor": {
+      "type": "string",
+      "default": ""
+    },
+    "displayAutoslide": {
+			"type": "boolean",
+			"default": false
+		},
+		"displayArrows": {
+			"type": "boolean",
+			"default": true
+		},
+    "contentAlignment": {
+			"type": "string",
+			"default": "center"
+		},
+    "showheading":{
+			"type": "boolean",
+			"default": true
+		},
+		"showdesc":{
+			"type": "boolean",
+			"default": true
+		},
+    "selectedSeriesIDs": {
+			"type": "string",
+			"default": null
+		},
+    "numberOfPosts": {
+			"type": "number",
+			"default": 4
+		}
+  },
+  "editorScript": "file:./index.js",
+  "editorStyle": "file:./index.css",
+  "style": "file:./style-index.css",
+  "viewScript": "file:./view.js"
+}

@@ -1,0 +1,66 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "name": "vaultrix/playlist-listing-slider",
+  "version": "0.1.0",
+  "title": "Playlist Listing Slider",
+  "category": "vaultrix",
+  "icon": "format-gallery dp-block-icon",
+  "description": "This is a Playlist Listing Slider Dynamic block to display the playlist in slider layout.",
+  "keywords": [
+    "Playlist",
+    "Listing",
+    "Slider",
+    "deep",
+    "pockets"
+  ],
+  "supports": {
+    "html": false
+  },
+  "textdomain": "vaultrix",
+  "attributes": {
+    "blockID": {
+      "type": "string",
+      "default": "playlist-listing-slider-80afa3ca-6e04-474e-9f43-51bf00997e1c"
+    },
+    "heading": {
+      "type": "string",
+      "default": ""
+    },
+    "seeAllLinkText": {
+      "type": "string",
+      "default": "View All"
+    },
+    "numberOfPosts": {
+      "type": "number",
+      "default": 8
+    },
+    "seeAllLink": {
+      "type": "string",
+      "default": ""
+    },
+    "showSeeAllLink": {
+      "type": "boolean",
+      "default": true
+    },
+    "headingColor": {
+      "type": "string",
+      "default": ""
+    },
+    "bgColor": {
+      "type": "string",
+      "default": ""
+    },
+    "displayAutoslide": {
+      "type": "boolean",
+      "default": false
+    },
+    "displayArrows": {
+      "type": "boolean",
+      "default": true
+    }
+  },
+  "editorScript": "file:./index.js",
+  "style": "file:./style-index.css",
+  "editorStyle": "file:./index.css",
+  "viewScript": "file:./view.js"
+}

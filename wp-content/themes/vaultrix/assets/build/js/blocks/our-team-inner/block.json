@@ -1,0 +1,34 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "name": "vaultrix/our-team-inner",
+  "version": "0.1.0",
+  "title": "Our Team Inner",
+  "category": "vaultrix",
+  "icon": "dashicons dashicons-admin-users dp-block-icon",
+  "description": "This block describes information about team member of Vaultrix.",
+  "keywords": [
+    "our",
+    "team"
+  ],
+  "supports": {
+    "html": false
+  },
+  "textdomain": "vaultrix",
+  "attributes": {
+    "blockID": {
+      "type": "string",
+      "default": ""
+    },
+    "listItems": {
+      "type": "array",
+      "default": []
+    },
+    "columns": {
+      "type": "number",
+      "default": 3
+    }
+  },
+  "editorScript": "file:./index.js",
+  "editorStyle": "file:./index.css",
+  "style": "file:./style-index.css"
+}

@@ -1,0 +1,41 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "name": "vaultrix/trending-now",
+  "version": "0.1.0",
+  "title": "Trending Now",
+  "category": "vaultrix",
+  "icon": "dashicons dashicons-editor-ol dp-block-icon",
+  "description": "This is a dynamic block to get the trending video series and display it in grid/slider layout.",
+  "keywords": [
+    "Trending",
+    "Now",
+    "Deep",
+    "Pockets"
+  ],
+  "supports": {
+    "html": false
+  },
+  "textdomain": "vaultrix",
+  "attributes": {
+    "blockID": {
+      "type": "string",
+      "default": "trending-now-section-80afa3ca-6e04-474e-9f43-51bf00997e1c"
+    },
+    "heading": {
+      "type": "string",
+      "default": ""
+    },
+    "headingColor": {
+      "type": "string",
+      "default": ""
+    },
+    "selectedCategory": {
+      "type": "string",
+      "default": ""
+    }
+  },
+  "editorScript": "file:./index.js",
+  "style": "file:./style-index.css",
+  "viewScript": "file:./view.js",
+  "editorStyle": "file:./index.css"
+}

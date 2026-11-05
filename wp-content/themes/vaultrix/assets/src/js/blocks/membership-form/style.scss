@@ -1,0 +1,264 @@
+@import "../../../sass/mixins/breakpoints";
+@import "../../../sass/mixins/variables";
+
+.membership-form{
+    background-color: #001e4e;
+    padding: 40px 0 120px;
+    @include media-breakpoint(max-1024) {
+        padding: 100px 0 ;
+    }
+    @include media-breakpoint(max-767) {
+        padding: 80px 0;
+    }
+    .container{
+        display: flex;
+        gap: 20px;
+        max-width: 1130px;
+        background: rgba(255,255,255,0.08);
+        padding: 55px 48px 75px;
+        border-radius: 16px;
+        // background-image:url("../../../images/membership-section-bg.png");
+        background-size: cover;
+        min-height: 324px;
+        @include media-breakpoint(max-1024) {
+            max-width: 912px;
+            padding: 55px 32px 85px 40px;
+            margin: 0 56px;
+        }
+        @include media-breakpoint(max-991) {
+            flex-direction: column;
+            gap: 48px;
+            padding: 55px 32px 20px 40px;
+            background-position: top;
+            margin: 0 40px;
+        }
+        @include media-breakpoint(max-767) {
+            margin: 0 24px ;
+            padding: 32px 24px 20px;
+            margin: 0 24px;
+        }
+    }
+    .membership-form__left-section{
+        border-radius: 10px 0 0 10px;
+        width: calc(100% - 330px);
+        @include media-breakpoint(max-991) {
+            width: 100%;
+        }
+        @include media-breakpoint(max-480) {
+            .btn-main.btn-arrow-after{
+                @include media-breakpoint(max-480){
+                    width: 100%;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    flex-direction: row-reverse;
+                    padding: 12px 24px; 
+                    &::before{
+                        position: unset;
+                        transform: unset;
+                        font-size: 16px;
+                    }
+                }
+            }
+        }
+
+        .membership-form__heading{
+            font-size: 40px;
+            font-style: normal;
+            font-weight: 700;
+            line-height: 130%;
+            margin: 0 0 12px;
+            color: #ffffff;
+            @include media-breakpoint(max-1024) {
+                font-size: 32px;
+            }
+            @include media-breakpoint(max-767) {
+                font-size: 24px;
+            }
+        }
+
+        .membership-form__description{
+            font-size: 16px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: 150%;
+            margin: 0 0 48px;
+            color: rgba(255, 255, 255, 0.60);
+            @include media-breakpoint(max-767) {
+                font-size: 14px;
+                margin: 0 0 32px;
+            }
+        }
+    }
+    .form-section{
+        form{
+            .ready-to-watch {
+                display: flex;
+                gap: 16px;
+                @include media-breakpoint(max-991) {
+                    flex-direction: column;
+                    align-items: center;
+                }
+            }
+            p{
+                margin: 0px !important;
+                @include media-breakpoint(max-576) {
+                    width: 100%;
+                }
+                .wpcf7-form-control-wrap{
+                    display: block;
+                    width: max-content;
+                    @include media-breakpoint(max-576) {
+                        width: 100%;
+                    }
+                    input{
+                        padding: 16px 32px;
+                        border-radius: 32px;
+                        width: 300px;
+                        background: rgba(255, 255, 255, 0.06);
+                        border: none;
+                        color: var(--Gray-2, #858F97);
+                        font-family: Eudoxus Sans;
+                        font-size: 14px;
+                        font-style: normal;
+                        font-weight: 500;
+                        line-height: 150%;
+                        &:focus{
+                            outline: none;
+                        }
+                        @include media-breakpoint(max-576) {
+                            width: 100%;
+                            padding: 12px 24px;
+                        }
+                    }
+                    .wpcf7-not-valid-tip{
+                        font-size: 14px;
+                        line-height: 1.5;
+                        padding-left: 20px;
+                        position: absolute;
+                        @include media-breakpoint(max-991) {
+                            position: unset;
+                        }
+                    }
+                }
+            }
+            // .custom-submit-button {
+            //     background: $color-primary-gradient;
+            //     color: #ffffff;
+            //     display: inline-block;
+            //     font-family: $font-primary;
+            //     font-size: 16px;
+            //     font-style: normal;
+            //     font-weight: 700;
+            //     line-height: 24.01px; /* 171.5% */
+            //     letter-spacing: -0.02px;
+            //     cursor: pointer;
+            //     word-break: break-word;
+            //     text-decoration: none;
+            //     position: relative;
+            //     padding: 12px 32px;
+            //     margin: 0;
+            //     border-radius: 32px;
+            //     transition: 150ms ease-out;
+            //     border: 1px solid transparent;
+            //     height: 100%;
+            //     &:hover, &:active, &:focus {
+            //         background: transparent;
+            //         border: 1px solid #ffffff;
+            //     }
+            //     @include media-breakpoint(max-767) {
+            //         padding: 12px 24px;
+            //         font-size: 14px;
+            //     }
+            //     p{
+            //         display: flex;
+            //         align-items: center;
+            //         gap: 8px;
+            //         @include media-breakpoint(max-576) {
+            //             justify-content: center;
+            //         }
+            //     }
+            //     input.wpcf7-submit {
+            //         background: transparent;
+            //         border: none;
+            //         color: #fff;
+            //         padding: 0;
+            //         margin: 0;
+            //         &:hover, &:active, &:focus {
+            //             outline: none;
+            //         }
+            //     }
+            //     @include media-breakpoint(max-576) {
+            //         width: 100%;
+            //     }
+            // }
+            .wpcf7-spinner{
+                display: none;
+            }
+            .wpcf7-response-output{
+                color: #dc3232;
+                font-size: 16px;
+                font-weight: 500;
+                display: none!important;
+                border: none!important;
+            }
+        }
+            
+    }
+    .membership-form__right-section {
+        position: relative;
+        width: 310px;
+        @include media-breakpoint(max-991) {
+            width: 100%;
+        }
+        img {
+            width: 100%;
+            height:406px;
+            position: absolute;
+            display: block;
+            top: -126px;
+             object-fit: contain; 
+             @include media-breakpoint(max-1024) {
+                height: 385px;
+                top: -116px;
+             }
+             @include media-breakpoint(max-991) {
+                position: unset;
+                width: 100%;
+                height: 100%;
+                margin: 0 auto;
+             }
+        }
+    }
+    &.left{
+        .container{
+            text-align: left;
+        }
+        .membership-form__left-section{
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+    }
+    &.center{
+        .container{
+            text-align: center;
+        }
+        .membership-form__left-section{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+    }
+    &.right{
+        .container{
+            text-align: right;
+        }
+        .membership-form__left-section{
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+        }
+    }
+    
+}

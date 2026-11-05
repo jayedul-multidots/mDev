@@ -1,0 +1,57 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "name": "vaultrix/recently-added-videos",
+  "version": "0.1.0",
+  "title": "Videos Listing - Grid",
+  "category": "vaultrix",
+  "icon": "playlist-video dp-block-icon",
+  "description": "This block contains listing of all recently added videos.",
+  "keywords": [
+    "Video",
+    "Recently Added",
+    "Listing",
+    "Video Listing",
+    "Deep Pocket"
+  ],
+  "supports": {
+    "html": false
+  },
+  "textdomain": "vaultrix",
+  "attributes": {
+    "blockID": {
+      "type": "string",
+      "default": ""
+    },
+    "heading": {
+      "type": "string",
+      "default": ""
+    },
+    "headingColor": {
+      "type": "string",
+      "default": ""
+    },
+    "bgColor": {
+      "type": "string",
+      "default": ""
+    },
+    "selectedCategory": {
+      "type": "string",
+      "default": ""
+    },
+    "selectedSubCategory": {
+      "type": "string",
+      "default": ""
+    },
+    "subCategoryCount": {
+      "type": "string",
+      "default": ""
+    },
+    "numberOfPosts": {
+      "type": "number",
+      "default": 12
+    }
+  },
+  "editorScript": "file:./index.js",
+  "style": "file:./style-index.css",
+  "editorStyle": "file:./index.css"
+}

@@ -1,0 +1,62 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"name": "vaultrix/video-gallery",
+	"version": "0.1.0",
+	"title": "Video Gallery",
+	"category": "vaultrix",
+	"icon": "editor-video dp-block-icon",
+	"description": "Video gallery block is the dynamic block for showing all videos with category filter.",
+	"keywords": ["video", "gallery"],
+	"supports": {
+		"html": false
+	},
+	"textdomain": "vaultrix",
+	"attributes": {
+		"blockID": {
+			"type": "string",
+			"default": ""
+		},
+		"heading": {
+			"type": "string",
+			"default": ""
+		},
+		"description": {
+			"type": "string",
+			"default": ""
+		},
+		"categoryTitle": {
+			"type": "string",
+			"default": "Select a Category:"
+		},
+		"categoryPreviewTitle": {
+			"type": "string",
+			"default": "Category Preview:"
+		},
+		"headingColor": {
+			"type": "string",
+			"default": ""
+		},
+		"descriptionColor": {
+			"type": "string",
+			"default": ""
+		},
+		"bgColor": {
+			"type": "string",
+			"default": ""
+		},
+		"bgImage": {
+			"type": "object",
+			"default": {
+				"id": "",
+				"url": "",
+				"alt": "",
+				"width": "",
+				"height": ""
+			}
+		}
+	},
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"style": "file:./style-index.css",
+	"viewScript": [ "file:./view.js" ]
+}

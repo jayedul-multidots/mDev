@@ -1,0 +1,68 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "name": "vaultrix/episodes-listing",
+  "version": "0.1.0",
+  "title": "Episodes Listing",
+  "category": "vaultrix",
+  "icon": "list-view dp-block-icon",
+  "description": "This is a Episodes Listing block to display Series episodes.",
+  "keywords": ["Episodes", "Listing", "deep", "pockets"],
+  "supports": {
+    "html": false
+  },
+  "textdomain": "vaultrix",
+  "attributes": {
+    "blockID": {
+      "type": "string",
+      "default": "episodes-listing-80afa3ca-6e04-474e-9f43-51bf00997e1c"
+    },
+    "heading": {
+      "type": "string",
+      "default": ""
+    },
+    "highlightedText": {
+      "type": "string",
+      "default": ""
+    },
+    "showButton": {
+      "type": "boolean",
+      "default": true
+    },
+    "btnText": {
+      "type": "string",
+      "default": ""
+    },
+    "btnLink": {
+      "type": "string",
+      "default": ""
+    },
+    "selectedCategory": {
+			"type": "string",
+			"default": ""
+		},
+		"selectedEpisodeIDs": {
+			"type": "string",
+			"default": null
+		},
+    "headingColor": {
+      "type": "string",
+      "default": ""
+    },
+    "bgColor": {
+      "type": "string",
+      "default": ""
+    },
+    "contentAlignment": {
+			"type": "string",
+			"default": "center"
+		},
+    "numberOfPosts": {
+			"type": "number",
+			"default": 8
+		}
+  },
+  "editorScript": "file:./index.js",
+  "editorStyle": "file:./index.css",
+  "style": "file:./style-index.css",
+  "viewScript": "file:./view.js"
+}

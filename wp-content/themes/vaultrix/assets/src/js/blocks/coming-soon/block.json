@@ -1,0 +1,83 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "name": "vaultrix/coming-soon",
+  "version": "0.1.0",
+  "title": "Coming Soon",
+  "category": "vaultrix",
+  "icon": "table-col-after dp-block-icon",
+  "description": "This is a coming soon block where user can add heading and iamges.",
+  "keywords": ["Coming", "Soon"],
+  "supports": {
+    "html": false
+  },
+  "textdomain": "vaultrix",
+  "attributes": {
+    "blockID": {
+			"type": "string",
+			"default": ""
+		},
+		"heading": {
+			"type": "string",
+			"default": ""
+		},
+		"button": {
+			"type": "string",
+			"default": ""
+		},
+		"showHeading": {
+			"type": "boolean",
+			"default": true
+		},
+		"showButton":{
+			"type": "boolean",
+			"default": true
+		},
+		"btnStyle": {
+			"type": "string",
+			"default": "btn-main"
+		},
+		
+		"cardItems": {
+			"type": "array",
+			"default": [
+				{
+	
+					"position": "",
+					"title": "",
+					"desc": "",
+					"imageID": "",
+					"imageURL": "",
+					"imageAlt": "",
+					"imageWidth": "",
+					"imageHeight": ""
+				},
+				{
+					"position": "",
+					"imageID": "",
+					"imageURL": "",
+					"imageAlt": "",
+					"imageWidth": "",
+					"imageHeight": ""
+				}
+			]
+		},
+
+		"headingColor": {
+			"type": "string",
+			"default": ""
+		},
+		"TitleColor": {
+			"type": "string",
+			"default": ""
+		},
+		"DescColor": {
+			"type": "string",
+			"default": ""
+		}
+		
+  },
+  "editorScript": "file:./index.js",
+  "editorStyle": "file:./index.css",
+  "viewScript": [ "file:./view.js" ],
+  "style": "file:./style-index.css"
+}

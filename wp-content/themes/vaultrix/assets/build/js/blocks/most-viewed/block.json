@@ -1,0 +1,52 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "name": "vaultrix/most-viewed",
+  "version": "0.1.0",
+  "title": "Most Viewed",
+  "category": "vaultrix",
+  "icon": "dashicons dashicons-welcome-view-site dp-block-icon",
+  "description": "This is a dynamic block to get the most viewed video series and display it in grid/slider layout.",
+  "keywords": [
+    "Most",
+    "Viewed",
+    "Deep",
+    "Pockets"
+  ],
+  "supports": {
+    "html": false
+  },
+  "textdomain": "vaultrix",
+  "attributes": {
+    "blockID": {
+      "type": "string",
+      "default": "most-viewed-section-80afa3ca-6e04-474e-9f43-51bf00997e1c"
+    },
+    "heading": {
+      "type": "string",
+      "default": ""
+    },
+    "seeAllLinkText": {
+      "type": "string",
+      "default": "View All"
+    },
+    "seeAllLink": {
+      "type": "string",
+      "default": ""
+    },
+    "showSeeAllLink": {
+      "type": "boolean",
+      "default": true
+    },
+    "selectedCategory": {
+      "type": "string",
+      "default": ""
+    },
+    "headingColor": {
+      "type": "string",
+      "default": ""
+    }
+  },
+  "editorScript": "file:./index.js",
+  "style": "file:./style-index.css",
+  "viewScript": "file:./view.js"
+}

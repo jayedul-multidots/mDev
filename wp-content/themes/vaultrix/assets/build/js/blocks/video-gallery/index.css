@@ -1,0 +1,11 @@
+/*!****************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[3].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[3].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[3].use[3]!./src/js/blocks/video-gallery/editor.scss ***!
+  \****************************************************************************************************************************************************************************************************************************************************************/
+.video-gallery .video__gallery-tabs-main .video__gallery-tabs .video__gallery-tab a {
+  width: auto;
+}
+.video-gallery .video-gallery .video-gallery_main__item_video .video-gallery_main__item-icon {
+  pointer-events: none !important;
+}
+
+/*# sourceMappingURL=index.css.map*/

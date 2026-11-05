@@ -1,0 +1,86 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "name": "vaultrix/membership-form",
+  "version": "0.1.0",
+  "title": "CTA Section",
+  "category": "vaultrix",
+  "icon": "welcome-write-blog dp-block-icon",
+  "description": "This is a CTA Section static block, which is used to display the subscribe button with editable element settings.",
+  "keywords": [
+    "CTA",
+    "Section",
+    "deep pockets"
+  ],
+  "supports": {
+    "html": false
+  },
+  "textdomain": "vaultrix",
+  "attributes": {
+    "blockID": {
+      "type": "string",
+      "default": ""
+    },
+    "bgImage": {
+      "type": "object",
+      "default": {
+        "id": "",
+        "url": "",
+        "alt": "",
+        "width": "",
+        "height": ""
+      }
+    },
+    "rightImage": {
+      "type": "object",
+      "default": {
+        "id": "",
+        "url": "",
+        "alt": "",
+        "width": "",
+        "height": ""
+      }
+    },
+    "heading": {
+      "type": "string",
+      "default": ""
+    },
+    "description": {
+      "type": "string",
+      "default": ""
+    },
+    "bgColor": {
+      "type": "string",
+      "default": ""
+    },
+    "headingColor": {
+      "type": "string",
+      "default": ""
+    },
+    "descriptionColor": {
+      "type": "string",
+      "default": ""
+    },
+    "btnStyle": {
+      "type": "string",
+      "default": "btn-main"
+    },
+    "button": {
+      "type": "string",
+      "default": ""
+    },
+    "contentAlignment": {
+      "type": "string",
+      "default": "left"
+    },
+    "showheading": {
+      "type": "boolean",
+      "default": true
+    },
+    "showdesc": {
+      "type": "boolean",
+      "default": true
+    }
+  },
+  "editorScript": "file:./index.js",
+  "style": "file:./style-index.css"
+}

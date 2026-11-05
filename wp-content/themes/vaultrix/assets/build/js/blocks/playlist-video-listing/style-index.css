@@ -1,0 +1,140 @@
+/*!************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[3].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[3].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[3].use[3]!./src/js/blocks/playlist-video-listing/style.scss ***!
+  \************************************************************************************************************************************************************************************************************************************************************************/
+.playlist-video-listing {
+  font-family: "Eudoxus Sans", sans-serif;
+  background-color: #001e4e;
+  padding-top: 128px;
+  padding-bottom: 120px;
+  color: #fff;
+}
+.playlist-video-listing .playlist-video-listing__wrapper .playlist-video-listing__loader {
+  width: 100%;
+  height: 140px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.playlist-video-listing .playlist-video-listing__video-listing {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 32px;
+  gap: 32px;
+}
+.playlist-video-listing .playlist-video-listing__title {
+  color: #fff;
+  font-size: 32px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 45px;
+  margin-bottom: 32px;
+}
+.playlist-video-listing .playlist-video-listing__video {
+  position: relative;
+}
+.playlist-video-listing .playlist-video-listing__video .playlist-video-listing__video-thumbnail {
+  display: flex;
+  height: 100%;
+}
+.playlist-video-listing .playlist-video-listing__video img {
+  width: 100% !important;
+}
+.playlist-video-listing .playlist-video-listing__video img {
+  border-radius: 8px;
+  max-height: 156px;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.playlist-video-listing .playlist-video-listing__video .post-content {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  visibility: hidden;
+  opacity: 0;
+  transition: 0.3s ease-in-out;
+  text-align: center;
+  z-index: 1;
+}
+.playlist-video-listing .playlist-video-listing__video .post-content .post-title {
+  color: #fff;
+  text-align: center;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 24px;
+  margin-bottom: 12px;
+  display: -webkit-box;
+  -webkit-line-clamp: 5;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.playlist-video-listing .playlist-video-listing__video .post-content .watch-now-btn {
+  padding: 9px 24px;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 23px;
+  letter-spacing: 0.14px;
+  text-transform: uppercase;
+}
+.playlist-video-listing .playlist-video-listing__video:hover .post-content {
+  bottom: 50%;
+  visibility: visible;
+  opacity: 1;
+  transform: translateY(50%);
+}
+@media (max-width: 1024px) {
+  .playlist-video-listing {
+    padding-top: 100px;
+    padding-bottom: 100px;
+  }
+  .playlist-video-listing .playlist-video-listing__video-listing {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+  .playlist-video-listing .playlist-video-listing__title {
+    font-size: 27px;
+    line-height: 35px;
+  }
+  .playlist-video-listing .playlist-video-listing__video .post-content .post-title {
+    font-size: 14px;
+    line-height: 21px;
+  }
+  .playlist-video-listing .playlist-video-listing__video .post-content .watch-now-btn {
+    height: 32px;
+    line-height: 18px;
+    padding: 6px 24px;
+  }
+}
+@media (max-width: 767px) {
+  .playlist-video-listing {
+    padding-top: 80px;
+    padding-bottom: 80px;
+  }
+  .playlist-video-listing .playlist-video-listing__video-listing {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+    row-gap: 16px;
+  }
+  .playlist-video-listing .playlist-video-listing__title {
+    font-size: 16px;
+    line-height: 24px;
+  }
+  .playlist-video-listing .playlist-video-listing__video img {
+    max-height: 180px;
+  }
+}
+@media (max-width: 576px) {
+  .playlist-video-listing .playlist-video-listing__video img {
+    max-height: 160px;
+  }
+}
+@media (max-width: 480px) {
+  .playlist-video-listing .playlist-video-listing__video img {
+    max-height: 110px;
+  }
+}
+
+/*# sourceMappingURL=style-index.css.map*/

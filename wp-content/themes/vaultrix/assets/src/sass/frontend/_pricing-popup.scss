@@ -1,0 +1,2503 @@
+main {
+    background-color: #001e4e;
+}
+@media print {
+    body {
+        visibility: hidden;
+    }
+    .dp-myaccount-right {
+        visibility: visible;
+        position: absolute;
+        left: 0;
+        top: 0;
+    }
+}
+html {
+    &.show-popup {
+        height: 100%;
+        overflow: hidden;
+        header {
+            &.fixed-header {
+                // position: absolute;
+            }
+            .container {
+                position: relative;
+                z-index: 99;
+            }
+        }
+        .popup-overlay {
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 2;
+            overflow: hidden;
+            position: absolute;
+            position: fixed;
+            background: rgba(19, 24, 32, 0.8);
+            opacity: 0.8;
+        }
+    }
+    .popup {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 50%;
+        transform: translate(-50%, 0);
+        width: 100%;
+        margin: auto;
+        backdrop-filter: blur(6px);
+        height: 100%;
+        overflow: scroll;
+        &.show {
+            display: block;
+        }
+
+        .pricing-popup {
+            display: none;
+            &.show {
+                display: block;
+            }
+            .popup__wrapper {
+                margin: 180px auto 130px;
+                width: max-content;
+
+                @include media-breakpoint(max-1199) {
+                    width: auto;
+                }
+
+                @include media-breakpoint(max-1024) {
+                    margin: 150px auto;
+                }
+                @include media-breakpoint(max-767) {
+                    margin: 130px auto;
+                    width: auto;
+                }
+                .popup__head {
+                    max-width: 480px;
+                    margin: auto;
+                    margin-bottom: 46px;
+                    @include media-breakpoint(max-767) {
+                        margin-bottom: 40px;
+                    }
+                    .popup-close {
+                        content: "";
+                        position: absolute;
+                        top: 0;
+                        right: 15px;
+                        width: 40px;
+                        height: 40px;
+                        background-color: #001e4e;
+                        background-image: url("./../images/close-white.png");
+                        background-size: 20px;
+                        background-position: center;
+                        background-repeat: no-repeat;
+                        z-index: 1;
+                        border-radius: 50px;
+                        @include media-breakpoint(max-767) {
+                            width: 32px;
+                            height: 32px;
+                            background-size: 16px;
+                            top: 10px;
+                            right: 24px;
+                        }
+                    }
+                    .popup__heading {
+                        font-family: "Eudoxus Sans", sans-serif;
+                        font-size: 40px;
+                        font-style: normal;
+                        font-weight: 700;
+                        line-height: 52px;
+                        color: #fff;
+                        text-align: center;
+                        margin-bottom: 12px;
+                        @include media-breakpoint(max-767) {
+                            font-size: 32px;
+                            line-height: 44.8px;
+                        }
+                    }
+                    .popup__desc {
+                        color: rgba(255, 255, 255, 0.6);
+                        text-align: center;
+                        font-family: "Eudoxus Sans", sans-serif;
+                        font-size: 16px;
+                        font-style: normal;
+                        font-weight: 400;
+                        line-height: 24px;
+                        margin: 0;
+                    }
+                }
+                .popup-content {
+                    display: flex;
+                    gap: 20px;
+                    justify-content: center;
+                    font-family: "Eudoxus Sans", sans-serif;
+                    @include media-breakpoint(max-991) {
+                        flex-direction: column;
+                        align-items: center;
+                    }
+                    .membership-card {
+                        max-width: 560px;
+                        width: 100%;
+                        padding: 48px 5.5%;
+                        border-radius: 32px;
+                        background: #07101d;
+                        flex: 1 1;
+                        @include media-breakpoint(max-767) {
+                            padding: 32px 24px;
+                        }
+                    }
+                    .membership-head {
+                        margin-bottom: 27px;
+                        .heading {
+                            color: #fff;
+                            text-align: center;
+                            font-size: 20px;
+                            font-style: normal;
+                            font-weight: 700;
+                            line-height: 30px;
+                            margin-bottom: 5px;
+                        }
+                        .head-description {
+                            color: rgba(255, 255, 255, 0.8);
+                            text-align: center;
+                            font-size: 16px;
+                            font-style: normal;
+                            font-weight: 500;
+                            line-height: 24px;
+                        }
+                    }
+                    .membership-content {
+                        text-align: center;
+                        padding: 0 13%;
+                        @include media-breakpoint(max-1199) {
+                            padding: 0;
+                        }
+                        @include media-breakpoint(max-767) {
+                            padding: 0 5%;
+                        }
+                        @include media-breakpoint(max-480) {
+                            padding: 0;
+                        }
+                        .price {
+                            margin-bottom: 16px;
+                            color: #fff;
+                            sup {
+                                font-size: 24px;
+                                font-style: normal;
+                                font-weight: 600;
+                                line-height: 28.8px;
+                            }
+                            span {
+                                text-align: center;
+                                font-size: 48px;
+                                font-style: normal;
+                                font-weight: 700;
+                                line-height: 62.4px;
+                            }
+                            sub {
+                                color: rgba(255, 255, 255, 0.8);
+                                font-size: 16px;
+                                font-style: normal;
+                                font-weight: 500;
+                                line-height: 24px;
+                                top: 0;
+                            }
+                        }
+                        .description {
+                            margin-bottom: 36px;
+                            text-align: left;
+                            ul {
+                                padding-left: 70px;
+                                @include media-breakpoint(max-767) {
+                                    padding-left: 42px;
+                                }
+                                li {
+                                    position: relative;
+                                    margin: 6px 0;
+                                    color: rgba(255, 255, 255, 0.8);
+                                    font-size: 16px;
+                                    font-style: normal;
+                                    font-weight: 500;
+                                    line-height: 24px;
+                                    display: flex;
+                                    align-items: center;
+                                    &:first-child {
+                                        margin-top: 0;
+                                    }
+                                    &:last-child {
+                                        margin-bottom: 0;
+                                    }
+                                    &::before {
+                                        content: "";
+                                        position: absolute;
+                                        width: 26px;
+                                        height: 26px;
+                                        left: -46px;
+                                        top: 50%;
+                                        transform: translateY(-50%);
+                                        display: block;
+                                        background-image: url("./../images/red-check.png");
+                                        background-repeat: no-repeat;
+                                        background-size: contain;
+                                        background-position: center;
+                                    }
+                                }
+                            }
+                        }
+                        .btn-main {
+                            max-width: 300px;
+                            margin: auto;
+                            width: 100%;
+                            padding: 17px 30px;
+                            border-radius: 100px;
+                            font-size: 14px;
+                            font-style: normal;
+                            font-weight: 700;
+                            line-height: 21px;
+                        }
+                    }
+                    &.col-2 {
+                        @include media-breakpoint(max-767) {
+                            flex-direction: column;
+                            align-items: center;
+                        }
+                    }
+                    &.col-3 {
+                        @include media-breakpoint(max-991) {
+                            flex-direction: column;
+                            align-items: center;
+                        }
+                        .membership-card {
+                            padding: 48px 30px;
+                        }
+                        .membership-content {
+                            padding: 0;
+                            .description {
+                                ul {
+                                    @include media-breakpoint(max-1199) {
+                                        padding-left: 42px;
+                                    }
+                                    @include media-breakpoint(max-991) {
+                                        padding-left: 70px;
+                                    }
+                                    @include media-breakpoint(max-767) {
+                                        padding-left: 42px;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        .signup-popup {
+            display: none;
+            &.show {
+                display: block;
+            }
+            .top-image {
+                height: 200px;
+                background-position: center center;
+                background-size: cover;
+                position: relative;
+                background-repeat: no-repeat;
+                border-radius: 32px 32px 0 0;
+                border: none;
+                @include media-breakpoint(max-767) {
+                    height: 175px;
+                }
+                @include media-breakpoint(max-480) {
+                    height: 146px;
+                }
+                .site-logo {
+                    position: absolute;
+                    bottom: -48px;
+                    left: 50%;
+                    transform: translateX(-50%);
+                    background-color: #17273d;
+                    width: 96px;
+                    height: 96px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    border-radius: 50%;
+                }
+            }
+            .popup__wrapper {
+                margin: 180px auto 130px;
+                width: max-content;
+                position: relative;
+                @include media-breakpoint(min-1025) {
+                    min-width: 750px;
+                }
+                @include media-breakpoint(max-1399) {
+                    width: auto;
+                }
+                @include media-breakpoint(max-1024) {
+                    margin: 150px auto;
+                    max-width: 720px;
+                    width: auto;
+                    padding: 0 15px;
+                }
+                @include media-breakpoint(max-991) {
+                    margin: 130px auto;
+                }
+                .popup-close {
+                    position: absolute;
+                    top: 40px;
+                    right: 40px;
+                    width: 40px;
+                    height: 40px;
+                    background-color: #001e4e;
+                    background-image: url("./../images/close-white.png");
+                    background-size: 20px;
+                    background-position: center;
+                    background-repeat: no-repeat;
+                    z-index: 1;
+                    border-radius: 50px;
+                    @include media-breakpoint(max-767) {
+                        width: 32px;
+                        height: 32px;
+                        background-size: 16px;
+                        top: 10px;
+                        right: 25px;
+                    }
+                }
+            }
+            .plan-detail {
+                padding: 100px 6.5% 80px;
+                background: #07101d;
+                border-radius: 0 0 32px 32px;
+                @include media-breakpoint(max-767) {
+                    padding: 100px 16px 36px;
+                }
+                @include media-breakpoint(max-480) {
+                    padding: 100px 0 0;
+                }
+                .popup__head {
+                    max-width: 417px;
+                    margin: auto;
+                    margin-bottom: 36px;
+                    font-family: "Eudoxus Sans", sans-serif;
+                    @include media-breakpoint(max-767) {
+                        margin-bottom: 32px;
+                        padding: 0 16px;
+                    }
+                    .popup__heading {
+                        text-align: center;
+                        margin-bottom: 5px;
+                        font-size: 28px;
+                        font-style: normal;
+                        font-weight: 700;
+                        line-height: 33.6px;
+                        background: linear-gradient(90deg, #dd262c 0%, #ea6749 100%);
+                        -webkit-text-fill-color: transparent;
+                        -webkit-background-clip: text;
+                    }
+                    .popup__sub-heading {
+                        color: #fff;
+                        text-align: center;
+                        font-size: 24px;
+                        font-style: normal;
+                        font-weight: 500;
+                        line-height: 38.4px;
+                        letter-spacing: 0.24px;
+                        margin-bottom: 4px;
+                    }
+                    .popup__desc {
+                        color: rgba(255, 255, 255, 0.8);
+                        text-align: center;
+                        margin: 0;
+                        font-size: 14px;
+                        font-style: normal;
+                        font-weight: 500;
+                        line-height: 22.4px;
+                        letter-spacing: 0.14px;
+                    }
+                }
+                .popup-content {
+                    display: flex;
+                    gap: 20px;
+                    justify-content: center;
+                    font-family: "Eudoxus Sans", sans-serif;
+                    .membership-card {
+                        max-width: 560px;
+                        width: 100%;
+                        padding: 48px 5.5%;
+                        border-radius: 32px;
+                        background: #17273d;
+                        flex: 1 1;
+                        @include media-breakpoint(max-480) {
+                            padding: 32px 16px;
+                        }
+                    }
+                    .membership-head {
+                        margin-bottom: 27px;
+                        .heading {
+                            color: #fff;
+                            text-align: center;
+                            font-size: 20px;
+                            font-style: normal;
+                            font-weight: 700;
+                            line-height: 30px;
+                            margin-bottom: 5px;
+                        }
+                        .head-description {
+                            color: rgba(255, 255, 255, 0.8);
+                            text-align: center;
+                            font-size: 16px;
+                            font-style: normal;
+                            font-weight: 500;
+                            line-height: 24px;
+                        }
+                    }
+                    .membership-content {
+                        text-align: center;
+                        padding: 0 13%;
+                        @include media-breakpoint(max-767) {
+                            padding: 0 5%;
+                        }
+                        @include media-breakpoint(max-480) {
+                            padding: 0;
+                        }
+                        .price {
+                            margin-bottom: 16px;
+                            color: #fff;
+                            sup {
+                                font-size: 24px;
+                                font-style: normal;
+                                font-weight: 600;
+                                line-height: 28.8px;
+                            }
+                            span {
+                                text-align: center;
+                                font-size: 48px;
+                                font-style: normal;
+                                font-weight: 700;
+                                line-height: 62.4px;
+                            }
+                            sub {
+                                color: rgba(255, 255, 255, 0.8);
+                                font-size: 16px;
+                                font-style: normal;
+                                font-weight: 500;
+                                line-height: 24px;
+                                top: 0;
+                            }
+                        }
+                        .description {
+                            margin-bottom: 36px;
+                            text-align: left;
+                            ul {
+                                padding-left: 70px;
+                                @include media-breakpoint(max-1199) {
+                                    padding-left: 42px;
+                                }
+                                @include media-breakpoint(max-1024) {
+                                    padding-left: 70px;
+                                }
+                                @include media-breakpoint(max-480) {
+                                    padding-left: 42px;
+                                }
+                                li {
+                                    position: relative;
+                                    margin: 12px 0;
+                                    color: rgba(255, 255, 255, 0.8);
+                                    font-size: 16px;
+                                    font-style: normal;
+                                    font-weight: 500;
+                                    line-height: 24px;
+                                    display: flex;
+                                    align-items: center;
+                                    &:first-child {
+                                        margin-top: 0;
+                                    }
+                                    &:last-child {
+                                        margin-bottom: 0;
+                                    }
+                                    &::before {
+                                        content: "";
+                                        position: absolute;
+                                        width: 26px;
+                                        height: 26px;
+                                        left: -46px;
+                                        top: 50%;
+                                        transform: translateY(-50%);
+                                        display: block;
+                                        background-image: url("./../images/red-check.png");
+                                        background-repeat: no-repeat;
+                                        background-size: contain;
+                                        background-position: center;
+                                    }
+                                }
+                            }
+                        }
+                        .btn-main {
+                            max-width: 300px;
+                            margin: auto;
+                            width: 100%;
+                            padding: 17px 30px;
+                            border-radius: 100px;
+                            font-size: 14px;
+                            font-style: normal;
+                            font-weight: 700;
+                            line-height: 21px;
+                        }
+                    }
+                    &.col-2 {
+                        @include media-breakpoint(max-767) {
+                            flex-direction: column;
+                            align-items: center;
+                        }
+                        .membership-content {
+                            padding: 0;
+                        }
+                    }
+                    &.col-3 {
+                        @include media-breakpoint(max-1024) {
+                            flex-direction: column;
+                            align-items: center;
+                        }
+                        .membership-card {
+                            padding: 48px 4%;
+                            @include media-breakpoint(max-480) {
+                                padding: 32px 30px;
+                            }
+                        }
+                        .membership-content {
+                            padding: 0;
+                        }
+                    }
+                }
+            }
+        }
+        .dp-custom-form {
+            h2 {
+                color: #fff;
+                font-size: 20px;
+                font-weight: 500;
+                line-height: 30px;
+                margin: 0 0 24px;
+            }
+            hr {
+                display: none;
+            }
+            p.pmpro_actions_nav {
+                text-align: center;
+                margin-bottom: 5px;
+                font-size: 18px;
+                font-style: normal;
+                font-weight: 700;
+                line-height: 33.6px;
+                text-transform: uppercase;
+                background: linear-gradient(90deg, #dd262c 0%, #ea6749 100%);
+                -webkit-text-fill-color: transparent;
+                -webkit-background-clip: text;
+            }
+            form {
+                .pmpro_lost_password-field {
+                    margin-bottom: 1em;
+                }
+                label {
+                    color: #fff;
+                    font-size: 16px;
+                    font-weight: 500;
+                    line-height: 24px;
+                    margin-bottom: 16px;
+                    display: block;
+                }
+                input[type="text"],
+                input[type="password"],
+                input[type="email"],
+                input[type="number"] {
+                    border-radius: 8px;
+                    border: none;
+                    background: #07101d;
+                    width: 100%;
+                    max-width: 100% !important;
+                    padding: 12px 16px;
+                    color: #fff;
+                    font-size: 16px;
+                    font-style: normal;
+                    font-weight: 500;
+                    line-height: 24px;
+                    &:focus,
+                    &:active {
+                        outline: 1px solid rgba(255, 255, 255, 0.3);
+                    }
+                    @include media-breakpoint(max-767) {
+                        width: 100% !important;
+                    }
+                }
+                input:-webkit-autofill,
+                select:-webkit-autofill {
+                    color: #fff !important;
+                    -webkit-text-fill-color: #fff !important;
+                    // border: 1px solid #07101d !important;
+                    -webkit-box-shadow: 0 0 0 30px #07101d inset !important;
+                    box-shadow: 0 0 0 30px #07101d inset !important;
+                    border-radius: 8px !important;
+                    caret-color: #fff;
+                }
+
+                input[type="submit"],
+                button[type="submit"] {
+                    background: linear-gradient(98deg, #d81425 0%, #ffc371 130.01%);
+                    color: #ffffff;
+                    font-family: "Eudoxus Sans", sans-serif;
+                    font-size: 14px;
+                    font-style: normal;
+                    font-weight: 700;
+                    line-height: 24.01px;
+                    letter-spacing: -0.02px;
+                    cursor: pointer;
+                    word-break: break-word;
+                    text-decoration: none;
+                    position: relative;
+                    padding: 15px 32px;
+                    margin: 0;
+                    border-radius: 32px;
+                    transition: 150ms ease-out;
+                    border: none;
+                    &:hover {
+                        background: transparent;
+                        outline: 1px solid #fff;
+                    }
+                    @include media-breakpoint(max-767) {
+                        padding: 12px 24px;
+                    }
+                }
+            }
+        }
+        .login-popup {
+            display: none;
+            &.show {
+                display: block;
+            }
+            .popup__wrapper {
+                margin: 180px auto 130px;
+                width: max-content;
+                position: relative;
+                font-family: "Eudoxus Sans", sans-serif;
+                padding: 0;
+                @include media-breakpoint(max-1024) {
+                    margin: 150px auto;
+                    max-width: 720px;
+                    width: auto;
+                    padding: 0 15px;
+                }
+                @include media-breakpoint(max-991) {
+                    margin: 130px auto;
+                }
+                .popup-close {
+                    position: absolute;
+                    top: 35px;
+                    right: 35px;
+                    width: 40px;
+                    height: 40px;
+                    background-color: #001e4e;
+                    background-image: url("./../images/close-white.png");
+                    background-size: 20px;
+                    background-position: center;
+                    background-repeat: no-repeat;
+                    z-index: 1;
+                    border-radius: 50px;
+                    @include media-breakpoint(max-991) {
+                        right: 10%;
+                    }
+                    @include media-breakpoint(max-767) {
+                        width: 32px;
+                        height: 32px;
+                        background-size: 16px;
+                        top: 10px;
+                    }
+                }
+                .pmpro_login_wrap {
+                    padding: 40px;
+                    border-radius: 16px;
+                    background: #001e4e;
+                    color: #ffffff;
+                    width: 720px;
+                    margin: 0 auto;
+                    @include media-breakpoint(max-991) {
+                        width: 90%;
+                    }
+                    @include media-breakpoint(max-767) {
+                        padding: 20px;
+                    }
+                    .login-submit {
+                        text-align: right;
+                    }
+                }
+                .login-password {
+                    position: relative;
+                    .show-password {
+                        position: absolute;
+                        right: 10px;
+                        top: 55px;
+                        color: #ffffff80;
+                    }
+                }
+            }
+        }
+        .forgot-popup {
+            display: none;
+            &.show {
+                display: block;
+            }
+            .popup__wrapper {
+                margin: 180px auto 130px;
+                width: max-content;
+                position: relative;
+                @include media-breakpoint(max-1399) {
+                    width: auto;
+                }
+                @include media-breakpoint(max-1024) {
+                    margin: 150px auto;
+                    max-width: 720px;
+                    width: auto;
+                    padding: 0 15px;
+                }
+                @include media-breakpoint(max-991) {
+                    margin: 130px auto;
+                }
+                .popup-close {
+                    position: absolute;
+                    top: 40px;
+                    right: 40px;
+                    width: 40px;
+                    height: 40px;
+                    background-color: #001e4e;
+                    background-image: url("./../images/close-white.png");
+                    background-size: 20px;
+                    background-position: center;
+                    background-repeat: no-repeat;
+                    z-index: 1;
+                    border-radius: 50px;
+                    @include media-breakpoint(max-991) {
+                        right: 10%;
+                    }
+                    @include media-breakpoint(max-767) {
+                        width: 32px;
+                        height: 32px;
+                        background-size: 16px;
+                        top: 10px;
+                    }
+                }
+                .pmpro_forgot_wrap {
+                    padding: 40px;
+                    border-radius: 16px;
+                    background: #001e4e;
+                    color: #ffffff;
+                    width: 720px;
+                    margin: 0 auto;
+                    @include media-breakpoint(max-991) {
+                        width: 90%;
+                    }
+                    @include media-breakpoint(max-767) {
+                        padding: 20px;
+                    }
+                    .pmpro_submit {
+                        text-align: right;
+                        .pmpro_btn {
+                            margin-bottom: 1em;
+                        }
+                    }
+                }
+            }
+        }
+        .change-password-popup {
+            display: none;
+            &.show {
+                display: block;
+            }
+            .popup__wrapper {
+                margin: 180px auto 130px;
+                width: max-content;
+                position: relative;
+                @include media-breakpoint(max-1399) {
+                    width: auto;
+                }
+                @include media-breakpoint(max-1024) {
+                    margin: 150px auto;
+                    max-width: 720px;
+                    width: auto;
+                    padding: 0 15px;
+                }
+                @include media-breakpoint(max-991) {
+                    margin: 130px auto;
+                }
+                .popup-close {
+                    position: absolute;
+                    top: 40px;
+                    right: 40px;
+                    width: 40px;
+                    height: 40px;
+                    background-color: #001e4e;
+                    background-image: url("./../images/close-white.png");
+                    background-size: 20px;
+                    background-position: center;
+                    background-repeat: no-repeat;
+                    z-index: 1;
+                    border-radius: 50px;
+                    @include media-breakpoint(max-767) {
+                        width: 32px;
+                        height: 32px;
+                        background-size: 16px;
+                        top: 18px;
+                        right: 12px;
+                    }
+                }
+                .pmpro_change_password_wrap {
+                    padding: 40px;
+                    border-radius: 16px;
+                    background: #001e4e;
+                    color: #ffffff;
+                    width: 720px;
+                    margin: 0 auto;
+                    position: relative;
+                    @include media-breakpoint(max-991) {
+                        width: 90%;
+                    }
+                    @include media-breakpoint(max-767) {
+                        padding: 20px;
+                    }
+                    .dp-account-fields-wrap {
+                        display: flex;
+                        flex-direction: column;
+                        gap: 24px;
+                    }
+                    .dp-account-field {
+                        label {
+                            abbr {
+                                text-decoration: none;
+                            }
+                        }
+                        #pass-strength-result {
+                            width: 100%;
+                            border-radius: 2px;
+                            border: none;
+                        }
+                        & > p {
+                            margin: 0;
+                        }
+                    }
+                    .dp-change-pass-submit-btn {
+                        margin-top: 40px;
+                        text-align: right;
+                        input {
+                            @include media-breakpoint(max-767) {
+                                width: 100%;
+                            }
+                        }
+                    }
+                    .hint {
+                        font-size: 16px;
+                        @include media-breakpoint(max-767) {
+                            font-size: 14px;
+                        }
+                    }
+                }
+                .dp-account-field {
+                    position: relative;
+                }
+                .show-password {
+                    position: absolute;
+                    right: 10px;
+                    top: 55px;
+                    color: #ffffff80;
+                }
+            }
+        }
+        .change-billing-popup {
+            display: none;
+            &.show {
+                display: block;
+            }
+            .popup__wrapper {
+                margin: 180px auto 130px;
+                width: max-content;
+                position: relative;
+                @include media-breakpoint(max-1399) {
+                    width: auto;
+                }
+                @include media-breakpoint(max-1024) {
+                    margin: 150px auto;
+                    max-width: 720px;
+                    width: auto;
+                    padding: 0 15px;
+                }
+                @include media-breakpoint(max-991) {
+                    margin: 130px auto;
+                }
+                .popup-close {
+                    position: absolute;
+                    top: 40px;
+                    right: 40px;
+                    width: 40px;
+                    height: 40px;
+                    background-color: #001e4e;
+                    background-image: url("./../images/close-white.png");
+                    background-size: 20px;
+                    background-position: center;
+                    background-repeat: no-repeat;
+                    z-index: 1;
+                    border-radius: 50px;
+                    @include media-breakpoint(max-991) {
+                        right: 10%;
+                    }
+                    @include media-breakpoint(max-767) {
+                        width: 32px;
+                        height: 32px;
+                        background-size: 16px;
+                        top: 10px;
+                        // right: 25px;
+                    }
+                }
+                .pmpro_change_billing_wrap {
+                    padding: 40px;
+                    border-radius: 16px;
+                    background: #001e4e;
+                    color: #ffffff;
+                    width: 720px;
+                    margin: 0 auto;
+                    @include media-breakpoint(max-991) {
+                        width: 90%;
+                    }
+                    @include media-breakpoint(max-767) {
+                        padding: 20px;
+                    }
+                }
+            }
+        }
+    }
+    .popup-close {
+        cursor: pointer;
+    }
+    .vaultrix-post-article {
+        .entry-content {
+            .prjdp-checkout-form {
+                background-color: #001e4e;
+                max-width: 100%;
+                &.pmpro_checkout_gateway-stripe {
+                    form.pmpro_form #pmpro_payment_information_fields {
+                        div#AccountNumber,
+                        div#Expiry,
+                        div#CVV {
+                            border-radius: 8px;
+                            background: #07101d;
+                            width: 100%;
+                            max-width: 100% !important;
+                            border: none;
+                            padding: 12px 16px;
+                            color: #fff;
+                            font-size: 16px;
+                        }
+                        .pmpro_payment-expiration,
+                        .pmpro_payment-cvv {
+                            width: 100%;
+                        }
+                    }
+                }
+                .pmpro_checkout_heading {
+                    position: relative;
+                    @include media-breakpoint(max-991) {
+                        padding-left: 32px;
+                    }
+                    .pmpro_history_back {
+                        position: absolute;
+                        top: 50%;
+                        transform: translateY(-50%);
+                        left: -32px;
+                        cursor: pointer;
+                        @include media-breakpoint(max-991) {
+                            left: 0;
+                        }
+                    }
+                }
+                .pmpro_form {
+                    max-width: 912px;
+                    padding: 128px 95px 68px 0;
+                    margin: 0 auto;
+                    @include media-breakpoint(max-1024) {
+                        max-width: 754px;
+                        padding: 140px 0 56px 0;
+                    }
+                    @include media-breakpoint(max-767) {
+                        padding: 132px 9px 48px;
+                    }
+                    h1 {
+                        color: #fff;
+                        font-size: 20px;
+                        font-family: Eudoxus Sans;
+                        font-weight: 500;
+                        line-height: 150%; /* 30px */
+                        margin: 0 0 20px;
+                    }
+                    .pmpro_checkout,
+                    h2 {
+                        color: #fff;
+                        font-family: Eudoxus Sans;
+                        font-size: 16px;
+                        font-weight: 500;
+                        line-height: 150%; /* 24px */
+                    }
+                    #pmpro_user_fields,
+                    #pmpro_payment_information_fields {
+                        margin: 0 0 32px;
+                        padding: 0 0 32px;
+                        border-bottom: 3px solid #07101d;
+                    }
+                    #pmpro_payment_information_fields {
+                        .pmpro_checkout-h2-msg {
+                            display: none;
+                        }
+                        .pmpro_payment-expiration {
+                            display: inline-block;
+                            width: 49%;
+                            margin: 0;
+                            @include media-breakpoint(max-767) {
+                                width: 100%;
+                                margin: 0 0 40px;
+                            }
+                            select {
+                                width: auto !important;
+                                &#ExpirationMonth {
+                                    margin: 0 5px 0 0;
+                                }
+                                &#ExpirationYear {
+                                    margin: 0 0 0 5px;
+                                }
+                            }
+                        }
+                        .pmpro_payment-cvv {
+                            width: 50%;
+                            display: inline-block;
+                            margin: 0;
+                            @include media-breakpoint(max-767) {
+                                width: 100%;
+                            }
+                        }
+                    }
+                    #pmpro_billing_address_fields {
+                        .pmpro_checkout-field-bstate {
+                            width: 48%;
+                            display: inline-block;
+                            margin-right: 1.5%;
+                            @include media-breakpoint(max-767) {
+                                width: 100%;
+                                margin: 0 0 40px;
+                            }
+                        }
+                        .pmpro_checkout-field-bzipcode {
+                            width: 50%;
+                            display: inline-block;
+                            @include media-breakpoint(max-767) {
+                                width: 100%;
+                            }
+                        }
+                    }
+                    .pmpro_message {
+                        border-radius: 8px;
+                        background: #07101d;
+                        color: #fff;
+                        border: none;
+                        margin: 0 0 24px;
+                        padding: 16px 12px;
+                        &#pmpro_message_bottom {
+                            margin: 24px 0;
+                            @include media-breakpoint(max-767) {
+                                margin: 40px 0;
+                            }
+                        }
+                        &.pmpro_error {
+                            color: #d81425;
+                        }
+                        a {
+                            color: #d81425;
+                        }
+                    }
+                    #pmpro_btn-submit {
+                        background: linear-gradient(98deg, #d81425 0%, #ffc371 130.01%);
+                        color: #ffffff;
+                        font-family: "Eudoxus Sans", sans-serif;
+                        font-size: 14px;
+                        font-style: normal;
+                        font-weight: 700;
+                        line-height: 24.01px;
+                        letter-spacing: -0.02px;
+                        cursor: pointer;
+                        word-break: break-word;
+                        text-decoration: none;
+                        position: relative;
+                        padding: 16px 32px;
+                        margin: 0;
+                        border-radius: 32px;
+                        transition: 10ms ease-out;
+                        border: none;
+                        &:hover {
+                            background: transparent;
+                            outline: 1px solid #fff;
+                        }
+                        @include media-breakpoint(max-991) {
+                            width: auto;
+                            margin-left: auto;
+                        }
+                        @include media-breakpoint(max-767) {
+                            padding: 12px 24px;
+                            width: 100%;
+                        }
+                    }
+                }
+                .pmpro_checkout-fields {
+                    .pmpro_checkout-field {
+                        margin: 0 0 24px;
+                        input:-webkit-autofill,
+                        select:-webkit-autofill {
+                            color: #fff !important;
+                            -webkit-text-fill-color: #fff !important;
+                            -webkit-box-shadow: 0 0 0 30px #07101d inset !important;
+                            box-shadow: 0 0 0 30px #07101d inset !important;
+                            border-radius: 8px !important;
+                            caret-color: #fff;
+                        }
+                        @include media-breakpoint(max-767) {
+                            margin: 0 0 40px;
+                        }
+                        &:last-child {
+                            margin: 0;
+                        }
+                    }
+                    .pmpro_asterisk {
+                        display: none;
+                    }
+                }
+                .pmpro_checkout-field-password {
+                    position: relative;
+                    .show-password {
+                        position: absolute;
+                        right: 10px;
+                        top: 55px;
+                        color: #ffffff80;
+                    }
+                }
+                .pmpro_submit {
+                    margin-top: 40px;
+                    text-align: right;
+                    @include media-breakpoint(max-767) {
+                        text-align: left;
+                    }
+                }
+                #pmpro_user_fields {
+                    .vaultrix-fields-group {
+                        display: flex;
+                        gap: 24px;
+                        @include media-breakpoint(max-1024) {
+                            gap: 20px;
+                        }
+                        @include media-breakpoint(max-767) {
+                            flex-direction: column;
+                        }
+                    }
+                    .pmpro_checkout-field {
+                        width: 100%;
+                        margin: 0;
+                    }
+                    #pmprosp-container {
+                        display: none;
+                    }
+                    span.pmprosp-tooltip__password {
+                        display: none;
+                    }
+                    .pmpro_checkout-field-password {
+                        label {
+                            display: flex;
+                            align-items: center;
+                        }
+                        #pmprosp-password-strength {
+                            border: 1px solid;
+                            padding: 2px 10px;
+                            display: block;
+                            background: transparent;
+                            &.empty {
+                                display: none;
+                            }
+                            &.strong {
+                                color: #008000;
+                            }
+                            &.good {
+                                color: rgb(219, 172, 84);
+                            }
+                            &.bad {
+                                color: rgb(113, 8, 8);
+                            }
+                            &.short {
+                                color: rgb(168, 0, 0);
+                            }
+                        }
+                    }
+                    .pmpro_checkout-field-password2 {
+                        #pmprosp-password-strength {
+                            display: none;
+                        }
+                    }
+                    // .pmpro_error {
+                    //     box-shadow: 0 0 0 1px inset rgba(181, 12, 12, 0.7);
+                    // }
+                }
+            }
+
+            //My Account
+            .dp-myaccount-wrap-main {
+                max-width: 100%;
+                padding: 0;
+                background-color: #001e4e;
+            }
+            #pmpro_actionlink-logout {
+                background: transparent;
+                color: #ffffff;
+                font-family: "Eudoxus Sans", sans-serif;
+                font-size: 16px;
+                font-style: normal;
+                font-weight: 700;
+                line-height: 24.01px;
+                letter-spacing: -0.02px;
+                cursor: pointer;
+                word-break: break-word;
+                text-decoration: none;
+                position: relative;
+                padding: 12px 32px;
+                margin: 24px 0 0;
+                transition: 150ms ease-out;
+                display: block;
+                text-align: center;
+                border-radius: 100px;
+                // border: 2px solid rgba(255, 255, 255, 0.2);
+                &::after {
+                    background: rgba(255, 255, 255, 0.2);
+                    padding: 2px;
+                }
+                &:hover,
+                &:active,
+                &:focus {
+                    background: $color-primary-gradient;
+                    // border: 2px solid transparent;
+                }
+            }
+            .dp-myaccount-wrap {
+                max-width: 1130px;
+                padding: 132px 15px 100px;
+                display: flex;
+                gap: 32px;
+                margin: 0 auto;
+                @include media-breakpoint(max-1024) {
+                    max-width: 942px;
+                    padding: 132px 15px 56px;
+                }
+                @include media-breakpoint(max-991) {
+                    flex-direction: column;
+                    padding: 90px 24px 56px;
+                }
+                #pmpro_actionlink-logout {
+                    &.dp-mobile-logout {
+                        display: none;
+                        @include media-breakpoint(max-991) {
+                            display: block;
+                            margin: 40px 0 0;
+                        }
+                    }
+                }
+                .menu-accounts-menu-container {
+                    ul {
+                        padding: 0;
+                        border-radius: 8px;
+                        background: #07101d;
+                        li {
+                            padding: 10px 24px 10px 24px;
+                            position: relative;
+                            &.current-menu-item {
+                                &::after {
+                                    content: "";
+                                    width: 4px;
+                                    height: 22px;
+                                    display: block;
+                                    border-radius: 0px 8px 8px 0px;
+                                    background: var(
+                                        --primary-gradient,
+                                        linear-gradient(98deg, #d81425 0%, #ffc371 130.01%)
+                                    );
+                                    position: absolute;
+                                    left: 0;
+                                    top: 10px;
+                                }
+                            }
+                            a {
+                                color: rgba(255, 255, 255, 0.6);
+                                font-family: Eudoxus Sans;
+                                font-size: 16px;
+                                font-weight: 400;
+                                line-height: 150%; /* 24px */
+                            }
+                        }
+                    }
+                }
+                .dp-myaccount-right {
+                    table {
+                        @include media-breakpoint(max-767) {
+                            display: block;
+                            overflow-x: auto;
+                            white-space: nowrap;
+                        }
+                        thead {
+                            th {
+                                color: #fff;
+                                font-family: Eudoxus Sans;
+                                font-size: 18px;
+                                font-weight: 700;
+                                line-height: 150%;
+                                padding: 10px 24px 10px 24px;
+                                text-align: center;
+                                margin-bottom: 5px;
+                                @include media-breakpoint(max-767) {
+                                    font-size: 16px;
+                                }
+                            }
+                        }
+                        tbody {
+                            td,
+                            a {
+                                color: rgba(255, 255, 255, 0.6);
+                                font-family: Eudoxus Sans;
+                                font-size: 16px;
+                                font-weight: 400;
+                                line-height: 150%;
+                                @include media-breakpoint(max-767) {
+                                    font-size: 14px;
+                                }
+                            }
+                            td {
+                                padding: 10px 24px 10px 24px;
+                                text-align: center;
+                            }
+                            a {
+                                &:hover {
+                                    background: linear-gradient(90deg, #dd262c 0%, #ea6749 100%);
+                                    -webkit-text-fill-color: transparent;
+                                    -webkit-background-clip: text;
+                                }
+                            }
+                        }
+                    }
+                    h2 {
+                        margin-bottom: 24px;
+                        font-size: 32px;
+                        font-style: normal;
+                        font-weight: 700;
+                        line-height: 130%;
+                        color: #fff;
+                        @include media-breakpoint(max-767) {
+                            font-size: 24px;
+                        }
+                    }
+                    .pmpro_invoice_wrap {
+                        padding: 15px;
+                        hr {
+                            border-color: rgba(255, 255, 255, 0.6);
+                        }
+                        p {
+                            margin: 0;
+                            font-size: 18px;
+                            font-weight: 400;
+                            line-height: 150%;
+                            color: #fff;
+                        }
+                        td,
+                        th {
+                            text-align: left;
+                        }
+                        ul {
+                            padding: 0;
+                            padding-bottom: 1em;
+                            li {
+                                @include media-breakpoint(max-480) {
+                                    word-break: break-word;
+                                }
+                            }
+                        }
+                    }
+                    ul {
+                        li {
+                            strong {
+                                color: #fff;
+                            }
+                            color: rgba(255, 255, 255, 0.6);
+                            font-size: 16px;
+                            font-weight: 400;
+                            margin-bottom: 10px;
+
+                            &:last-child {
+                                margin-bottom: 0px;
+                            }
+                        }
+                    }
+                    .pmpro_invoice_details {
+                        display: flex;
+                        padding: 1em 10px;
+                        @include media-breakpoint(max-767) {
+                            padding: 1em 0;
+                            display: block;
+                        }
+                        strong {
+                            color: #fff;
+                            font-size: 16px;
+                        }
+                        p {
+                            color: rgba(255, 255, 255, 0.6);
+                            font-size: 16px;
+                            font-weight: 400;
+                            margin-bottom: 0px;
+                        }
+                        .pmpro_invoice-billing-address,
+                        .pmpro_invoice-payment-method,
+                        .pmpro_invoice-total {
+                            strong {
+                                margin-bottom: 5px;
+                                display: block;
+                            }
+                            @include media-breakpoint(max-767) {
+                                padding: 0;
+                                margin: 0 0 30px;
+                            }
+                        }
+                    }
+                    .pmpro_a-print {
+                        display: none;
+                    }
+                }
+            }
+            .dp-myaccount-left {
+                flex-basis: 23%;
+                #pmpro_actionlink-logout {
+                    @include media-breakpoint(max-991) {
+                        display: none;
+                    }
+                }
+            }
+
+            .dp-myaccount-right {
+                flex-basis: calc(77% - 32px);
+                .pmpro_member_profile_edit_wrap {
+                    .dp-profile-wrap,
+                    .dp-personal-info-wrap {
+                        h2 {
+                            color: #fff;
+                            font-family: Eudoxus Sans;
+                            font-size: 20px;
+                            font-weight: 500;
+                            line-height: 150%;
+                            margin: 0 0 24px;
+                        }
+                    }
+                }
+                #avatar-upload-form {
+                    margin: 0 0 30px;
+                    display: flex;
+                    input[type="submit"] {
+                        margin-left: 30px;
+                        border: none;
+                        @include media-breakpoint(max-991) {
+                            margin-left: 0;
+                        }
+                    }
+                    @include media-breakpoint(max-991) {
+                        display: flex;
+                        flex-direction: column;
+                        gap: 20px;
+                    }
+                    .profile-submit{
+                        // height: 56px;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        max-width: 170px;
+                        height: inherit;
+                        padding: 0;
+                        width: 100%;
+                        &.loader-show{
+                            position: relative;
+                            background: url("./../images/loading-gif.gif") transparent;
+                            background-repeat: no-repeat;
+                            background-position: center center;
+                            font-size: 0;
+                            line-height: normal;
+                            background-size: 20px;
+                            border: 2px solid rgba(255, 255, 255, 0.2);
+                            transition: none;
+                        }
+                        @include media-breakpoint(max-991) {
+                            min-height: 45px;
+                        }
+                    }
+                }
+            }
+            #member-profile-edit {
+                .btn-main {
+                    font-size: 16px;
+                    padding: 12px 32px;
+                    border: none;
+                    outline: 2px solid transparent;
+                    &:hover {
+                        outline: 2px solid rgba(255, 255, 255, 0.2);
+                    }
+                    @include media-breakpoint(max-991) {
+                        &:first-child {
+                            margin-bottom: 20px;
+                        }
+                    }
+                }
+                input:-webkit-autofill,
+                select:-webkit-autofill {
+                    color: #fff !important;
+                    -webkit-text-fill-color: #fff !important;
+                    -webkit-box-shadow: 0 0 0 30px #07101d inset !important;
+                    box-shadow: 0 0 0 30px #07101d inset !important;
+                    border-radius: 8px !important;
+                    caret-color: #fff;
+                }
+                .btn-transparent {
+                    outline: 2px solid rgba(255, 255, 255, 0.2);
+                    color: #fff;
+                    text-decoration: none;
+                    margin: 0 0 0 20px;
+                    border: none;
+                    @include media-breakpoint(max-991) {
+                        margin: 0;
+                    }
+                    &:hover {
+                        outline: 2px solid transparent;
+                    }
+                }
+                .pmpro_submit {
+                    margin-top: 40px;
+                    text-align: right;
+                }
+                .pmpro_member_profile_edit-field {
+                    &.user_email {
+                        .lite {
+                            color: #fff;
+                            margin: 10px 0 30px;
+                        }
+                    }
+                }
+            }
+            .pmpro_member_profile_edit_wrap {
+                .dp-profile-wrap,
+                .dp-personal-info-wrap {
+                    h2 {
+                        color: #fff;
+                        font-family: Eudoxus Sans;
+                        font-size: 20px;
+                        font-weight: 500;
+                        line-height: 150%;
+                        margin: 0 0 24px;
+                    }
+                }
+            }
+            .dp-myaccount-box {
+                ul {
+                    padding: 0;
+                    border-radius: 8px;
+                    background: #07101d;
+                    @include media-breakpoint(max-991) {
+                        display: flex;
+                        justify-content: space-between;
+                        background: transparent;
+                        text-align: center;
+                        overflow: auto;
+                    }
+                    li {
+                        padding: 10px 24px 10px 24px;
+                        position: relative;
+                        @include media-breakpoint(max-991) {
+                            padding: 16px;
+                        }
+                        @include media-breakpoint(max-480) {
+                            padding: 16px 7px;
+                        }
+                        &.current-menu-item {
+                            &::after {
+                                content: "";
+                                width: 4px;
+                                height: 22px;
+                                display: block;
+                                border-radius: 0px 8px 8px 0px;
+                                background: var(
+                                    --primary-gradient,
+                                    linear-gradient(98deg, #d81425 0%, #ffc371 130.01%)
+                                );
+                                position: absolute;
+                                left: 0;
+                                top: 10px;
+                                @include media-breakpoint(max-991) {
+                                    width: 100%;
+                                    height: 2px;
+                                    top: 96%;
+                                }
+                            }
+                            a {
+                                color: #fff;
+                            }
+                        }
+                        a {
+                            color: rgba(255, 255, 255, 0.6);
+                            font-family: Eudoxus Sans;
+                            font-size: 16px;
+                            font-weight: 400;
+                            line-height: 24px;
+                            display: block;
+                            @include media-breakpoint(max-767) {
+                                font-size: 14px;
+                                width: max-content;
+                            }
+                        }
+                    }
+                }
+            }
+            #pmpro_account-profile {
+                margin: 0;
+                padding: 0;
+                border: none;
+                .pmpro_actionlinks {
+                    margin: 40px 0 0 !important;
+                    display: flex;
+                    justify-content: flex-end;
+                    @include media-breakpoint(max-767) {
+                        flex-direction: column;
+                        gap: 20px;
+                    }
+                }
+                .profile-picture-wrapper {
+                    width: 56px;
+                    height: 56px;
+                    position: relative;
+                    a {
+                        position: absolute;
+                        bottom: 0;
+                        right: 0;
+                        width: 24px;
+                        height: 24px;
+                        background-color: #001e4e;
+                        border-radius: 32px;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        cursor: pointer;
+                        i {
+                            font-size: 12px;
+                            color: #fff;
+                        }
+                    }
+                }
+                .dp-account-fields-wrap {
+                    display: flex;
+                    flex-direction: column;
+                    gap: 24px;
+                    img {
+                        margin: 0;
+                    }
+                }
+                .btn-main {
+                    // border-width: 2px;
+                    font-size: 16px;
+                    padding: 12px 32px;
+                    &:hover {
+                        &::after {
+                            padding: 2px;
+                        }
+                    }
+                }
+                .dp-delete-button {
+                    margin: 0 20px 0 0;
+                    // border: 2px solid rgba(255, 255, 255, 0.2);
+                    &::after {
+                        background: rgba(255, 255, 255, 0.2);
+                        padding: 2px;
+                    }
+                    @include media-breakpoint(max-767) {
+                        margin: 0;
+                    }
+                }
+                // .dp-change-password-button {
+                //     &:hover {
+                //         border: 2px solid rgba(255, 255, 255, 0.2);
+                //     }
+                // }
+            }
+            .dp-account-title-wrap {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                margin: 0 0 24px;
+                h2,
+                a {
+                    color: #fff;
+                    font-family: Eudoxus Sans;
+                    font-size: 20px;
+                    font-weight: 500;
+                    line-height: 150%; /* 30px */
+                    margin: 0 0 24px;
+                }
+                a {
+                    background: linear-gradient(90deg, #dd262c 0%, #ea6749 100%);
+                    -webkit-text-fill-color: transparent;
+                    -webkit-background-clip: text;
+                    margin: 0;
+                }
+            }
+            .dp-account-field {
+                img {
+                    width: 56px;
+                    height: 56px;
+                    border-radius: 100px;
+                    margin: 0 0 24px;
+                }
+            }
+            .pmpro_billing_wrap {
+                color: #fff;
+                margin-bottom: 0;
+                a.pmpro_renew_membership {
+                    color: #d81425;
+                    cursor: pointer;
+                    text-transform: capitalize;
+                    text-underline-offset: 2px;
+                    &:hover {
+                        text-decoration: underline;
+                    }
+                }
+                .dp-billing-fields-wrap {
+                    display: flex;
+                    flex-direction: column;
+                    gap: 24px;
+                }
+                .dp-account-field-group {
+                    display: flex;
+                    gap: 24px;
+                    & > .dp-account-field {
+                        flex: 1 1;
+                        margin-bottom: 0;
+                    }
+                    @include media-breakpoint(max-576) {
+                        flex-direction: column;
+                        gap: 16px;
+                    }
+                }
+                .pmpro_submit {
+                    margin-top: 40px;
+                    display: flex;
+                    text-align: right;
+                    align-items: center;
+                    justify-content: right;
+                    gap: 20px;
+                    @include media-breakpoint(max-576) {
+                        flex-direction: column;
+                        .btn-main {
+                            width: 100%;
+                        }
+                    }
+                    hr {
+                        display: none;
+                    }
+                    .btn-main {
+                        &::after {
+                            padding: 2px;
+                        }
+                    }
+                    .btn-transparent {
+                        // border: 2px solid rgba(255, 255, 255, 0.2);
+                        border-radius: 100px;
+                        &:hover {
+                            // border: 2px solid transparent;
+                        }
+                        &::after {
+                            background: rgba(255, 255, 255, 0.2);
+                            padding: 2px;
+                        }
+                    }
+                }
+                .dp-no-reccuring-info {
+                    margin-top: 1em;
+                    font-weight: normal;
+                }
+            }
+            .prjdp-form {
+                label {
+                    display: block;
+                    color: #fff;
+                    font-size: 16px;
+                    line-height: 150%;
+                    margin: 0 0 16px;
+                    font-weight: 500;
+                }
+                input[type="text"],
+                input[type="password"],
+                input[type="email"],
+                input[type="number"],
+                select {
+                    border-radius: 8px;
+                    border: none;
+                    background: #07101d;
+                    width: 100%;
+                    max-width: 100% !important;
+                    padding: 12px 16px;
+                    color: #fff;
+                    font-size: 16px;
+                    font-style: normal;
+                    font-weight: 500;
+                    line-height: 24px;
+                    appearance: none;
+                    &:focus,
+                    &:active {
+                        outline: 1px solid rgba(255, 255, 255, 0.3);
+                    }
+                    @include media-breakpoint(max-767) {
+                        width: 100% !important;
+                    }
+                    &:focus {
+                        outline: none;
+                        border: none;
+                    }
+                    &::placeholder {
+                        color: #ffffff80;
+                    }
+                }
+                input:-webkit-autofill {
+                    select:-webkit-autofill {
+                        color: #fff !important;
+                        -webkit-text-fill-color: #fff !important;
+                        -webkit-box-shadow: 0 0 0 30px #07101d inset !important;
+                        box-shadow: 0 0 0 30px #07101d inset !important;
+                        border-radius: 8px !important;
+                        caret-color: #fff;
+                    }
+                }
+                .pmpro_checkout-field-bcountry {
+                    position: relative;
+                    &::after {
+                        content: "";
+                        transform: rotate(44deg);
+                        display: block;
+                        width: 8px;
+                        height: 8px;
+                        border-bottom: 1.5px solid #777;
+                        border-right: 1.5px solid #777;
+                        text-shadow: none;
+                        box-shadow: none;
+                        border-left: 0;
+                        border-top: 0;
+                        position: absolute;
+                        right: 16px;
+                        z-index: 1;
+                        pointer-events: none;
+                        bottom: 20px;
+                    }
+                }
+            }
+        }
+        &.pmpro-invoice {
+            .dp-myaccount-right {
+                padding: 0;
+                border-radius: 8px;
+                background: #07101d;
+            }
+        }
+        &.pmpro-account {
+            .dp-account-fields-wrap {
+                .dp-account-field {
+                    &.email {
+                        margin-top: 20px;
+                    }
+                }
+            }
+        }
+        &.pmpro-billing {
+            .pmpro_submit {
+                hr {
+                    margin: 20px 0 30px;
+                }
+                @include media-breakpoint(max-767) {
+                    .btn-main {
+                        width: 100%;
+                        margin: 0 0 20px;
+                    }
+                }
+            }
+            .dp-mobile-logout {
+                &#pmpro_actionlink-logout {
+                    margin: 0 !important;
+                }
+            }
+        }
+        &.pmpro-invoice {
+            .dp-mobile-logout {
+                &#pmpro_actionlink-logout {
+                    margin: 0 !important;
+                }
+            }
+        }
+        .pmpro-checkout {
+            .pmpro_submit {
+                margin-top: 40px;
+                text-align: right;
+            }
+        }
+    }
+
+    .pmpro-billing {
+        header {
+            z-index: 1111;
+            display: block;
+        }
+        .mfp-bg {
+            background: rgba(19, 24, 32, 0.8);
+        }
+        .mfp-container {
+            backdrop-filter: blur(6px);
+            position: fixed;
+            overflow: scroll;
+        }
+        .mfp-wrap {
+            .mfp-content {
+                position: absolute;
+                top: 50%;
+                top: calc(50% + 88px);
+                left: 50%;
+                transform: translate(-50%, -50%);
+                max-width: 840px;
+                width: calc(100% - 48px);
+                display: block;
+                max-height: 100vh;
+                overflow: hidden;
+                margin: 50px auto 0;
+                padding-bottom: 100px;
+                @include media-breakpoint(max-1024) {
+                    top: calc(50% + 83px);
+                }
+            }
+            #pmpro_form {
+                overflow: scroll;
+                padding: 40px;
+                background: #001e4e;
+                border-radius: 32px;
+            }
+            h2 {
+                color: #fff;
+                font-size: 20px;
+                font-weight: 500;
+                line-height: 30px;
+                margin: 0 0 24px;
+            }
+            hr {
+                display: none;
+            }
+            p.pmpro_actions_nav {
+                text-align: center;
+                margin-bottom: 5px;
+                font-size: 18px;
+                font-style: normal;
+                font-weight: 700;
+                line-height: 33.6px;
+                text-transform: uppercase;
+                background: linear-gradient(90deg, #dd262c 0%, #ea6749 100%);
+                -webkit-text-fill-color: transparent;
+                -webkit-background-clip: text;
+            }
+            form {
+                .pmpro_lost_password-field {
+                    margin-bottom: 1em;
+                }
+
+                input[type="submit"],
+                button[type="submit"] {
+                    background: linear-gradient(98deg, #d81425 0%, #ffc371 130.01%);
+                    color: #ffffff;
+                    font-family: "Eudoxus Sans", sans-serif;
+                    font-size: 14px;
+                    font-style: normal;
+                    font-weight: 700;
+                    line-height: 24.01px;
+                    letter-spacing: -0.02px;
+                    cursor: pointer;
+                    word-break: break-word;
+                    text-decoration: none;
+                    position: relative;
+                    padding: 15px 32px;
+                    margin: 0;
+                    border-radius: 32px;
+                    transition: 150ms ease-out;
+                    border: none;
+                    &:hover,
+                    &:focus,
+                    &:active {
+                        background: transparent;
+                        outline: 1px solid #fff;
+                    }
+                    @include media-breakpoint(max-767) {
+                        padding: 12px 24px;
+                    }
+                }
+            }
+            #pmpro_payment_information_fields {
+                h2 {
+                    display: none;
+                }
+                label {
+                    color: #fff;
+                    font-size: 16px;
+                    font-weight: 500;
+                    line-height: 24px;
+                    margin-bottom: 16px;
+                    display: block;
+                }
+
+                .pmpro_checkout-fields {
+                    display: flex;
+                    flex-direction: column;
+                    gap: 24px;
+                    .pmpro_checkout-field {
+                        margin-bottom: 0;
+                    }
+                }
+                .StripeElement {
+                    border-radius: 8px;
+                    border: none;
+                    background: #07101d;
+                    width: 100%;
+                    max-width: 100% !important;
+                    padding: 15.609px 16px;
+                    color: #fff;
+                    font-size: 16px;
+                    font-style: normal;
+                    font-weight: 500;
+                    line-height: 24px;
+                    margin: 0;
+                    &:focus,
+                    &:active {
+                        outline: 1px solid rgba(255, 255, 255, 0.3);
+                    }
+                    @include media-breakpoint(max-767) {
+                        width: 100% !important;
+                    }
+                }
+                .StripeElement:-webkit-autofill {
+                    color: #fff !important;
+                    -webkit-text-fill-color: #fff !important;
+                    -webkit-box-shadow: 0 0 0 30px #07101d inset !important;
+                    box-shadow: 0 0 0 30px #07101d inset !important;
+                    border-radius: 8px !important;
+                    caret-color: #fff;
+                }
+            }
+            .pmpro_submit {
+                text-align: right;
+            }
+            .mfp-close {
+                top: 5px;
+                right: 5px;
+                color: #fff;
+            }
+            .pmpro_message.pmpro_alert {
+                background: rgba(255, 255, 255, 0.2);
+                -webkit-backdrop-filter: blur(10px);
+                backdrop-filter: blur(10px);
+                border: none;
+                color: #fff;
+                margin-bottom: 12px;
+                a {
+                    color: #fff;
+                    text-decoration: underline;
+                    &:hover {
+                        color: rgba(220, 220, 220, 0.8);
+                    }
+                }
+            }
+        }
+        &.admin-bar {
+            .mfp-wrap {
+                .mfp-content {
+                    top: calc(50% + 88px + 32px);
+                    @include media-breakpoint(max-1024) {
+                        top: calc(50% + 83px + 32px);
+                    }
+                    @include media-breakpoint(max-767) {
+                        top: calc(50% + 83px + 46px);
+                    }
+                }
+            }
+        }
+    }
+
+    .pmpro-cancel {
+        #pmpro_cancel {
+            p {
+                font-family: "Eudoxus Sans", sans-serif;
+                font-size: 24px;
+                line-height: normal;
+                font-weight: 700;
+                color: #fff;
+            }
+            .pmpro_actionlinks {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 20px;
+                align-items: center;
+                @include media-breakpoint(max-767) {
+                    gap: 10px;
+                }
+                @include media-breakpoint(max-576) {
+                    flex-direction: column;
+                    align-items: flex-start;
+                    gap: 20px;
+                }
+            }
+            .pmpro_btn-submit {
+                text-align: center;
+                background: linear-gradient(98deg, #d81425 0%, #ffc371 130.01%);
+                color: #ffffff;
+                display: inline-block;
+                font-family: "Eudoxus Sans", sans-serif;
+                font-size: 16px;
+                font-style: normal;
+                font-weight: 600;
+                line-height: 24.01px;
+                letter-spacing: -0.02px;
+                cursor: pointer;
+                word-break: break-word;
+                text-decoration: none;
+                position: relative;
+                padding: 12px 32px;
+                margin: 0;
+                border-radius: 32px;
+                transition: 150ms ease-out;
+                border: none;
+                &:hover,
+                &:active,
+                &:focus {
+                    background: transparent;
+                    position: relative;
+                    &::after {
+                        padding: 2px;
+                    }
+                }
+                @include media-breakpoint(max-767) {
+                    font-size: 14px;
+                    padding: 12px 24px;
+                }
+                @include media-breakpoint(max-576) {
+                    width: 100%;
+                }
+            }
+            .pmpro_btn-cancel {
+                background: transparent;
+                color: #ffffff;
+                font-family: "Eudoxus Sans", sans-serif;
+                font-size: 16px;
+                font-style: normal;
+                font-weight: 700;
+                line-height: 24.01px;
+                letter-spacing: -0.02px;
+                cursor: pointer;
+                word-break: break-word;
+                text-decoration: none;
+                position: relative;
+                padding: 12px 32px;
+                transition: 150ms ease-out;
+                display: block;
+                text-align: center;
+                border-radius: 100px;
+                border: none;
+                &:hover,
+                &:active,
+                &:focus {
+                    background: $color-primary-gradient;
+                    // border: 2px solid transparent;
+                }
+                @include media-breakpoint(max-767) {
+                    font-size: 14px;
+                    padding: 12px 24px;
+                }
+                @include media-breakpoint(max-576) {
+                    width: 100%;
+                }
+                &.btn-transparent {
+                    &::after {
+                        background: rgba(255, 255, 255, 0.2);
+                        padding: 2px;
+                    }
+                }
+            }
+            .pmpro_cancel_return_home {
+                a {
+                    cursor: pointer;
+                    color: #fff;
+                    &:hover {
+                        color: rgba(255, 255, 255, 0.5);
+                        text-decoration: underline;
+                    }
+                }
+            }
+            .pmpro_actions_nav {
+                a {
+                    background: transparent;
+                    color: #ffffff;
+                    font-family: "Eudoxus Sans", sans-serif;
+                    font-size: 16px;
+                    font-style: normal;
+                    font-weight: 700;
+                    line-height: 24.01px;
+                    letter-spacing: -0.02px;
+                    cursor: pointer;
+                    word-break: break-word;
+                    text-decoration: none;
+                    position: relative;
+                    padding: 12px 32px;
+                    transition: 150ms ease-out;
+                    display: block;
+                    text-align: center;
+                    border-radius: 100px;
+                    border: none;
+                    background: rgba(255, 255, 255, 0.2);
+                    width: max-content;
+                    margin: 30px auto 20px;
+                    &:hover,
+                    &:active,
+                    &:focus {
+                        background: $color-primary-gradient;
+                    }
+                    @include media-breakpoint(max-991) {
+                        width: auto;
+                        margin: 40px auto 0;
+                    }
+                    @include media-breakpoint(max-767) {
+                        font-size: 14px;
+                        padding: 12px 24px;
+                    }
+                    @include media-breakpoint(max-576) {
+                        width: 100%;
+                    }
+                }
+            }
+        }
+    }
+
+    .pmpro_content_message {
+        max-width: unset !important;
+        padding: 0 !important;
+    }
+    .dp-restricted-section-message {
+        background-color: $primary-theme-color;
+        padding-top: 120px;
+        padding-bottom: 100px;
+        h1 {
+            font-size: 36px;
+            line-height: 55px;
+            color: #fff;
+            text-align: center;
+            @include media-breakpoint(max-767) {
+                font-size: 32px;
+            }
+            span {
+                text-decoration: underline;
+                cursor: pointer;
+                text-transform: capitalize;
+                color: rgba(255, 255, 255, 0.5);
+                &:hover {
+                    color: rgba(255, 255, 255, 0.85);
+                }
+            }
+        }
+        h2 {
+            font-size: 24px;
+            line-height: normal;
+            color: #fff;
+            text-align: center;
+            font-weight: normal;
+            @include media-breakpoint(max-480) {
+                font-size: 18px;
+            }
+            span {
+                text-decoration: underline;
+                cursor: pointer;
+                text-transform: capitalize;
+                color: rgba(255, 255, 255, 0.5);
+                margin-left: 5px;
+                &:hover {
+                    color: rgba(255, 255, 255, 0.85);
+                }
+            }
+        }
+        a {
+            background-color: transparent;
+            border: none;
+            padding: 0;
+            margin: 0;
+            line-height: normal;
+            font-size: 24px;
+            color: rgba(255, 255, 255, 0.5);
+            text-decoration: underline;
+            &:hover {
+                color: rgba(255, 255, 255, 0.85);
+            }
+        }
+    }
+
+    .welcome-popup {
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 50%;
+        transform: translate(-50%, 0);
+        width: 100%;
+        margin: auto;
+        background: rgba(19, 24, 32, 0.8);
+        backdrop-filter: blur(6px);
+        height: 120vh;
+        overflow: scroll;
+        z-index: 99999;
+
+        &__top-image {
+            height: 200px;
+            background-position: center center;
+            background-size: cover;
+            position: relative;
+            background-repeat: no-repeat;
+            border-radius: 32px 32px 0 0;
+            border: none;
+            @include media-breakpoint(max-767) {
+                height: 175px;
+            }
+            @include media-breakpoint(max-480) {
+                height: 146px;
+            }
+            .site-logo {
+                position: absolute;
+                bottom: -48px;
+                left: 50%;
+                transform: translateX(-50%);
+                background-color: #17273d;
+                width: 96px;
+                height: 96px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                border-radius: 50%;
+            }
+        }
+        &__wrapper {
+            margin: 180px auto 130px;
+            width: 720px;
+            max-width: 100%;
+            position: relative;
+            @include media-breakpoint(max-1024) {
+                margin: 150px auto;
+                padding: 0 15px;
+            }
+            @include media-breakpoint(max-991) {
+                margin: 80px auto;
+            }
+            @include media-breakpoint(max-767) {
+                margin: 150px auto;
+            }
+            .welcome-popup-close {
+                position: absolute;
+                top: 40px;
+                right: 40px;
+                width: 40px;
+                height: 40px;
+                background-color: #001e4e;
+                background-image: url("./../images/close-white.png");
+                background-size: 20px;
+                background-position: center;
+                background-repeat: no-repeat;
+                z-index: 1;
+                border-radius: 50px;
+                cursor: pointer;
+                @include media-breakpoint(max-767) {
+                    width: 32px;
+                    height: 32px;
+                    background-size: 16px;
+                    top: 10px;
+                    right: 25px;
+                }
+            }
+        }
+        &__detail {
+            padding: 100px 120px 80px;
+            background: #1b2127;
+            border-radius: 0 0 32px 32px;
+            @include media-breakpoint(max-767) {
+                padding: 100px 80px 80px 80px;
+            }
+            @include media-breakpoint(max-480) {
+                padding: 40px 16px;
+            }
+            .welcome-popup__heading {
+                text-align: center;
+                margin-bottom: 24px;
+                font-size: 48px;
+                font-style: normal;
+                font-weight: 700;
+                line-height: 130%;
+                text-transform: uppercase;
+                color: #fff;
+                span {
+                    background: linear-gradient(90deg, #dd262c 0%, #ea6749 100%);
+                    -webkit-text-fill-color: transparent;
+                    -webkit-background-clip: text;
+                }
+                @include media-breakpoint(max-991) {
+                    font-size: 40px;
+                    line-height: 120%;
+                }
+                @include media-breakpoint(max-767) {
+                    font-size: 32px;
+                    line-height: 130%;
+                }
+            }
+            .welcome-popup__sub-heading {
+                color: rgba(255, 255, 255, 0.6);
+                text-align: center;
+                font-size: 18px;
+                font-style: normal;
+                font-weight: 400;
+                line-height: 150%;
+                margin-bottom: 0;
+                @include media-breakpoint(max-991) {
+                    font-size: 16px;
+                }
+                @include media-breakpoint(max-767) {
+                    font-size: 14px;
+                }
+            }
+        }
+    }
+    input[type="password"],
+    #user_pass,
+    #password_current,
+    #pass1,
+    #pass2 {
+        padding-right: 40px !important;
+    }
+
+    body.pmpro-member-profile-edit:not(.admin-bar) {
+        .prjdp-form {
+            .pmpro_member_profile_edit_wrap {
+                .pmpro_member_profile_edit-field.user_email {
+                    .lite {
+                        display: none;
+                    }
+                }
+            }
+        }
+    }
+}

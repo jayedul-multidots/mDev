@@ -1,0 +1,31 @@
+.error-404 {
+    background-color: #001e4e;
+    padding: 130px 0;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    min-height: 100vh;
+    .error-404__content {
+        max-width: 800px;
+        width: 100%;
+        margin: auto;
+        padding: 50px 0;
+    }
+    .error-404__title {
+        font-weight: 700;
+        text-transform: uppercase;
+        color: #ffffff;
+        line-height: normal;
+    }
+    .error-404__desc {
+        font-size: 18px;
+        color: #fff;
+        margin-bottom: 20px;
+    }
+    .error-404__btn {
+        letter-spacing: 1px;
+        font-size: 18px;
+        font-weight: 700;
+        text-transform: uppercase;
+    }
+}

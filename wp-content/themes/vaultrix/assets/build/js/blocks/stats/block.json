@@ -1,0 +1,75 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "name": "vaultrix/stats",
+  "version": "0.1.0",
+  "title": "Stats Number Block",
+  "category": "vaultrix",
+  "icon": "grid-view dp-block-icon",
+  "description": "This is static number block to display the stats number.",
+  "keywords": [
+    "Number",
+    "Deep",
+    "Pockets"
+  ],
+  "supports": {
+    "html": false
+  },
+  "textdomain": "vaultrix",
+  "attributes": {
+    "blockID": {
+      "type": "string",
+      "default": ""
+    },
+    "heading": {
+      "type": "string",
+      "default": ""
+    },
+    "description": {
+      "type": "string",
+      "default": ""
+    },
+    "showHeading": {
+      "type": "boolean",
+      "default": true
+    },
+    "showDesc": {
+      "type": "boolean",
+      "default": true
+    },
+    "contentAlignment": {
+      "type": "string",
+      "default": "center"
+    },
+    "bgColor": {
+      "type": "string",
+      "default": ""
+    },
+    "headingColor": {
+      "type": "string",
+      "default": ""
+    },
+    "listItems": {
+      "type": "array",
+      "default": [
+        {
+          "statsNumber": "",
+          "statsDescription": ""
+        }
+      ]
+    },
+    "descriptionColor": {
+      "type": "string",
+      "default": ""
+    },
+    "statsNumberColor": {
+      "type": "string",
+      "default": ""
+    },
+    "statsDescColor": {
+      "type": "string",
+      "default": ""
+    }
+  },
+  "editorScript": "file:./index.js",
+  "style": "file:./style-index.css"
+}

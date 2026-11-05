@@ -1,0 +1,143 @@
+// page editor
+.editor-styles-wrapper {
+	padding-left: 30px !important;
+	padding-right: 30px !important;
+	.wp-block {
+		max-width: 100% !important;
+	}
+	.editor-writing-flow {
+		max-width: 100% !important;
+	}
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	color: #20293a;
+	margin-bottom: 10px;
+	font-weight: 700;
+}
+
+h1 a,
+h2 a,
+h3 a,
+h4 a,
+h5 a,
+h6 a {
+	color: inherit;
+}
+
+h1 {
+	font-size: 64px;
+	@include media-breakpoint(max-1024) {
+		font-size: 50px;
+	}
+	@include media-breakpoint(max-767) {
+		font-size: 40px;
+	}
+	@include media-breakpoint(max-480) {
+		font-size: 35px;
+	}
+}
+
+h2 {
+	font-size: 48px;
+	@include media-breakpoint(max-1024) {
+		font-size: 36px;
+	}
+	@include media-breakpoint(max-767) {
+		font-size: 32px;
+	}
+	@include media-breakpoint(max-480) {
+		font-size: 28px;
+	}
+}
+
+h3 {
+	font-size: 40px;
+	@include media-breakpoint(max-1024) {
+		font-size: 30px;
+	}
+	@include media-breakpoint(max-767) {
+		font-size: 26px;
+	}
+	@include media-breakpoint(max-480) {
+		font-size: 24px;
+	}
+}
+
+h4 {
+	font-size: 32px;
+	@include media-breakpoint(max-1024) {
+		font-size: 26px;
+	}
+	@include media-breakpoint(max-767) {
+		font-size: 22px;
+	}
+	@include media-breakpoint(max-480) {
+		font-size: 20px;
+	}
+}
+
+h5 {
+	font-size: 24px;
+	@include media-breakpoint(max-1024) {
+		font-size: 22px;
+	}
+	@include media-breakpoint(max-767) {
+		font-size: 20px;
+	}
+	@include media-breakpoint(max-480) {
+		font-size: 18px;
+	}
+}
+
+h6 {
+	font-size: 18px;
+	@include media-breakpoint(max-767) {
+		font-size: 16px;
+	}
+}
+
+.common-page {
+	.wp-block-heading {
+		strong {
+			background: linear-gradient(90deg, #dd262c 0%, #ea6749 100%);
+			-webkit-text-fill-color: transparent;
+			-webkit-background-clip: text;
+		}
+	}
+}
+
+span.dp-text-highlight{
+	background: linear-gradient(90deg, #dd262c 0%, #ea6749 100%);
+	-webkit-text-fill-color: transparent;
+	-webkit-background-clip: text;
+}
+
+.video-hover-popup{
+	display: none;
+}
+
+.show-card-slider-section .show-card-slider-section__video-show-wrapper:not(.slick-initialized)::after {
+    background: none !important;
+}
+
+.trending-now-section .trending-now-section__video-series-wrapper:not(.slick-initialized)::after {
+  background: none !important;
+}
+
+.recently-added-video-listing .recently-added-video-listing__boxes:not(.slick-initialized)::after {
+  background: none !important;
+}
+
+.video-listing-slider .video-listing-slider__boxes:not(.slick-initialized)::after {
+  background: none !important;
+}
+
+.video-listing-hero-banner .video-listing-hero-banner__boxes:not(.slick-initialized)::after {
+  background: none !important;
+}

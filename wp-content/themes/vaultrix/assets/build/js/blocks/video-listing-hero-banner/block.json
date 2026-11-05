@@ -1,0 +1,63 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "name": "vaultrix/video-listing-hero-banner",
+  "version": "0.1.0",
+  "title": "Video Listing Hero Banner",
+  "category": "vaultrix",
+  "icon": "slides dp-block-icon",
+  "description": "This is Video Listing Hero Banner dynamic block to display the latest videos in slider with hero banner layout.",
+  "keywords": [
+    "Video",
+    "Listing",
+    "Hero",
+    "Banner",
+    "Vaultrix",
+    "Dynamic"
+  ],
+  "supports": {
+    "html": false
+  },
+  "textdomain": "vaultrix",
+  "attributes": {
+    "blockID": {
+      "type": "string",
+      "default": "video-listing-hero-banner-80afa3ca-6e04-474e-9f43-51bf00997e1c"
+    },
+    "videoSelectionToggle": {
+      "type": "boolean",
+      "default": true
+    },
+    "selectedVideoIDs": {
+      "type": "string",
+      "default": null
+    },
+    "displayArrows": {
+      "type": "boolean",
+      "default": true
+    },
+    "displayDots": {
+      "type": "boolean",
+      "default": true
+    },
+    "numberOfPosts": {
+      "type": "number",
+      "default": 4
+    },
+    "enableOverlay": {
+      "type": "boolean",
+      "default": false
+    },
+    "overlayColor": {
+      "type": "string",
+      "default": "#000000"
+    },
+    "overlayOpacity": {
+      "type": "number",
+      "default": 0
+    }
+  },
+  "editorScript": "file:./index.js",
+  "style": "file:./style-index.css",
+  "editorStyle": "file:./index.css",
+  "viewScript": "file:./view.js"
+}

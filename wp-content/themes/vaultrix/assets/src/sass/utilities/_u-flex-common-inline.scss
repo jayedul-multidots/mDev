@@ -1,0 +1,47 @@
+// Display properties. E.g., ("block", "inline-block", "grid", "table")
+$displayProps: ("flex");
+
+@each $disp in $displayProps {
+  .u-#{$disp} {
+    display: #{$disp};
+  }
+}
+
+// Alignment properties. E.g., ("stretch", "space-around", "space-evenly", "flex-start", "flex-end")
+$alignments: ("center", "space-between");
+
+@each $align in $alignments {
+  .u-justify-content-#{$align} {
+    justify-content: #{$align};
+  }
+
+  .u-align-items-#{$align} {
+    align-items: #{$align};
+  }
+
+  .u-justify-items-#{$align} {
+    justify-items: #{$align};
+  }
+
+  .u-content-#{$align} {
+    align-content: #{$align};
+  }
+}
+
+// Flex direction properties. E.g., ("column", "column-reverse", "row", "row-reverse")
+$directionsProps: ("column", "row");
+
+@each $directions in $directionsProps {
+  .u-flex-direction-#{$directions} {
+		flex-direction: #{$directions};
+	}
+}
+
+// Flex Wrap properties. E.g., ("wrap", "nowrap")
+$flexWrapProps: ("wrap");
+
+@each $flexWrap in $flexWrapProps {
+  .u-flex-wrap-#{$flexWrap} {
+		flex-wrap: #{$flexWrap};
+	}
+}

@@ -1,0 +1,58 @@
+.video-listing-hero-banner{
+    position: relative;
+    overflow: hidden;
+    .video-listing-hero-banner__boxes {
+        &:not(.slick-initialized ){
+            display: flex;
+            width: 100%;
+            height: 100%;
+            &::before{
+                position: absolute;
+                top: 0;
+                left: 0;
+                width:100%;
+                height: 100%;
+                background: #001e4e;
+                min-height: 100px;
+            }
+            &::after {
+                width: 100%;
+                background: url("../../../images/loading-gif.gif") no-repeat center #001e4e;
+                height: 100%;
+                position: absolute;
+                background-size: 100px;
+                content: "";
+                left: 0;
+                top: 50%;
+                transform: translateY(-50%);
+                z-index: 2;
+            }
+        }
+        .slick-next{
+            right: 0;
+            // transform: rotate(-180deg);
+        }
+        .slick-dots{
+            right: 0 !important;
+        }
+        .container{
+            padding: 0 8%;
+        }
+        .slick-arrow{
+            &.slick-next{
+                &::before{
+                    top: 0;
+                }
+            }
+            &.slick-prev{
+                &::before{
+                    top: 10px;
+                }
+            }
+        }
+    }
+    .slick-dotted.slick-slider{margin:0}
+    .video-listing-hero-banner__pause-btn{
+        display: none;
+    }
+}

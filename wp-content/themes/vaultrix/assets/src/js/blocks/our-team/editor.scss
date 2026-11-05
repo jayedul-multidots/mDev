@@ -1,0 +1,25 @@
+.our-team {
+    .container{
+        max-width: 100%;
+    }
+    .our-team__boxes {
+        gap: 130px;
+        .our-team__box {
+
+            .our-team__image {
+                justify-content: center;
+            }
+            .our-team__box_content{
+                position: unset;
+                transform: translate(0);
+                display: block;
+                width: 100%;
+            }
+        }
+    }
+}
+
+.my-button-block-appender{
+    background: white;
+    text-align: center;
+}

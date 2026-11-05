@@ -1,0 +1,119 @@
+@import "../../../sass/mixins/breakpoints";
+@import "../../../sass/mixins/variables";
+
+.mega-menu-card-slider {
+	margin-top: 100px;
+	padding: 16px 48px;
+	background-color: #07101d;
+	a{
+		text-decoration: none;
+	}
+	.mega-menu-card-slider__content {
+		padding: 12px 8px;
+		border-radius: 20px;
+		&:hover {
+			background: #001e4e;
+		}
+		.mega-menu-card-slider__card-image {
+			height: 120px;
+			margin: 0 0 8px;
+			img {
+				height: 100%;
+				object-fit: cover;
+				width: 100%;
+				border-radius: 20px;
+				object-position: top;
+			}
+		}
+		.mega-menu-card-slider__card-title {
+			color: #fff;
+			text-align: center;
+			font-size: 14px;
+			font-weight: 700;
+			line-height: 150%; /* 21px */
+			&:hover {
+				background: linear-gradient(98deg, #d81425 0%, #ffc371 130.01%);
+				background-clip: text;
+				-webkit-background-clip: text;
+				-webkit-text-fill-color: transparent;
+			}
+		}
+		.mega-menu-card-slider__card-description {
+			color: rgba(255, 255, 255, 0.6);
+			text-align: center;
+			font-size: 12px;
+			font-weight: 500;
+			line-height: 150%; /* 18px */
+		}
+	}
+	.slick-arrow {
+		width: 40px;
+		height: 40px;
+		font-size: 0;
+		background: rgba(255, 255, 255, 0.10);
+		cursor: pointer;
+		position: relative;
+		top: 50%;
+		transform: translateY(-50%);
+		border: none;
+		position: absolute;
+		display: block;
+		left: -44px;
+		padding: 10px;
+		border-radius: 100px;
+		&::before {
+			width: 10px;
+			height: 10px;
+			content: "";
+			display: block;
+			position: absolute;
+			top: 14px;
+			left: 55%;
+		}
+		&.slick-prev{
+			&::before{
+				border-top: 2px solid #ffffff;
+				border-left: 2px solid #ffffff;
+				transform:translateX(-50%) rotate(-45deg);
+			}
+		}
+		&.slick-next{
+			left: unset;
+			right: -44px;
+			&::before{
+				border-top: 2px solid #ffffff;
+				border-left: 2px solid #ffffff;
+				left: 45%;
+				transform: translateX(-50%) rotate(135deg);
+			}
+		}
+	}
+
+	ul.slick-dots {
+		display: flex;
+		gap: 10px;
+		align-items: center;
+		justify-content: center;
+		margin: 40px auto 10px;
+		li {
+			font-size: 0;
+			background: #666;
+			height: 5px;
+			width: 5px;
+			padding: 5px;
+			border: none;
+			border-radius: 50%;
+			cursor: pointer;
+			&.slick-active {
+				background: #f75227;
+			}
+			Button {
+				font-size: 0;
+				padding: 0;
+				background: rgba(0, 0, 0, 0);
+				border: none;
+				display: none;
+			}
+		}
+	}
+}

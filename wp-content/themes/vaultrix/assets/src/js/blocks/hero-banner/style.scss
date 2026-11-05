@@ -1,0 +1,99 @@
+@import "../../../sass/mixins/breakpoints";
+
+.hero-banner {
+    height: 100%;
+    background:radial-gradient(319.19% 100% at 0% 50%, #001e4e 0%, rgba(0, 30, 78, 0.99) 38.24%, rgba(0, 30, 78, 0.99) 38.25%, rgba(0, 30, 78, 0) 100%);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-color: #001e4e;
+    background-position: center 87px;
+    @include media-breakpoint(max-991) {
+        background-size: cover;
+        background-position: 50%;
+    }
+
+    .container {
+        max-width: 1130px;
+        @include media-breakpoint(max-1024) {
+            max-width: 912px;
+        }
+        @include media-breakpoint(max-767) {
+            padding: 0 24px;
+        }
+    }
+    &__wrapper {
+        padding: 264px 0 313px;
+        @include media-breakpoint(max-1024) {
+            padding: 164px 0 230px;
+        }
+        @include media-breakpoint(max-991) {
+            padding: 164px 0 130px;
+        }
+        @include media-breakpoint(max-767) {
+            padding: 140px 0 130px;
+        }
+
+        .hero-banner__heading {
+            color: white;
+            font-size: 64px;
+            line-height: 130%;
+            margin: 0 0 24px;
+            @include media-breakpoint(max-1024) {
+                font-size: 48px;
+                margin: 0 0 16px;
+            }
+            @include media-breakpoint(max-767) {
+                font-size: 40px;
+            }
+
+            .highlighted-text {
+                background: var(--primary-gradient, linear-gradient(98deg, #d81425 0%, #ffc371 130.01%));
+                background-clip: text;
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+            }
+
+            @include media-breakpoint(max-576) {
+                font-size: 36px;
+            }
+        }
+
+        .hero-banner__description {
+            color: rgba(255, 255, 255, 0.6);
+            margin: 0 0 40px;
+            font-size: 18px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: 150%;
+            @include media-breakpoint(max-1024) {
+                font-size: 16px;
+                margin: 0 0 32px;
+            }
+            @include media-breakpoint(max-767) {
+                font-size: 14px;
+            }
+        }
+
+        .hero-banner__highlight-text-list {
+            display: none;
+        }
+        .btn-main {
+            // padding: 13px 64px 13px 32px;
+            @include media-breakpoint(max-767) {
+                padding: 13px 48px 13px 24px;
+                &::before {
+                    right: 24px;
+                }
+            }
+        }
+    }
+    &.left {
+        text-align: left;
+    }
+    &.center {
+        text-align: center;
+    }
+    &.right {
+        text-align: right;
+    }
+}

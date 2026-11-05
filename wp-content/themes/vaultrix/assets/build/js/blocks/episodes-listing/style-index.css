@@ -1,0 +1,366 @@
+/*!******************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[3].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[3].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[3].use[3]!./src/js/blocks/episodes-listing/style.scss ***!
+  \******************************************************************************************************************************************************************************************************************************************************************/
+.episodes-listing {
+  padding: 40px 0 120px;
+  background-color: #001e4e;
+  font-family: "Eudoxus Sans", sans-serif;
+  background-image: url(../../../images/tg-gradient.7b3c1ff0.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  position: relative;
+}
+.episodes-listing::before {
+  position: absolute;
+  content: "";
+  width: 100%;
+  height: 100%;
+  background-image: url(../../../images/Gradient-episode-left-img.44eb30f7.png);
+  background-repeat: no-repeat;
+  background-position: left;
+  background-size: contain;
+  display: block;
+  top: 0;
+  left: 0;
+  z-index: 2;
+}
+.episodes-listing::after {
+  position: absolute;
+  content: "";
+  width: 100%;
+  height: 100%;
+  background-image: url(../../../images/Gradient-episode-right-img.16806000.png);
+  background-repeat: no-repeat;
+  background-position: right;
+  background-size: contain;
+  display: block;
+  top: 0;
+  left: 0;
+  z-index: 2;
+}
+.episodes-listing .container {
+  position: relative;
+}
+.episodes-listing .episodes-listing__head {
+  margin-bottom: 64px;
+}
+.episodes-listing .episodes-listing__heading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #fff;
+  font-size: 40px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 52px;
+  margin: 0;
+  position: relative;
+  z-index: 3;
+}
+.episodes-listing .episodes-listing__heading .highlighted-text {
+  background: linear-gradient(98deg, #d81425 0%, #ffc371 130.01%);
+  background: var(--primary-gradient, linear-gradient(98deg, #d81425 0%, #ffc371 130.01%));
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  line-height: 50px;
+}
+.episodes-listing.align-left .episodes-listing__heading {
+  align-items: flex-start;
+}
+.episodes-listing.align-center .episodes-listing__heading {
+  align-items: flex-center;
+}
+.episodes-listing.align-right .episodes-listing__heading {
+  align-items: flex-end;
+}
+.episodes-listing .episodes-listing__boxes {
+  margin: 0 -12px;
+  margin-bottom: 64px;
+  position: relative;
+  z-index: 3;
+}
+.episodes-listing .episodes-listing__boxes .slick-slide {
+  margin: 0 12px;
+}
+.episodes-listing .episodes-listing__boxes .slick-track {
+  margin: 0;
+}
+.episodes-listing .episodes-listing__boxes .slick-arrow {
+  width: 40px;
+  height: 40px;
+  background-color: #001e4e;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-image: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAiIGhlaWdodD0iMjAiIHZpZXdCb3g9IjAgMCAyMCAyMCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPGcgaWQ9Ikljb24vT3V0bGluZS9jaGV2ZXJvbi1yaWdodCI+CjxwYXRoIGlkPSJJY29uIiBkPSJNMTIuNSA0LjE2NjY1TDYuNjY2NjcgOS45OTk5OEwxMi41IDE1LjgzMzMiIHN0cm9rZT0id2hpdGUiIHN0cm9rZS13aWR0aD0iMS42NjY2NyIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIi8+CjwvZz4KPC9zdmc+Cg==);
+  position: absolute;
+  padding: 0;
+  z-index: 1;
+  display: block;
+  border: none;
+  top: 50%;
+  color: transparent;
+  border-radius: 80px;
+  transform: translateY(-50%);
+  cursor: pointer;
+}
+.episodes-listing .episodes-listing__boxes .slick-prev {
+  left: 18px;
+}
+.episodes-listing .episodes-listing__boxes .slick-next {
+  right: 15px;
+  transform: translateY(-50%) rotate(-180deg);
+}
+.episodes-listing .episodes-listing__boxes .slick-disabled {
+  opacity: 0;
+  visibility: hidden;
+}
+.episodes-listing .episodes-listing__boxes .slick-dots {
+  display: flex;
+  justify-content: center;
+  margin-top: 24px;
+  padding: 0;
+}
+.episodes-listing .episodes-listing__boxes .slick-dots li {
+  list-style-type: none;
+  font-size: 0;
+  line-height: normal;
+}
+.episodes-listing .episodes-listing__boxes .slick-dots li button {
+  width: 10px;
+  height: 10px;
+  margin: 0 8px 0 0;
+  background: 0 0;
+  border-radius: 12px;
+  text-indent: -9999px;
+  cursor: pointer;
+  background: rgba(255, 255, 255, 0.3);
+  border: none;
+  padding: 0;
+}
+.episodes-listing .episodes-listing__boxes .slick-dots li.slick-active button {
+  background: linear-gradient(98deg, #d81425 0%, #ffc371 130.01%);
+}
+.episodes-listing .episodes-listing__box {
+  max-height: 496px;
+  height: 100%;
+  width: 100%;
+  border-radius: 32px;
+  position: relative;
+}
+.episodes-listing .episodes-listing__box .episodes-listing__box-content {
+  position: relative;
+}
+.episodes-listing .episodes-listing__box .episodes-listing__box-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: rgba(7, 10, 13, 0.8);
+  width: 100%;
+  height: 100%;
+  border-radius: 32px;
+  z-index: 1;
+}
+.episodes-listing .episodes-listing__box .episodes-listing__box-overlay span {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-image: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzAiIGhlaWdodD0iMzAiIHZpZXdCb3g9IjAgMCAzMCAzMCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPGcgaWQ9ImxvY2stMDIiPgo8cGF0aCBpZD0iU29saWQiIGZpbGwtcnVsZT0iZXZlbm9kZCIgY2xpcC1ydWxlPSJldmVub2RkIiBkPSJNMTUuMTMgMi41MzIyM0MxMS4xMjE1IDIuNTMyMjMgNy44NzE5MSA1Ljc4MTc3IDcuODcxOTEgOS43OTAyOVYxMi4yNDI1QzcuNzY2OTcgMTIuMjQ4MyA3LjY2NTQ1IDEyLjI1NTEgNy41NjcyOSAxMi4yNjMxQzYuODg3MzMgMTIuMzE4NyA2LjI2MjI5IDEyLjQzNzkgNS42NzUxOSAxMi43MzdDNC43NjQ3MiAxMy4yMDA5IDQuMDI0NSAxMy45NDEyIDMuNTYwNTkgMTQuODUxNkMzLjI2MTQ1IDE1LjQzODcgMy4xNDIyMiAxNi4wNjM4IDMuMDg2NjYgMTYuNzQzN0MzLjAzMzE4IDE3LjM5ODQgMy4wMzMxOSAxOC4yMDIxIDMuMDMzMiAxOS4xNzU4VjE5Ljc1OTZDMy4wMzMxOSAyMC43MzM0IDMuMDMzMTggMjEuNTM3IDMuMDg2NjYgMjIuMTkxN0MzLjE0MjIyIDIyLjg3MTcgMy4yNjE0NSAyMy40OTY3IDMuNTYwNTkgMjQuMDgzOEM0LjAyNDUgMjQuOTk0MyA0Ljc2NDcyIDI1LjczNDUgNS42NzUxOSAyNi4xOTg0QzYuMjYyMjkgMjYuNDk3NSA2Ljg4NzMzIDI2LjYxNjggNy41NjcyOSAyNi42NzIzQzguMjIxOTYgMjYuNzI1OCA5LjAyNTY0IDI2LjcyNTggOS45OTk0IDI2LjcyNThIMjAuMjYwNkMyMS4yMzQzIDI2LjcyNTggMjIuMDM4IDI2LjcyNTggMjIuNjkyNyAyNi42NzIzQzIzLjM3MjYgMjYuNjE2OCAyMy45OTc3IDI2LjQ5NzUgMjQuNTg0OCAyNi4xOTg0QzI1LjQ5NTIgMjUuNzM0NSAyNi4yMzU1IDI0Ljk5NDMgMjYuNjk5NCAyNC4wODM4QzI2Ljk5ODUgMjMuNDk2NyAyNy4xMTc3IDIyLjg3MTcgMjcuMTczMyAyMi4xOTE3QzI3LjIyNjggMjEuNTM3IDI3LjIyNjggMjAuNzMzNCAyNy4yMjY4IDE5Ljc1OTZWMTkuMTc1OEMyNy4yMjY4IDE4LjIwMiAyNy4yMjY4IDE3LjM5ODQgMjcuMTczMyAxNi43NDM3QzI3LjExNzcgMTYuMDYzOCAyNi45OTg1IDE1LjQzODcgMjYuNjk5NCAxNC44NTE2QzI2LjIzNTUgMTMuOTQxMiAyNS40OTUyIDEzLjIwMDkgMjQuNTg0OCAxMi43MzdDMjMuOTk3NyAxMi40Mzc5IDIzLjM3MjYgMTIuMzE4NyAyMi42OTI3IDEyLjI2MzFDMjIuNTk0NSAxMi4yNTUxIDIyLjQ5MyAxMi4yNDgzIDIyLjM4OCAxMi4yNDI1VjkuNzkwMjlDMjIuMzg4IDUuNzgxNzcgMTkuMTM4NSAyLjUzMjIzIDE1LjEzIDIuNTMyMjNaTTE5Ljk2ODcgMTIuMjA5NlY5Ljc5MDI5QzE5Ljk2ODcgNy4xMTc5NSAxNy44MDIzIDQuOTUxNTggMTUuMTMgNC45NTE1OEMxMi40NTc2IDQuOTUxNTggMTAuMjkxMyA3LjExNzk1IDEwLjI5MTMgOS43OTAyOVYxMi4yMDk2SDE5Ljk2ODdaIiBmaWxsPSJ3aGl0ZSIvPgo8L2c+Cjwvc3ZnPgo=);
+  background-position: center;
+  background-size: 40px;
+  background-repeat: no-repeat;
+  padding: 16px;
+  border-radius: 50%;
+  background-color: #f28b58;
+  width: 72px;
+  height: 72px;
+  cursor: pointer;
+}
+.episodes-listing .episodes-listing__box .episodes-listing__box-img {
+  height: inherit;
+  display: flex;
+  justify-content: center;
+  height: 490px;
+}
+.episodes-listing .episodes-listing__box .episodes-listing__box-img img {
+  width: 100% !important;
+}
+.episodes-listing .episodes-listing__box .episodes-listing__box-img img {
+  height: inherit;
+  -o-object-fit: cover;
+     object-fit: cover;
+  border-radius: 32px;
+}
+.episodes-listing .episodes-listing__box .episodes-listing__series-detail {
+  position: absolute;
+  margin: auto;
+  max-width: 70%;
+  width: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 20px;
+  padding: 20px;
+  border-radius: 50%;
+}
+.episodes-listing .episodes-listing__box .episodes-listing__series-detail::after {
+  content: "";
+  position: absolute;
+  width: 90%;
+  height: 90%;
+  background-color: #001e4e;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: -1;
+  filter: blur(35px);
+}
+.episodes-listing .episodes-listing__box .episodes-listing__series-detail .episodes-listing__logo img {
+  width: 100%;
+  margin: auto;
+}
+.episodes-listing .episodes-listing__box .episodes-listing__series-detail .episodes-listing__name {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  width: 100%;
+  margin: 0 auto;
+  text-align: center;
+  color: #fff;
+  text-transform: uppercase;
+}
+.episodes-listing .episodes-listing__box .episodes-listing__series-detail .episodes-listing__name .episodes-listing__series-name {
+  font-weight: 900;
+  font-size: 28px;
+  line-height: normal;
+}
+.episodes-listing .episodes-listing__box .episodes-listing__series-detail .episodes-listing__name .episodes-listing__episode-name {
+  font-weight: 700;
+  font-size: 18px;
+  line-height: normal;
+}
+.episodes-listing .episodes-listing__btn {
+  width: 100%;
+  text-align: center;
+  position: relative;
+  z-index: 3;
+}
+.episodes-listing .episodes-listing__btn .btn-main {
+  max-width: 300px;
+  width: 100%;
+  font-size: 16px;
+  padding: 15px 32px;
+  line-height: 24px;
+}
+@media (min-width: 1420px) {
+  .episodes-listing .container::before {
+    background: #001e4e;
+    filter: blur(10px);
+    content: "";
+    position: absolute;
+    top: 10%;
+    left: -96px;
+    width: 115px;
+    height: 80%;
+    z-index: 1;
+    border-radius: 40%;
+  }
+  .episodes-listing .container::after {
+    background: #001e4e;
+    filter: blur(10px);
+    content: "";
+    position: absolute;
+    top: 10%;
+    right: -96px;
+    width: 115px;
+    height: 80%;
+    z-index: 1;
+    border-radius: 40%;
+  }
+}
+@media (max-width: 1199px) {
+  .episodes-listing {
+    background-image: url(../../../images/episode-bg-tablet.752f8c49.png);
+    background-size: 85%;
+  }
+}
+@media (max-width: 1024px) {
+  .episodes-listing {
+    padding: 80px 0 88px;
+  }
+  .episodes-listing .episodes-listing__head {
+    margin-bottom: 56px;
+  }
+  .episodes-listing .episodes-listing__boxes {
+    margin-bottom: 56px;
+  }
+  .episodes-listing .episodes-listing__box .episodes-listing__box-overlay span {
+    width: 52px;
+    height: 52px;
+    background-size: 30px;
+  }
+  .episodes-listing .episodes-listing__box .episodes-listing__box-img {
+    height: 384px;
+  }
+  .episodes-listing .episodes-listing__box .episodes-listing__series-detail {
+    max-width: 80%;
+  }
+}
+@media (max-width: 767px) {
+  .episodes-listing {
+    background-image: none;
+  }
+  .episodes-listing {
+    padding: 80px 0 80px;
+  }
+  .episodes-listing .episodes-listing__head {
+    margin-bottom: 48px;
+  }
+  .episodes-listing .episodes-listing__heading {
+    font-size: 32px;
+    line-height: 34px;
+  }
+  .episodes-listing .episodes-listing__heading .highlighted-text {
+    line-height: 45px;
+  }
+  .episodes-listing .episodes-listing__boxes {
+    margin-bottom: 48px;
+  }
+  .episodes-listing .episodes-listing__box .episodes-listing__box-overlay {
+    border-radius: 20px;
+  }
+  .episodes-listing .episodes-listing__box .episodes-listing__box-img {
+    height: 360px;
+  }
+  .episodes-listing .episodes-listing__btn .btn-main {
+    max-width: none;
+    max-width: initial;
+    padding: 10.5px 24px;
+    width: auto;
+    font-size: 14px;
+    line-height: 21px;
+  }
+}
+@media (max-width: 480px) {
+  .episodes-listing .episodes-listing__boxes {
+    margin: 0 auto;
+    margin-bottom: 48px;
+    max-width: 82%;
+  }
+  .episodes-listing .episodes-listing__boxes .slick-slide {
+    margin: 0 5px;
+  }
+  .episodes-listing .episodes-listing__boxes .slick-dots li button {
+    width: 8px;
+    height: 8px;
+  }
+  .episodes-listing .episodes-listing__box {
+    border-radius: 20px;
+  }
+  .episodes-listing .episodes-listing__box .episodes-listing__box-img img {
+    border-radius: 20px;
+  }
+}
+
+/*# sourceMappingURL=style-index.css.map*/

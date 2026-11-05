@@ -1,0 +1,1 @@
+{"version":3,"file":"js/blocks/video/index.css","mappings":";;;AAEI;EACI;AADR,C","sources":["webpack://vaultrix/./src/js/blocks/video/editor.scss"],"sourcesContent":["\n.dp-video{\n    .vaultrix-no-data-placeholder{\n        color: #fff;\n    }\n}"],"names":[],"sourceRoot":""}

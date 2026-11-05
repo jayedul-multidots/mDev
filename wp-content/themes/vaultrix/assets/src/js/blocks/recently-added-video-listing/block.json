@@ -1,0 +1,84 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"name": "vaultrix/recently-added-video-listing",
+	"version": "0.1.0",
+	"title": "Recently Added Video Listing Slider",
+	"category": "vaultrix",
+	"icon": "images-alt dp-block-icon",
+	"description": "This is Video Listing Slider dynamic block to display the recently added videos in slider layout.",
+	"keywords": [
+		"Recently",
+		"Added",
+		"Video",
+		"Listing",
+		"Slider",
+		"Vaultrix",
+		"Dynamic"
+	],
+	"supports": {
+		"html": false
+	},
+	"textdomain": "vaultrix",
+	"attributes": {
+		"blockID": {
+			"type": "string",
+			"default": "recently-added-video-listing-80afa3ca-6e04-474e-9f43-51bf00997e1c"
+		},
+		"heading": {
+			"type": "string",
+			"default": ""
+		},
+		"seeAllLinkText": {
+			"type": "string",
+			"default": "View All"
+		},
+		"seeAllLink": {
+			"type": "string",
+			"default": ""
+		},
+		"showSeeAllLink": {
+			"type": "boolean",
+			"default": true
+		},
+		"numberOfPosts": {
+			"type": "number",
+			"default": 8
+		},
+		"selectedCategory": {
+			"type": "string",
+			"default": ""
+		},
+		"selectedSubCategory": {
+			"type": "string",
+			"default": ""
+		},
+		"selectedVideoIDs": {
+			"type": "string",
+			"default": null
+		},
+		"headingColor": {
+			"type": "string",
+			"default": ""
+		},
+		"bgColor": {
+			"type": "string",
+			"default": ""
+		},
+		"displayAutoslide": {
+			"type": "boolean",
+			"default": false
+		},
+		"displayArrows": {
+			"type": "boolean",
+			"default": true
+		},
+		"subCategoryCount": {
+			"type": "string",
+			"default": ""
+		}
+	},
+	"editorScript": "file:./index.js",
+	"style": "file:./style-index.css",
+	"editorStyle": "file:./index.css",
+	"viewScript": "file:./view.js"
+}

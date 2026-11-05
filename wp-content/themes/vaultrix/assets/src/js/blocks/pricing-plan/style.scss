@@ -1,0 +1,159 @@
+@import "../../../sass/mixins/breakpoints";
+
+.pricing-plan-block {
+    .popup {
+        display: block;
+        position: relative;
+        top: unset;
+        left: unset;
+        transform: unset;
+        background-color: #001e4e;
+        backdrop-filter: unset;
+        height: 100%;
+        overflow: unset;
+
+        .pricing-popup {
+            display: block;
+            padding-bottom: 120px;
+            padding-top: 40px;
+        }
+
+        .pricing-popup .popup__wrapper {
+            margin: 0 auto;
+            .popup__head {
+                text-align: center;
+                margin-bottom: 64px;
+                h2 {
+                    font-size: 40px;
+                    color: #fff;
+                    line-height: 130%;
+                    margin-bottom: 12px;
+                    @include media-breakpoint(max-991) {
+                        font-size: 32px;
+                        line-height: 140%;
+                    }
+                    @include media-breakpoint(max-767) {
+                        font-size: 24px;
+                        line-height: 140%;
+                    }
+                }
+                p {
+                    color: rgba(255, 255, 255, 0.6);
+                    font-size: 16px;
+                    font-style: normal;
+                    font-weight: 400;
+                    line-height: 150%;
+                    margin: 0;
+                    @include media-breakpoint(max-767) {
+                        font-size: 14px;
+                    }
+                }
+            }
+            .popup-content {
+                .membership-card {
+                    padding: 48px 72px;
+                    position: relative;
+                    box-shadow:
+                        0 0 35px rgba(216, 20, 37, 0.3),
+                        0 0 35px rgba(216, 20, 37, 0.3),
+                        0 0 35px rgba(255, 195, 113, 0.3);
+                        background-color: #17273d;
+                    @include media-breakpoint(max-767) {
+                        padding: 32px 24px;
+                    }
+                    &::after {
+                        content: "";
+                        position: absolute;
+                        top: 0;
+                        right: 0;
+                        bottom: 0;
+                        left: 0;
+                        padding: 2px;
+                        border-radius: 24px;
+                        background: linear-gradient(98deg, rgb(216 20 37) 0%, rgb(255 195 113) 130.01%);
+                        background: linear-gradient(98deg, #d81425 0%, #ffc371 130.01%);
+                        -webkit-mask:
+                            linear-gradient(#fff 0, #fff 0) content-box,
+                            linear-gradient(#fff 0, #fff 0);
+                        -webkit-mask:
+                            linear-gradient(#fff 0 0) content-box,
+                            linear-gradient(#fff 0 0);
+                        mask:
+                            linear-gradient(#fff 0, #fff 0) content-box,
+                            linear-gradient(#fff 0, #fff 0);
+                        -webkit-mask:
+                            linear-gradient(#fff 0 0) content-box,
+                            linear-gradient(#fff 0 0);
+                        mask:
+                            linear-gradient(#fff 0 0) content-box,
+                            linear-gradient(#fff 0 0);
+                        -webkit-mask-composite: xor;
+                        mask-composite: exclude;
+                    }
+                }
+                .membership-content {
+                    padding: 0;
+                    .btn-main{
+                        a{
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                            gap: 8px;
+                            i{
+                                font-size: 12px;
+                            }
+                        }
+                    }
+                    .bottom-thumbnail{
+                        max-width: 85%;
+                        width: 100%;
+                        margin: 30px auto 0;
+                        img{
+                            width: 100%;
+                        }
+                    }
+                }
+            }
+            .popup-content.col-2 {
+                .membership-content {
+                    padding: 0;
+                }
+            }
+            .popup-content.col-3 {
+                .membership-content {
+                    padding: 0;
+                }
+            }
+        }
+    }
+    &.left {
+        .pricing-popup {
+            .popup__wrapper {
+                .popup__head {
+                    margin: 0 auto 64px 0;
+                    text-align: left;
+                }
+            }
+        }
+    }
+    &.center {
+        .pricing-popup {
+            .popup__wrapper {
+                .popup__head {
+                    margin: 0 auto 64px;
+                    text-align: center;
+                }
+            }
+        }
+    }
+    &.right {
+        .pricing-popup {
+            .popup__wrapper {
+                .popup__head {
+                    margin: 0 0 64px auto;
+                    text-align: right;
+                }
+            }
+        }
+    }
+}

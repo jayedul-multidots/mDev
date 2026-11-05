@@ -1,0 +1,916 @@
+@import "../../../sass/mixins/breakpoints";
+@import "../../../sass/mixins/variables";
+
+.my-playlist {
+    font-family: "Eudoxus Sans", sans-serif;
+    background-color: $primary-theme-color;
+    padding-top: 140px;
+    padding-bottom: 120px;
+    color: #fff;
+    @include media-breakpoint(max-767) {
+        padding-top: 116px;
+        padding-bottom: 80px;
+    }
+    .recently-added {
+        padding-bottom: 56px;
+        @include media-breakpoint(max-1024) {
+            padding-bottom: 40px;
+        }
+        .recently-added__top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 32px;
+            @include media-breakpoint(max-1024) {
+                margin-bottom: 24px;
+            }
+        }
+        .recently-added__title {
+            color: #fff;
+            font-size: 32px;
+            font-style: normal;
+            font-weight: 700;
+            line-height: 45px;
+            margin: 0;
+            @include media-breakpoint(max-1024) {
+                font-size: 18px;
+                line-height: 27px;
+            }
+            @include media-breakpoint(max-767) {
+                font-size: 16px;
+                line-height: 24px;
+            }
+        }
+        .recently-added__link {
+            color: rgba(255, 255, 255, 0.6);
+            text-align: right;
+            font-size: 16px;
+            font-style: normal;
+            font-weight: 700;
+            line-height: 24px;
+            text-decoration: none;
+            @include media-breakpoint(max-767) {
+                font-size: 14px;
+                line-height: 21px;
+            }
+            &:hover {
+                text-decoration: underline;
+            }
+            p {
+                margin: 0;
+            }
+        }
+        .recently-added__videos {
+            display: flex;
+            gap: 19px;
+
+            @include media-breakpoint(max-1024) {
+                gap: 12px;
+            }
+            @include media-breakpoint(max-767) {
+                gap: 8px;
+                overflow-x: scroll;
+            }
+            .recently-added__video {
+                position: relative;
+                max-width: 266px;
+                max-height: 180px;
+                width: 100%;
+                display: flex;
+                @include media-breakpoint(max-1024) {
+                    max-height: 148px;
+                    max-width: 220px;
+                }
+                @include media-breakpoint(max-767) {
+                    min-width: 160px;
+                    max-height: 120px;
+                    height: auto;
+                }
+                @include media-breakpoint(max-480) {
+                    min-width: 160px;
+                    max-height: 100px;
+                }
+                img {
+                    width: 100%;
+                    max-height: inherit;
+                    border-radius: 32px;
+                    object-fit: cover;
+                    height: 100%;
+                    @include media-breakpoint(max-1024) {
+                        border-radius: 24px;
+                    }
+                    @include media-breakpoint(max-767) {
+                        border-radius: 8px;
+                    }
+                }
+                .recently-added__video-content {
+                    position: absolute;
+                    bottom: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 100%;
+                    visibility: hidden;
+                    opacity: 0;
+                    transition: bottom 0.3s ease-in-out;
+                    text-align: center;
+                    z-index: 1;
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    justify-content: center;
+                    .recently-added__remove-video {
+                        position: absolute;
+                        top: 9px;
+                        right: 9px;
+                        width: 40px;
+                        height: 40px;
+                        display: block;
+                        background-color: #001e4e;
+                        background-repeat: no-repeat;
+                        background-position: center;
+                        background-size: 20px;
+                        background-image: url("./../../../images/close-white.svg");
+                        border-radius: 50%;
+                        cursor: pointer;
+                        @include media-breakpoint(max-1024) {
+                            width: 32px;
+                            height: 32px;
+                            background-size: 14px;
+                            top: 7px;
+                            right: 7px;
+                        }
+                        @include media-breakpoint(max-767) {
+                            width: 28px;
+                            height: 28px;
+                            background-size: 12px;
+                            top: 5px;
+                            right: 5px;
+                        }
+                        .recently-added__remove-video-tooltip {
+                            position: absolute;
+                            top: -50px;
+                            right: 0;
+                            padding: 8px 16px;
+                            border-radius: 20px;
+                            background: #07101d;
+                            color: #fff;
+                            width: max-content;
+                            text-align: center;
+                            transition: 0.3s ease;
+                            font-size: 14px;
+                            display: none;
+                            @include media-breakpoint(max-767) {
+                                display: none !important;
+                            }
+                        }
+                        &:hover {
+                            .recently-added__remove-video-tooltip {
+                                display: block;
+                            }
+                        }
+                    }
+                    .recently-added__video-title {
+                        color: #fff;
+                        text-align: center;
+                        font-size: 16px;
+                        font-style: normal;
+                        font-weight: 700;
+                        line-height: 24px;
+                        margin-bottom: 24px;
+                        display: -webkit-box;
+                        -webkit-line-clamp: 4;
+                        -webkit-box-orient: vertical;
+                        overflow: hidden;
+                        @include media-breakpoint(max-1024) {
+                            font-size: 12px;
+                            line-height: 18px;
+                            margin-bottom: 15px;
+                        }
+                    }
+                    .recently-added__watch-now-btn {
+                        height: 44px;
+                        padding: 9px 24px;
+                        font-size: 12px;
+                        font-style: normal;
+                        font-weight: 700;
+                        line-height: 23px;
+                        text-transform: uppercase;
+                        box-sizing: border-box;
+                        display: flex;
+                        align-items: center;
+                        @include media-breakpoint(max-1024) {
+                            height: 32px;
+                            font-size: 12px;
+                            line-height: 18px;
+                            padding: 6px 24px;
+                        }
+                    }
+                }
+                &:hover {
+                    &::after {
+                        display: block;
+                    }
+                    .recently-added__video-content {
+                        bottom: 50%;
+                        visibility: visible;
+                        opacity: 1;
+                        transform: translateY(50%);
+                        transition: bottom 0.3s ease-in-out;
+                    }
+                }
+                @media only screen and (min-width: 768px) and (max-width: 1299px) {
+                    &:first-child {
+                        .video-hover-popup {
+                            left: -10px;
+                            transform: translateY(-50%);
+                        }
+                    }
+                    &:last-child {
+                        .video-hover-popup {
+                            left: auto;
+                            right: -10px;
+                            transform: translateY(-50%);
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .playlist-listing {
+        color: #fff;
+        box-sizing: border-box;
+        @include media-breakpoint(max-1024) {
+            padding-top: 20px;
+        }
+        .playlist-listing__playlist-tab-wrapper {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            overflow: auto;
+            color: #fff;
+            margin-bottom: 56px;
+            @include media-breakpoint(max-1024) {
+                margin-bottom: 40px;
+            }
+            .playlist-listing__playlist-tab {
+                color: #757575;
+                position: relative;
+                margin: 0 9px;
+                .btn-main {
+                    height: 56px;
+                    padding: 10px 36px;
+                    font-size: 16px;
+                    font-weight: 700;
+                    line-height: 24px;
+                    display: flex;
+                    align-items: center;
+                    @include media-breakpoint(max-1024) {
+                        height: 52px;
+                    }
+                    @include media-breakpoint(max-767) {
+                        height: 44px;
+                        font-size: 14px;
+                        line-height: 21px;
+                        padding: 10px 24px;
+                    }
+                    &.active {
+                        background: linear-gradient(98deg, #d81425 0%, #ffc371 130.01%);
+                    }
+                }
+                &:not(.slick-active) {
+                    @include media-breakpoint(min-1025) {
+                        opacity: 0.5;
+                        pointer-events: none;
+                    }
+                }
+            }
+            .slick-arrow {
+                width: 40px;
+                height: 40px;
+                background-color: #001e4e;
+                background-repeat: no-repeat;
+                background-position: center center;
+                background-image: url("./../../../images/cheveron-right.svg");
+                position: absolute;
+                padding: 0;
+                z-index: 1;
+                display: block;
+                border: none;
+                top: 50%;
+                color: transparent;
+                border-radius: 80px;
+                transform: translateY(-50%);
+                cursor: pointer;
+                opacity: 1;
+                &.slick-next {
+                    right: 0;
+                    transform: translateY(-50%) rotate(-180deg);
+                }
+                &.slick-prev {
+                    left: 0;
+                    transform: translateY(-50%);
+                }
+            }
+            .slick-prev.slick-disabled,
+            .slick-next.slick-disabled {
+                opacity: 0;
+                visibility: hidden;
+            }
+        }
+        .playlist-listing__section-title {
+            margin-bottom: 32px;
+            color: #fff;
+            font-size: 32px;
+            font-style: normal;
+            font-weight: 700;
+            line-height: 45px;
+            @include media-breakpoint(max-1024) {
+                font-size: 18px;
+                line-height: 27px;
+                margin-bottom: 24px;
+            }
+            @include media-breakpoint(max-767) {
+                font-size: 16px;
+                line-height: 24px;
+            }
+        }
+        .playlist-listing__series-section {
+            margin-bottom: 56px;
+            @include media-breakpoint(max-1024) {
+                margin-bottom: 40px;
+            }
+            .playlist-listing__loader {
+                width: 100%;
+                height: 200px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+
+            .playlist-listing__series-wrapper {
+                margin: 0 -9px;
+                @include media-breakpoint(max-1024) {
+                    margin: 0 -6px;
+                }
+                @include media-breakpoint(max-480) {
+                    max-width: 87%;
+                    margin: auto;
+                }
+                .slick-arrow {
+                    width: 40px;
+                    height: 40px;
+                    background-color: #001e4e;
+                    background-repeat: no-repeat;
+                    background-position: center center;
+                    background-image: url("./../../../images/cheveron-right.svg");
+                    position: absolute;
+                    padding: 0;
+                    z-index: 1;
+                    display: block;
+                    border: none;
+                    top: 50%;
+                    color: transparent;
+                    border-radius: 80px;
+                    transform: translateY(-50%);
+                    cursor: pointer;
+                    opacity: 1;
+                    &.slick-next {
+                        right: 10px;
+                        transform: translateY(-50%) rotate(-180deg);
+                    }
+                    &.slick-prev {
+                        left: 10px;
+                        transform: translateY(-50%);
+                    }
+                }
+                .slick-prev.slick-disabled,
+                .slick-next.slick-disabled {
+                    opacity: 0;
+                }
+                .slick-track {
+                    margin: 0;
+                }
+                .slick-dots {
+                    display: flex;
+                    justify-content: center;
+                    margin-top: 24px;
+                    padding: 0;
+                    li {
+                        list-style-type: none;
+                        font-size: 0;
+                        line-height: normal;
+                        button {
+                            width: 10px;
+                            height: 10px;
+                            margin: 0 8px 0 0;
+                            background: 0 0;
+                            border-radius: 12px;
+                            text-indent: -9999px;
+                            cursor: pointer;
+                            background: rgba(255, 255, 255, 0.3);
+                            border: none;
+                            padding: 0;
+                            @include media-breakpoint(max-480) {
+                                width: 8px;
+                                height: 8px;
+                            }
+                        }
+                        &.slick-active {
+                            button {
+                                background: linear-gradient(98deg, #d81425 0%, #ffc371 130.01%);
+                            }
+                        }
+                    }
+                }
+                .playlist-listing__series {
+                    position: relative;
+                    margin: 0 9px;
+                    @include media-breakpoint(max-1024) {
+                        margin: 0 6px;
+                    }
+                    img {
+                        width: 100%;
+                        object-fit: cover;
+                        border-radius: 32px;
+                    }
+                    .playlist-listing__series-content {
+                        position: absolute;
+                        left: 0;
+                        bottom: 0;
+                        padding: 20px 24px;
+                        width: 100%;
+                        box-sizing: border-box;
+                    }
+                    .playlist-listing__series-title {
+                        color: #fff;
+                        text-align: center;
+                        font-size: 40px;
+                        font-style: normal;
+                        font-weight: 800;
+                        line-height: 48px;
+                        letter-spacing: -1.6px;
+                        margin-bottom: 4px;
+                        text-transform: uppercase;
+                        word-break: break-word;
+                        @include media-breakpoint(max-1024) {
+                            font-size: 36px;
+                            line-height: 43px;
+                            letter-spacing: -0.5px;
+                        }
+                        @include media-breakpoint(max-767) {
+                            font-size: 32px;
+                            line-height: 38px;
+                        }
+                        strong {
+                            background: linear-gradient(98deg, #d81425 0%, #ffc371 130.01%);
+                            -webkit-text-fill-color: transparent;
+                            -webkit-background-clip: text;
+                        }
+                    }
+                    .playlist-listing__remove-series {
+                        display: none;
+                        position: absolute;
+                        top: 7px;
+                        right: 7px;
+                        width: 26px;
+                        height: 26px;
+                        background-color: #001e4e;
+                        background-repeat: no-repeat;
+                        background-position: center;
+                        background-size: 14px;
+                        background-image: url("./../../../images/close-white.svg");
+                        border-radius: 50%;
+                        cursor: pointer;
+                        @include media-breakpoint(max-1199) {
+                            width: 24px;
+                            height: 24px;
+                            background-size: 12px;
+                        }
+                        @include media-breakpoint(max-767) {
+                            width: 24px;
+                            height: 24px;
+                            background-size: 12px;
+                            top: 3px;
+                            right: 3px;
+                        }
+                    }
+                    &:hover {
+                        .playlist-listing__remove-series {
+                            display: block;
+                        }
+                    }
+                }
+            }
+
+            .playlist-listing__series-episodes {
+                padding-top: 48px;
+                @include media-breakpoint(max-1024) {
+                    padding-top: 40px;
+                }
+                .playlist-listing__series-episodes-top {
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    margin-bottom: 32px;
+                    @include media-breakpoint(max-1024) {
+                        margin-bottom: 24px;
+                    }
+                    .playlist-listing__section-title {
+                        margin-bottom: 0;
+                    }
+                    .playlist-listing__series-link {
+                        color: rgba(255, 255, 255, 0.6);
+                        text-align: right;
+                        font-size: 16px;
+                        font-style: normal;
+                        font-weight: 700;
+                        line-height: 24px;
+                        text-decoration: none;
+                        @include media-breakpoint(max-767) {
+                            font-size: 14px;
+                            line-height: 21px;
+                        }
+                        &:hover {
+                            text-decoration: underline;
+                        }
+                    }
+                }
+                .playlist-listing__series-episodes-wrapper {
+                    margin: 0 -6px;
+                    @include media-breakpoint(max-1024) {
+                        margin: 0 -4px;
+                    }
+                    .slick-arrow {
+                        width: 40px;
+                        height: 40px;
+                        background-color: #001e4e;
+                        background-repeat: no-repeat;
+                        background-position: center center;
+                        background-image: url("./../../../images/cheveron-right.svg");
+                        position: absolute;
+                        padding: 0;
+                        z-index: 1;
+                        display: block;
+                        border: none;
+                        top: 50%;
+                        color: transparent;
+                        border-radius: 80px;
+                        transform: translateY(-50%);
+                        cursor: pointer;
+                        opacity: 1;
+                        &.slick-next {
+                            right: 0;
+                            transform: translateY(-50%) rotate(-180deg);
+                        }
+                        &.slick-prev {
+                            left: 0;
+                            transform: translateY(-50%);
+                        }
+                    }
+                    .slick-prev.slick-disabled,
+                    .slick-next.slick-disabled {
+                        opacity: 0;
+                    }
+                    .slick-track {
+                        margin: 0;
+                    }
+                    .slick-dots {
+                        display: flex;
+                        justify-content: center;
+                        margin-top: 24px;
+                        padding: 0;
+                        li {
+                            list-style-type: none;
+                            font-size: 0;
+                            line-height: normal;
+                            button {
+                                width: 10px;
+                                height: 10px;
+                                margin: 0 8px 0 0;
+                                background: 0 0;
+                                border-radius: 12px;
+                                text-indent: -9999px;
+                                cursor: pointer;
+                                background: rgba(255, 255, 255, 0.3);
+                                border: none;
+                                padding: 0;
+                                @include media-breakpoint(max-480) {
+                                    width: 8px;
+                                    height: 8px;
+                                }
+                            }
+                            &.slick-active {
+                                button {
+                                    background: linear-gradient(98deg, #d81425 0%, #ffc371 130.01%);
+                                }
+                            }
+                        }
+                    }
+                }
+                .playlist-listing__series-episode {
+                    margin: 0 6px;
+                    width: 100%;
+                    @include media-breakpoint(max-1024) {
+                        margin: 0 4px;
+                    }
+                    .playlist-listing__episode-thumbnail {
+                        height: 140px;
+                        @include media-breakpoint(max-767) {
+                            max-height: inherit;
+                        }
+                        @include media-breakpoint(max-1024) {
+                            height: 112px;
+                        }
+                        @include media-breakpoint(max-767) {
+                            max-height: inherit;
+                        }
+                        @include media-breakpoint(max-480) {
+                            max-height: 130px;
+                        }
+                        @media screen and (max-width: 411px) {
+                            max-height: 104px;
+                        }
+                        img {
+                            border-radius: 24px;
+                            object-fit: cover;
+                            height: inherit;
+                            width: 100%;
+                            @include media-breakpoint(max-1024) {
+                                border-radius: 8px;
+                            }
+                            @include media-breakpoint(max-767) {
+                                max-height: inherit;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        .playlist-listing__video-section {
+            .playlist-listing__video-top {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                margin-bottom: 32px;
+                @include media-breakpoint(max-1024) {
+                    margin-bottom: 24px;
+                }
+                .playlist-listing__section-title {
+                    margin-bottom: 0;
+                }
+                .playlist-listing__video-link {
+                    color: rgba(255, 255, 255, 0.6);
+                    text-align: right;
+                    font-size: 16px;
+                    font-style: normal;
+                    font-weight: 700;
+                    line-height: 24px;
+                    text-decoration: none;
+                    @include media-breakpoint(max-767) {
+                        font-size: 14px;
+                        line-height: 21px;
+                    }
+                    &:hover {
+                        text-decoration: underline;
+                    }
+                }
+            }
+            .playlist-listing__loader {
+                width: 100%;
+                height: 140px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+            .playlist-listing__video-wrapper {
+                // display: flex;
+                margin: 0 -6px;
+                @include media-breakpoint(max-1024) {
+                    margin: 0 -4px;
+                }
+                .slick-arrow {
+                    width: 40px;
+                    height: 40px;
+                    background-color: #001e4e;
+                    background-repeat: no-repeat;
+                    background-position: center center;
+                    background-image: url("./../../../images/cheveron-right.svg");
+                    position: absolute;
+                    padding: 0;
+                    z-index: 1;
+                    display: block;
+                    border: none;
+                    top: 50%;
+                    color: transparent;
+                    border-radius: 80px;
+                    transform: translateY(-50%);
+                    cursor: pointer;
+                    opacity: 1;
+                    @include media-breakpoint(max-1024) {
+                        width: 32px;
+                        height: 32px;
+                    }
+                    &.slick-next {
+                        right: 5px;
+                        transform: translateY(-50%) rotate(-180deg);
+                    }
+                    &.slick-prev {
+                        left: 5px;
+                        transform: translateY(-50%);
+                    }
+                }
+                .slick-prev.slick-disabled,
+                .slick-next.slick-disabled {
+                    opacity: 0;
+                }
+                .slick-track {
+                    margin: 0;
+                }
+                .slick-dots {
+                    display: flex;
+                    justify-content: center;
+                    margin-top: 24px;
+                    padding: 0;
+                    li {
+                        list-style-type: none;
+                        font-size: 0;
+                        line-height: normal;
+                        button {
+                            width: 10px;
+                            height: 10px;
+                            margin: 0 8px 0 0;
+                            background: 0 0;
+                            border-radius: 12px;
+                            text-indent: -9999px;
+                            cursor: pointer;
+                            background: rgba(255, 255, 255, 0.3);
+                            border: none;
+                            padding: 0;
+                            @include media-breakpoint(max-480) {
+                                width: 8px;
+                                height: 8px;
+                            }
+                        }
+                        &.slick-active {
+                            button {
+                                background: linear-gradient(98deg, #d81425 0%, #ffc371 130.01%);
+                            }
+                        }
+                    }
+                }
+            }
+            .playlist-listing__video {
+                margin: 0 6px;
+                width: 100%;
+                position: relative;
+                @include media-breakpoint(max-1024) {
+                    margin: 0 4px;
+                }
+                .playlist-listing__video-thumbnail {
+                    height: 140px;
+                    position: relative;
+                    @include media-breakpoint(max-767) {
+                        max-height: inherit;
+                    }
+                    @include media-breakpoint(max-1024) {
+                        height: 112px;
+                    }
+                    @include media-breakpoint(max-767) {
+                        max-height: inherit;
+                    }
+                    @include media-breakpoint(max-480) {
+                        max-height: 130px;
+                    }
+                    @media screen and (max-width: 411px) {
+                        max-height: 104px;
+                    }
+                    img {
+                        border-radius: 24px;
+                        object-fit: cover;
+                        height: inherit;
+                        width: 100%;
+                        @include media-breakpoint(max-1024) {
+                            border-radius: 8px;
+                        }
+                        @include media-breakpoint(max-767) {
+                            max-height: inherit;
+                        }
+                    }
+                }
+                .playlist-listing__video-content {
+                    position: absolute;
+                    bottom: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 100%;
+                    visibility: hidden;
+                    opacity: 0;
+                    transition: bottom 0.3s ease-in-out;
+                    text-align: center;
+                    z-index: 1;
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    justify-content: center;
+                    .playlist-listing__remove-video {
+                        position: absolute;
+                        top: 7px;
+                        right: 7px;
+                        width: 26px;
+                        height: 26px;
+                        display: block;
+                        background-color: #001e4e;
+                        background-repeat: no-repeat;
+                        background-position: center;
+                        background-size: 14px;
+                        background-image: url("./../../../images/close-white.svg");
+                        border-radius: 50%;
+                        cursor: pointer;
+                        @include media-breakpoint(max-1199) {
+                            width: 24px;
+                            height: 24px;
+                            background-size: 12px;
+                        }
+                        @include media-breakpoint(max-767) {
+                            width: 24px;
+                            height: 24px;
+                            background-size: 12px;
+                            top: 3px;
+                            right: 3px;
+                        }
+                    }
+                    .playlist-listing__video-title {
+                        color: #fff;
+                        text-align: center;
+                        font-size: 16px;
+                        font-style: normal;
+                        font-weight: 700;
+                        line-height: normal;
+                        margin-bottom: 16px;
+                        display: -webkit-box;
+                        -webkit-line-clamp: 4;
+                        -webkit-box-orient: vertical;
+                        overflow: hidden;
+                        @include media-breakpoint(max-1024) {
+                            font-size: 12px;
+                            line-height: 18px;
+                            margin-bottom: 10px;
+                        }
+                    }
+                    .playlist-listing__watch-now-btn {
+                        height: 32px;
+                        padding: 6px 16px;
+                        font-size: 12px;
+                        font-style: normal;
+                        font-weight: 700;
+                        line-height: 18px;
+                        text-transform: uppercase;
+                        box-sizing: border-box;
+                        display: flex;
+                        align-items: center;
+                        @include media-breakpoint(max-1024) {
+                            height: 26px;
+                            font-size: 9px;
+                            line-height: 18px;
+                            padding: 6px 16px;
+                        }
+                    }
+                }
+                &:hover {
+                    .playlist-listing__video-thumbnail {
+                        &::after {
+                            display: block;
+                        }
+                    }
+                    .playlist-listing__video-content {
+                        bottom: 50%;
+                        visibility: visible;
+                        opacity: 1;
+                        transform: translateY(50%);
+                        transition: bottom 0.3s ease-in-out;
+                    }
+                }
+            }
+        }
+    }
+    .playlist-listing-notice {
+        width: 100%;
+        padding: 100px 24px;
+        @include media-breakpoint(max-480) {
+            padding: 50px 0;
+        }
+        p {
+            font-size: 30px;
+            text-align: center;
+            line-height: 42px;
+        }
+    }
+    .playlist-listing-notice-fs {
+        padding: 30px 24px;
+        p {
+            font-size: 20px;
+            text-align: center;
+        }
+    }
+}

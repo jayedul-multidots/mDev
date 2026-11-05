@@ -1,0 +1,90 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "name": "vaultrix/hero-banner",
+  "version": "0.1.0",
+  "title": "Hero Banner",
+  "category": "vaultrix",
+  "icon": "format-image dp-block-icon",
+  "description": "This is Hero Banner block with the text constantly changes animation.",
+  "keywords": [
+    "Hero",
+    "Banner",
+    "Deep Pocket"
+  ],
+  "supports": {
+    "html": false
+  },
+  "textdomain": "vaultrix",
+  "attributes": {
+    "blockID": {
+      "type": "string",
+      "default": ""
+    },
+    "bgImage": {
+      "type": "object",
+      "default": {
+        "id": "",
+        "url": "",
+        "alt": "",
+        "width": "",
+        "height": ""
+      }
+    },
+    "heading": {
+      "type": "string",
+      "default": ""
+    },
+    "description": {
+      "type": "string",
+      "default": ""
+    },
+    "button": {
+      "type": "string",
+      "default": ""
+    },
+    "showButton": {
+      "type": "boolean",
+      "default": true
+    },
+    "showheading": {
+      "type": "boolean",
+      "default": true
+    },
+    "showdesc": {
+      "type": "boolean",
+      "default": true
+    },
+    "bgColor": {
+      "type": "string",
+      "default": ""
+    },
+    "headingColor": {
+      "type": "string",
+      "default": ""
+    },
+    "listItems": {
+      "type": "array",
+      "default": [
+        {
+          "highlightedText": ""
+        }
+      ]
+    },
+    "btnStyle": {
+      "type": "string",
+      "default": "btn-main"
+    },
+    "descriptionColor": {
+      "type": "string",
+      "default": ""
+    },
+    "contentAlignment": {
+      "type": "string",
+      "default": "left"
+    }
+  },
+  "editorScript": "file:./index.js",
+  "editorStyle": "file:./index.css",
+  "style": "file:./style-index.css",
+  "viewScript": "file:./view.js"
+}

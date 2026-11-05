@@ -1,0 +1,907 @@
+/*!*************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[3].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[3].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[3].use[3]!./src/js/blocks/my-playlist/style.scss ***!
+  \*************************************************************************************************************************************************************************************************************************************************************/
+.my-playlist {
+  font-family: "Eudoxus Sans", sans-serif;
+  background-color: #001e4e;
+  padding-top: 140px;
+  padding-bottom: 120px;
+  color: #fff;
+}
+.my-playlist .recently-added {
+  padding-bottom: 56px;
+}
+.my-playlist .recently-added .recently-added__top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 32px;
+}
+.my-playlist .recently-added .recently-added__title {
+  color: #fff;
+  font-size: 32px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 45px;
+  margin: 0;
+}
+.my-playlist .recently-added .recently-added__link {
+  color: rgba(255, 255, 255, 0.6);
+  text-align: right;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 24px;
+  text-decoration: none;
+}
+.my-playlist .recently-added .recently-added__link:hover {
+  text-decoration: underline;
+}
+.my-playlist .recently-added .recently-added__link p {
+  margin: 0;
+}
+.my-playlist .recently-added .recently-added__videos {
+  display: flex;
+  gap: 19px;
+}
+.my-playlist .recently-added .recently-added__videos .recently-added__video {
+  position: relative;
+  max-width: 266px;
+  max-height: 180px;
+  width: 100%;
+  display: flex;
+}
+.my-playlist .recently-added .recently-added__videos .recently-added__video img {
+  width: 100%;
+  max-height: inherit;
+  border-radius: 32px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  height: 100%;
+}
+.my-playlist .recently-added .recently-added__videos .recently-added__video .recently-added__video-content {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  visibility: hidden;
+  opacity: 0;
+  transition: bottom 0.3s ease-in-out;
+  text-align: center;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.my-playlist .recently-added .recently-added__videos .recently-added__video .recently-added__video-content .recently-added__remove-video {
+  position: absolute;
+  top: 9px;
+  right: 9px;
+  width: 40px;
+  height: 40px;
+  display: block;
+  background-color: #001e4e;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 20px;
+  background-image: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAiIGhlaWdodD0iMjAiIHZpZXdCb3g9IjAgMCAyMCAyMCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPGcgaWQ9Ikljb24vU29saWQveCI+CjxwYXRoIGlkPSJJY29uIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiIGNsaXAtcnVsZT0iZXZlbm9kZCIgZD0iTTQuMjkyODkgNC4yOTI4OUM0LjY4MzQyIDMuOTAyMzcgNS4zMTY1OCAzLjkwMjM3IDUuNzA3MTEgNC4yOTI4OUwxMCA4LjU4NTc5TDE0LjI5MjkgNC4yOTI4OUMxNC42ODM0IDMuOTAyMzcgMTUuMzE2NiAzLjkwMjM3IDE1LjcwNzEgNC4yOTI4OUMxNi4wOTc2IDQuNjgzNDIgMTYuMDk3NiA1LjMxNjU4IDE1LjcwNzEgNS43MDcxMUwxMS40MTQyIDEwTDE1LjcwNzEgMTQuMjkyOUMxNi4wOTc2IDE0LjY4MzQgMTYuMDk3NiAxNS4zMTY2IDE1LjcwNzEgMTUuNzA3MUMxNS4zMTY2IDE2LjA5NzYgMTQuNjgzNCAxNi4wOTc2IDE0LjI5MjkgMTUuNzA3MUwxMCAxMS40MTQyTDUuNzA3MTEgMTUuNzA3MUM1LjMxNjU4IDE2LjA5NzYgNC42ODM0MiAxNi4wOTc2IDQuMjkyODkgMTUuNzA3MUMzLjkwMjM3IDE1LjMxNjYgMy45MDIzNyAxNC42ODM0IDQuMjkyODkgMTQuMjkyOUw4LjU4NTc5IDEwTDQuMjkyODkgNS43MDcxMUMzLjkwMjM3IDUuMzE2NTggMy45MDIzNyA0LjY4MzQyIDQuMjkyODkgNC4yOTI4OVoiIGZpbGw9IndoaXRlIi8+CjwvZz4KPC9zdmc+Cg==);
+  border-radius: 50%;
+  cursor: pointer;
+}
+.my-playlist .recently-added .recently-added__videos .recently-added__video .recently-added__video-content .recently-added__remove-video .recently-added__remove-video-tooltip {
+  position: absolute;
+  top: -50px;
+  right: 0;
+  padding: 8px 16px;
+  border-radius: 20px;
+  background: #07101d;
+  color: #fff;
+  width: -moz-max-content;
+  width: max-content;
+  text-align: center;
+  transition: 0.3s ease;
+  font-size: 14px;
+  display: none;
+}
+.my-playlist .recently-added .recently-added__videos .recently-added__video .recently-added__video-content .recently-added__remove-video:hover .recently-added__remove-video-tooltip {
+  display: block;
+}
+.my-playlist .recently-added .recently-added__videos .recently-added__video .recently-added__video-content .recently-added__video-title {
+  color: #fff;
+  text-align: center;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 24px;
+  margin-bottom: 24px;
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.my-playlist .recently-added .recently-added__videos .recently-added__video .recently-added__video-content .recently-added__watch-now-btn {
+  height: 44px;
+  padding: 9px 24px;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 23px;
+  text-transform: uppercase;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+}
+.my-playlist .recently-added .recently-added__videos .recently-added__video:hover::after {
+  display: block;
+}
+.my-playlist .recently-added .recently-added__videos .recently-added__video:hover .recently-added__video-content {
+  bottom: 50%;
+  visibility: visible;
+  opacity: 1;
+  transform: translateY(50%);
+  transition: bottom 0.3s ease-in-out;
+}
+.my-playlist .playlist-listing {
+  color: #fff;
+  box-sizing: border-box;
+}
+.my-playlist .playlist-listing .playlist-listing__playlist-tab-wrapper {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  overflow: auto;
+  color: #fff;
+  margin-bottom: 56px;
+}
+.my-playlist .playlist-listing .playlist-listing__playlist-tab-wrapper .playlist-listing__playlist-tab {
+  color: #757575;
+  position: relative;
+  margin: 0 9px;
+}
+.my-playlist .playlist-listing .playlist-listing__playlist-tab-wrapper .playlist-listing__playlist-tab .btn-main {
+  height: 56px;
+  padding: 10px 36px;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 24px;
+  display: flex;
+  align-items: center;
+}
+.my-playlist .playlist-listing .playlist-listing__playlist-tab-wrapper .playlist-listing__playlist-tab .btn-main.active {
+  background: linear-gradient(98deg, #d81425 0%, #ffc371 130.01%);
+}
+.my-playlist .playlist-listing .playlist-listing__playlist-tab-wrapper .slick-arrow {
+  width: 40px;
+  height: 40px;
+  background-color: #001e4e;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-image: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAiIGhlaWdodD0iMjAiIHZpZXdCb3g9IjAgMCAyMCAyMCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPGcgaWQ9Ikljb24vT3V0bGluZS9jaGV2ZXJvbi1yaWdodCI+CjxwYXRoIGlkPSJJY29uIiBkPSJNMTIuNSA0LjE2NjY1TDYuNjY2NjcgOS45OTk5OEwxMi41IDE1LjgzMzMiIHN0cm9rZT0id2hpdGUiIHN0cm9rZS13aWR0aD0iMS42NjY2NyIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIi8+CjwvZz4KPC9zdmc+Cg==);
+  position: absolute;
+  padding: 0;
+  z-index: 1;
+  display: block;
+  border: none;
+  top: 50%;
+  color: transparent;
+  border-radius: 80px;
+  transform: translateY(-50%);
+  cursor: pointer;
+  opacity: 1;
+}
+.my-playlist .playlist-listing .playlist-listing__playlist-tab-wrapper .slick-arrow.slick-next {
+  right: 0;
+  transform: translateY(-50%) rotate(-180deg);
+}
+.my-playlist .playlist-listing .playlist-listing__playlist-tab-wrapper .slick-arrow.slick-prev {
+  left: 0;
+  transform: translateY(-50%);
+}
+.my-playlist .playlist-listing .playlist-listing__playlist-tab-wrapper .slick-prev.slick-disabled,
+.my-playlist .playlist-listing .playlist-listing__playlist-tab-wrapper .slick-next.slick-disabled {
+  opacity: 0;
+  visibility: hidden;
+}
+.my-playlist .playlist-listing .playlist-listing__section-title {
+  margin-bottom: 32px;
+  color: #fff;
+  font-size: 32px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 45px;
+}
+.my-playlist .playlist-listing .playlist-listing__series-section {
+  margin-bottom: 56px;
+}
+.my-playlist .playlist-listing .playlist-listing__series-section .playlist-listing__loader {
+  width: 100%;
+  height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.my-playlist .playlist-listing .playlist-listing__series-section .playlist-listing__series-wrapper {
+  margin: 0 -9px;
+}
+.my-playlist .playlist-listing .playlist-listing__series-section .playlist-listing__series-wrapper .slick-arrow {
+  width: 40px;
+  height: 40px;
+  background-color: #001e4e;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-image: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAiIGhlaWdodD0iMjAiIHZpZXdCb3g9IjAgMCAyMCAyMCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPGcgaWQ9Ikljb24vT3V0bGluZS9jaGV2ZXJvbi1yaWdodCI+CjxwYXRoIGlkPSJJY29uIiBkPSJNMTIuNSA0LjE2NjY1TDYuNjY2NjcgOS45OTk5OEwxMi41IDE1LjgzMzMiIHN0cm9rZT0id2hpdGUiIHN0cm9rZS13aWR0aD0iMS42NjY2NyIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIi8+CjwvZz4KPC9zdmc+Cg==);
+  position: absolute;
+  padding: 0;
+  z-index: 1;
+  display: block;
+  border: none;
+  top: 50%;
+  color: transparent;
+  border-radius: 80px;
+  transform: translateY(-50%);
+  cursor: pointer;
+  opacity: 1;
+}
+.my-playlist .playlist-listing .playlist-listing__series-section .playlist-listing__series-wrapper .slick-arrow.slick-next {
+  right: 10px;
+  transform: translateY(-50%) rotate(-180deg);
+}
+.my-playlist .playlist-listing .playlist-listing__series-section .playlist-listing__series-wrapper .slick-arrow.slick-prev {
+  left: 10px;
+  transform: translateY(-50%);
+}
+.my-playlist .playlist-listing .playlist-listing__series-section .playlist-listing__series-wrapper .slick-prev.slick-disabled,
+.my-playlist .playlist-listing .playlist-listing__series-section .playlist-listing__series-wrapper .slick-next.slick-disabled {
+  opacity: 0;
+}
+.my-playlist .playlist-listing .playlist-listing__series-section .playlist-listing__series-wrapper .slick-track {
+  margin: 0;
+}
+.my-playlist .playlist-listing .playlist-listing__series-section .playlist-listing__series-wrapper .slick-dots {
+  display: flex;
+  justify-content: center;
+  margin-top: 24px;
+  padding: 0;
+}
+.my-playlist .playlist-listing .playlist-listing__series-section .playlist-listing__series-wrapper .slick-dots li {
+  list-style-type: none;
+  font-size: 0;
+  line-height: normal;
+}
+.my-playlist .playlist-listing .playlist-listing__series-section .playlist-listing__series-wrapper .slick-dots li button {
+  width: 10px;
+  height: 10px;
+  margin: 0 8px 0 0;
+  background: 0 0;
+  border-radius: 12px;
+  text-indent: -9999px;
+  cursor: pointer;
+  background: rgba(255, 255, 255, 0.3);
+  border: none;
+  padding: 0;
+}
+.my-playlist .playlist-listing .playlist-listing__series-section .playlist-listing__series-wrapper .slick-dots li.slick-active button {
+  background: linear-gradient(98deg, #d81425 0%, #ffc371 130.01%);
+}
+.my-playlist .playlist-listing .playlist-listing__series-section .playlist-listing__series-wrapper .playlist-listing__series {
+  position: relative;
+  margin: 0 9px;
+}
+.my-playlist .playlist-listing .playlist-listing__series-section .playlist-listing__series-wrapper .playlist-listing__series img {
+  width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  border-radius: 32px;
+}
+.my-playlist .playlist-listing .playlist-listing__series-section .playlist-listing__series-wrapper .playlist-listing__series .playlist-listing__series-content {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  padding: 20px 24px;
+  width: 100%;
+  box-sizing: border-box;
+}
+.my-playlist .playlist-listing .playlist-listing__series-section .playlist-listing__series-wrapper .playlist-listing__series .playlist-listing__series-title {
+  color: #fff;
+  text-align: center;
+  font-size: 40px;
+  font-style: normal;
+  font-weight: 800;
+  line-height: 48px;
+  letter-spacing: -1.6px;
+  margin-bottom: 4px;
+  text-transform: uppercase;
+  word-break: break-word;
+}
+.my-playlist .playlist-listing .playlist-listing__series-section .playlist-listing__series-wrapper .playlist-listing__series .playlist-listing__series-title strong {
+  background: linear-gradient(98deg, #d81425 0%, #ffc371 130.01%);
+  -webkit-text-fill-color: transparent;
+  -webkit-background-clip: text;
+}
+.my-playlist .playlist-listing .playlist-listing__series-section .playlist-listing__series-wrapper .playlist-listing__series .playlist-listing__remove-series {
+  display: none;
+  position: absolute;
+  top: 7px;
+  right: 7px;
+  width: 26px;
+  height: 26px;
+  background-color: #001e4e;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 14px;
+  background-image: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAiIGhlaWdodD0iMjAiIHZpZXdCb3g9IjAgMCAyMCAyMCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPGcgaWQ9Ikljb24vU29saWQveCI+CjxwYXRoIGlkPSJJY29uIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiIGNsaXAtcnVsZT0iZXZlbm9kZCIgZD0iTTQuMjkyODkgNC4yOTI4OUM0LjY4MzQyIDMuOTAyMzcgNS4zMTY1OCAzLjkwMjM3IDUuNzA3MTEgNC4yOTI4OUwxMCA4LjU4NTc5TDE0LjI5MjkgNC4yOTI4OUMxNC42ODM0IDMuOTAyMzcgMTUuMzE2NiAzLjkwMjM3IDE1LjcwNzEgNC4yOTI4OUMxNi4wOTc2IDQuNjgzNDIgMTYuMDk3NiA1LjMxNjU4IDE1LjcwNzEgNS43MDcxMUwxMS40MTQyIDEwTDE1LjcwNzEgMTQuMjkyOUMxNi4wOTc2IDE0LjY4MzQgMTYuMDk3NiAxNS4zMTY2IDE1LjcwNzEgMTUuNzA3MUMxNS4zMTY2IDE2LjA5NzYgMTQuNjgzNCAxNi4wOTc2IDE0LjI5MjkgMTUuNzA3MUwxMCAxMS40MTQyTDUuNzA3MTEgMTUuNzA3MUM1LjMxNjU4IDE2LjA5NzYgNC42ODM0MiAxNi4wOTc2IDQuMjkyODkgMTUuNzA3MUMzLjkwMjM3IDE1LjMxNjYgMy45MDIzNyAxNC42ODM0IDQuMjkyODkgMTQuMjkyOUw4LjU4NTc5IDEwTDQuMjkyODkgNS43MDcxMUMzLjkwMjM3IDUuMzE2NTggMy45MDIzNyA0LjY4MzQyIDQuMjkyODkgNC4yOTI4OVoiIGZpbGw9IndoaXRlIi8+CjwvZz4KPC9zdmc+Cg==);
+  border-radius: 50%;
+  cursor: pointer;
+}
+.my-playlist .playlist-listing .playlist-listing__series-section .playlist-listing__series-wrapper .playlist-listing__series:hover .playlist-listing__remove-series {
+  display: block;
+}
+.my-playlist .playlist-listing .playlist-listing__series-section .playlist-listing__series-episodes {
+  padding-top: 48px;
+}
+.my-playlist .playlist-listing .playlist-listing__series-section .playlist-listing__series-episodes .playlist-listing__series-episodes-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 32px;
+}
+.my-playlist .playlist-listing .playlist-listing__series-section .playlist-listing__series-episodes .playlist-listing__series-episodes-top .playlist-listing__section-title {
+  margin-bottom: 0;
+}
+.my-playlist .playlist-listing .playlist-listing__series-section .playlist-listing__series-episodes .playlist-listing__series-episodes-top .playlist-listing__series-link {
+  color: rgba(255, 255, 255, 0.6);
+  text-align: right;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 24px;
+  text-decoration: none;
+}
+.my-playlist .playlist-listing .playlist-listing__series-section .playlist-listing__series-episodes .playlist-listing__series-episodes-top .playlist-listing__series-link:hover {
+  text-decoration: underline;
+}
+.my-playlist .playlist-listing .playlist-listing__series-section .playlist-listing__series-episodes .playlist-listing__series-episodes-wrapper {
+  margin: 0 -6px;
+}
+.my-playlist .playlist-listing .playlist-listing__series-section .playlist-listing__series-episodes .playlist-listing__series-episodes-wrapper .slick-arrow {
+  width: 40px;
+  height: 40px;
+  background-color: #001e4e;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-image: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAiIGhlaWdodD0iMjAiIHZpZXdCb3g9IjAgMCAyMCAyMCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPGcgaWQ9Ikljb24vT3V0bGluZS9jaGV2ZXJvbi1yaWdodCI+CjxwYXRoIGlkPSJJY29uIiBkPSJNMTIuNSA0LjE2NjY1TDYuNjY2NjcgOS45OTk5OEwxMi41IDE1LjgzMzMiIHN0cm9rZT0id2hpdGUiIHN0cm9rZS13aWR0aD0iMS42NjY2NyIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIi8+CjwvZz4KPC9zdmc+Cg==);
+  position: absolute;
+  padding: 0;
+  z-index: 1;
+  display: block;
+  border: none;
+  top: 50%;
+  color: transparent;
+  border-radius: 80px;
+  transform: translateY(-50%);
+  cursor: pointer;
+  opacity: 1;
+}
+.my-playlist .playlist-listing .playlist-listing__series-section .playlist-listing__series-episodes .playlist-listing__series-episodes-wrapper .slick-arrow.slick-next {
+  right: 0;
+  transform: translateY(-50%) rotate(-180deg);
+}
+.my-playlist .playlist-listing .playlist-listing__series-section .playlist-listing__series-episodes .playlist-listing__series-episodes-wrapper .slick-arrow.slick-prev {
+  left: 0;
+  transform: translateY(-50%);
+}
+.my-playlist .playlist-listing .playlist-listing__series-section .playlist-listing__series-episodes .playlist-listing__series-episodes-wrapper .slick-prev.slick-disabled,
+.my-playlist .playlist-listing .playlist-listing__series-section .playlist-listing__series-episodes .playlist-listing__series-episodes-wrapper .slick-next.slick-disabled {
+  opacity: 0;
+}
+.my-playlist .playlist-listing .playlist-listing__series-section .playlist-listing__series-episodes .playlist-listing__series-episodes-wrapper .slick-track {
+  margin: 0;
+}
+.my-playlist .playlist-listing .playlist-listing__series-section .playlist-listing__series-episodes .playlist-listing__series-episodes-wrapper .slick-dots {
+  display: flex;
+  justify-content: center;
+  margin-top: 24px;
+  padding: 0;
+}
+.my-playlist .playlist-listing .playlist-listing__series-section .playlist-listing__series-episodes .playlist-listing__series-episodes-wrapper .slick-dots li {
+  list-style-type: none;
+  font-size: 0;
+  line-height: normal;
+}
+.my-playlist .playlist-listing .playlist-listing__series-section .playlist-listing__series-episodes .playlist-listing__series-episodes-wrapper .slick-dots li button {
+  width: 10px;
+  height: 10px;
+  margin: 0 8px 0 0;
+  background: 0 0;
+  border-radius: 12px;
+  text-indent: -9999px;
+  cursor: pointer;
+  background: rgba(255, 255, 255, 0.3);
+  border: none;
+  padding: 0;
+}
+.my-playlist .playlist-listing .playlist-listing__series-section .playlist-listing__series-episodes .playlist-listing__series-episodes-wrapper .slick-dots li.slick-active button {
+  background: linear-gradient(98deg, #d81425 0%, #ffc371 130.01%);
+}
+.my-playlist .playlist-listing .playlist-listing__series-section .playlist-listing__series-episodes .playlist-listing__series-episode {
+  margin: 0 6px;
+  width: 100%;
+}
+.my-playlist .playlist-listing .playlist-listing__series-section .playlist-listing__series-episodes .playlist-listing__series-episode .playlist-listing__episode-thumbnail {
+  height: 140px;
+}
+.my-playlist .playlist-listing .playlist-listing__series-section .playlist-listing__series-episodes .playlist-listing__series-episode .playlist-listing__episode-thumbnail img {
+  border-radius: 24px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  height: inherit;
+  width: 100%;
+}
+.my-playlist .playlist-listing .playlist-listing__video-section .playlist-listing__video-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 32px;
+}
+.my-playlist .playlist-listing .playlist-listing__video-section .playlist-listing__video-top .playlist-listing__section-title {
+  margin-bottom: 0;
+}
+.my-playlist .playlist-listing .playlist-listing__video-section .playlist-listing__video-top .playlist-listing__video-link {
+  color: rgba(255, 255, 255, 0.6);
+  text-align: right;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 24px;
+  text-decoration: none;
+}
+.my-playlist .playlist-listing .playlist-listing__video-section .playlist-listing__video-top .playlist-listing__video-link:hover {
+  text-decoration: underline;
+}
+.my-playlist .playlist-listing .playlist-listing__video-section .playlist-listing__loader {
+  width: 100%;
+  height: 140px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.my-playlist .playlist-listing .playlist-listing__video-section .playlist-listing__video-wrapper {
+  margin: 0 -6px;
+}
+.my-playlist .playlist-listing .playlist-listing__video-section .playlist-listing__video-wrapper .slick-arrow {
+  width: 40px;
+  height: 40px;
+  background-color: #001e4e;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-image: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAiIGhlaWdodD0iMjAiIHZpZXdCb3g9IjAgMCAyMCAyMCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPGcgaWQ9Ikljb24vT3V0bGluZS9jaGV2ZXJvbi1yaWdodCI+CjxwYXRoIGlkPSJJY29uIiBkPSJNMTIuNSA0LjE2NjY1TDYuNjY2NjcgOS45OTk5OEwxMi41IDE1LjgzMzMiIHN0cm9rZT0id2hpdGUiIHN0cm9rZS13aWR0aD0iMS42NjY2NyIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIi8+CjwvZz4KPC9zdmc+Cg==);
+  position: absolute;
+  padding: 0;
+  z-index: 1;
+  display: block;
+  border: none;
+  top: 50%;
+  color: transparent;
+  border-radius: 80px;
+  transform: translateY(-50%);
+  cursor: pointer;
+  opacity: 1;
+}
+.my-playlist .playlist-listing .playlist-listing__video-section .playlist-listing__video-wrapper .slick-arrow.slick-next {
+  right: 5px;
+  transform: translateY(-50%) rotate(-180deg);
+}
+.my-playlist .playlist-listing .playlist-listing__video-section .playlist-listing__video-wrapper .slick-arrow.slick-prev {
+  left: 5px;
+  transform: translateY(-50%);
+}
+.my-playlist .playlist-listing .playlist-listing__video-section .playlist-listing__video-wrapper .slick-prev.slick-disabled,
+.my-playlist .playlist-listing .playlist-listing__video-section .playlist-listing__video-wrapper .slick-next.slick-disabled {
+  opacity: 0;
+}
+.my-playlist .playlist-listing .playlist-listing__video-section .playlist-listing__video-wrapper .slick-track {
+  margin: 0;
+}
+.my-playlist .playlist-listing .playlist-listing__video-section .playlist-listing__video-wrapper .slick-dots {
+  display: flex;
+  justify-content: center;
+  margin-top: 24px;
+  padding: 0;
+}
+.my-playlist .playlist-listing .playlist-listing__video-section .playlist-listing__video-wrapper .slick-dots li {
+  list-style-type: none;
+  font-size: 0;
+  line-height: normal;
+}
+.my-playlist .playlist-listing .playlist-listing__video-section .playlist-listing__video-wrapper .slick-dots li button {
+  width: 10px;
+  height: 10px;
+  margin: 0 8px 0 0;
+  background: 0 0;
+  border-radius: 12px;
+  text-indent: -9999px;
+  cursor: pointer;
+  background: rgba(255, 255, 255, 0.3);
+  border: none;
+  padding: 0;
+}
+.my-playlist .playlist-listing .playlist-listing__video-section .playlist-listing__video-wrapper .slick-dots li.slick-active button {
+  background: linear-gradient(98deg, #d81425 0%, #ffc371 130.01%);
+}
+.my-playlist .playlist-listing .playlist-listing__video-section .playlist-listing__video {
+  margin: 0 6px;
+  width: 100%;
+  position: relative;
+}
+.my-playlist .playlist-listing .playlist-listing__video-section .playlist-listing__video .playlist-listing__video-thumbnail {
+  height: 140px;
+  position: relative;
+}
+.my-playlist .playlist-listing .playlist-listing__video-section .playlist-listing__video .playlist-listing__video-thumbnail img {
+  border-radius: 24px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  height: inherit;
+  width: 100%;
+}
+.my-playlist .playlist-listing .playlist-listing__video-section .playlist-listing__video .playlist-listing__video-content {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  visibility: hidden;
+  opacity: 0;
+  transition: bottom 0.3s ease-in-out;
+  text-align: center;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.my-playlist .playlist-listing .playlist-listing__video-section .playlist-listing__video .playlist-listing__video-content .playlist-listing__remove-video {
+  position: absolute;
+  top: 7px;
+  right: 7px;
+  width: 26px;
+  height: 26px;
+  display: block;
+  background-color: #001e4e;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 14px;
+  background-image: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAiIGhlaWdodD0iMjAiIHZpZXdCb3g9IjAgMCAyMCAyMCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPGcgaWQ9Ikljb24vU29saWQveCI+CjxwYXRoIGlkPSJJY29uIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiIGNsaXAtcnVsZT0iZXZlbm9kZCIgZD0iTTQuMjkyODkgNC4yOTI4OUM0LjY4MzQyIDMuOTAyMzcgNS4zMTY1OCAzLjkwMjM3IDUuNzA3MTEgNC4yOTI4OUwxMCA4LjU4NTc5TDE0LjI5MjkgNC4yOTI4OUMxNC42ODM0IDMuOTAyMzcgMTUuMzE2NiAzLjkwMjM3IDE1LjcwNzEgNC4yOTI4OUMxNi4wOTc2IDQuNjgzNDIgMTYuMDk3NiA1LjMxNjU4IDE1LjcwNzEgNS43MDcxMUwxMS40MTQyIDEwTDE1LjcwNzEgMTQuMjkyOUMxNi4wOTc2IDE0LjY4MzQgMTYuMDk3NiAxNS4zMTY2IDE1LjcwNzEgMTUuNzA3MUMxNS4zMTY2IDE2LjA5NzYgMTQuNjgzNCAxNi4wOTc2IDE0LjI5MjkgMTUuNzA3MUwxMCAxMS40MTQyTDUuNzA3MTEgMTUuNzA3MUM1LjMxNjU4IDE2LjA5NzYgNC42ODM0MiAxNi4wOTc2IDQuMjkyODkgMTUuNzA3MUMzLjkwMjM3IDE1LjMxNjYgMy45MDIzNyAxNC42ODM0IDQuMjkyODkgMTQuMjkyOUw4LjU4NTc5IDEwTDQuMjkyODkgNS43MDcxMUMzLjkwMjM3IDUuMzE2NTggMy45MDIzNyA0LjY4MzQyIDQuMjkyODkgNC4yOTI4OVoiIGZpbGw9IndoaXRlIi8+CjwvZz4KPC9zdmc+Cg==);
+  border-radius: 50%;
+  cursor: pointer;
+}
+.my-playlist .playlist-listing .playlist-listing__video-section .playlist-listing__video .playlist-listing__video-content .playlist-listing__video-title {
+  color: #fff;
+  text-align: center;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  margin-bottom: 16px;
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.my-playlist .playlist-listing .playlist-listing__video-section .playlist-listing__video .playlist-listing__video-content .playlist-listing__watch-now-btn {
+  height: 32px;
+  padding: 6px 16px;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 18px;
+  text-transform: uppercase;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+}
+.my-playlist .playlist-listing .playlist-listing__video-section .playlist-listing__video:hover .playlist-listing__video-thumbnail::after {
+  display: block;
+}
+.my-playlist .playlist-listing .playlist-listing__video-section .playlist-listing__video:hover .playlist-listing__video-content {
+  bottom: 50%;
+  visibility: visible;
+  opacity: 1;
+  transform: translateY(50%);
+  transition: bottom 0.3s ease-in-out;
+}
+.my-playlist .playlist-listing-notice {
+  width: 100%;
+  padding: 100px 24px;
+}
+.my-playlist .playlist-listing-notice p {
+  font-size: 30px;
+  text-align: center;
+  line-height: 42px;
+}
+.my-playlist .playlist-listing-notice-fs {
+  padding: 30px 24px;
+}
+.my-playlist .playlist-listing-notice-fs p {
+  font-size: 20px;
+  text-align: center;
+}
+@media only screen and (min-width: 768px) and (max-width: 1299px) {
+  .my-playlist .recently-added .recently-added__videos .recently-added__video:first-child .video-hover-popup {
+    left: -10px;
+    transform: translateY(-50%);
+  }
+  .my-playlist .recently-added .recently-added__videos .recently-added__video:last-child .video-hover-popup {
+    left: auto;
+    right: -10px;
+    transform: translateY(-50%);
+  }
+}
+@media (min-width: 1025px) {
+  .my-playlist .playlist-listing .playlist-listing__playlist-tab-wrapper .playlist-listing__playlist-tab:not(.slick-active) {
+    opacity: 0.5;
+    pointer-events: none;
+  }
+}
+@media (max-width: 1199px) {
+  .my-playlist .playlist-listing .playlist-listing__series-section .playlist-listing__series-wrapper .playlist-listing__series .playlist-listing__remove-series {
+    width: 24px;
+    height: 24px;
+    background-size: 12px;
+  }
+  .my-playlist .playlist-listing .playlist-listing__video-section .playlist-listing__video .playlist-listing__video-content .playlist-listing__remove-video {
+    width: 24px;
+    height: 24px;
+    background-size: 12px;
+  }
+}
+@media (max-width: 1024px) {
+  .my-playlist .recently-added {
+    padding-bottom: 40px;
+  }
+  .my-playlist .recently-added .recently-added__top {
+    margin-bottom: 24px;
+  }
+  .my-playlist .recently-added .recently-added__title {
+    font-size: 18px;
+    line-height: 27px;
+  }
+  .my-playlist .recently-added .recently-added__videos {
+    gap: 12px;
+  }
+  .my-playlist .recently-added .recently-added__videos .recently-added__video {
+    max-height: 148px;
+    max-width: 220px;
+  }
+  .my-playlist .recently-added .recently-added__videos .recently-added__video img {
+    border-radius: 24px;
+  }
+  .my-playlist .recently-added .recently-added__videos .recently-added__video .recently-added__video-content .recently-added__remove-video {
+    width: 32px;
+    height: 32px;
+    background-size: 14px;
+    top: 7px;
+    right: 7px;
+  }
+  .my-playlist .recently-added .recently-added__videos .recently-added__video .recently-added__video-content .recently-added__video-title {
+    font-size: 12px;
+    line-height: 18px;
+    margin-bottom: 15px;
+  }
+  .my-playlist .recently-added .recently-added__videos .recently-added__video .recently-added__video-content .recently-added__watch-now-btn {
+    height: 32px;
+    font-size: 12px;
+    line-height: 18px;
+    padding: 6px 24px;
+  }
+  .my-playlist .playlist-listing {
+    padding-top: 20px;
+  }
+  .my-playlist .playlist-listing .playlist-listing__playlist-tab-wrapper {
+    margin-bottom: 40px;
+  }
+  .my-playlist .playlist-listing .playlist-listing__playlist-tab-wrapper .playlist-listing__playlist-tab .btn-main {
+    height: 52px;
+  }
+  .my-playlist .playlist-listing .playlist-listing__section-title {
+    font-size: 18px;
+    line-height: 27px;
+    margin-bottom: 24px;
+  }
+  .my-playlist .playlist-listing .playlist-listing__series-section {
+    margin-bottom: 40px;
+  }
+  .my-playlist .playlist-listing .playlist-listing__series-section .playlist-listing__series-wrapper {
+    margin: 0 -6px;
+  }
+  .my-playlist .playlist-listing .playlist-listing__series-section .playlist-listing__series-wrapper .playlist-listing__series {
+    margin: 0 6px;
+  }
+  .my-playlist .playlist-listing .playlist-listing__series-section .playlist-listing__series-wrapper .playlist-listing__series .playlist-listing__series-title {
+    font-size: 36px;
+    line-height: 43px;
+    letter-spacing: -0.5px;
+  }
+  .my-playlist .playlist-listing .playlist-listing__series-section .playlist-listing__series-episodes {
+    padding-top: 40px;
+  }
+  .my-playlist .playlist-listing .playlist-listing__series-section .playlist-listing__series-episodes .playlist-listing__series-episodes-top {
+    margin-bottom: 24px;
+  }
+  .my-playlist .playlist-listing .playlist-listing__series-section .playlist-listing__series-episodes .playlist-listing__series-episodes-wrapper {
+    margin: 0 -4px;
+  }
+  .my-playlist .playlist-listing .playlist-listing__series-section .playlist-listing__series-episodes .playlist-listing__series-episode {
+    margin: 0 4px;
+  }
+  .my-playlist .playlist-listing .playlist-listing__series-section .playlist-listing__series-episodes .playlist-listing__series-episode .playlist-listing__episode-thumbnail {
+    height: 112px;
+  }
+  .my-playlist .playlist-listing .playlist-listing__series-section .playlist-listing__series-episodes .playlist-listing__series-episode .playlist-listing__episode-thumbnail img {
+    border-radius: 8px;
+  }
+  .my-playlist .playlist-listing .playlist-listing__video-section .playlist-listing__video-top {
+    margin-bottom: 24px;
+  }
+  .my-playlist .playlist-listing .playlist-listing__video-section .playlist-listing__video-wrapper {
+    margin: 0 -4px;
+  }
+  .my-playlist .playlist-listing .playlist-listing__video-section .playlist-listing__video-wrapper .slick-arrow {
+    width: 32px;
+    height: 32px;
+  }
+  .my-playlist .playlist-listing .playlist-listing__video-section .playlist-listing__video {
+    margin: 0 4px;
+  }
+  .my-playlist .playlist-listing .playlist-listing__video-section .playlist-listing__video .playlist-listing__video-thumbnail {
+    height: 112px;
+  }
+  .my-playlist .playlist-listing .playlist-listing__video-section .playlist-listing__video .playlist-listing__video-thumbnail img {
+    border-radius: 8px;
+  }
+  .my-playlist .playlist-listing .playlist-listing__video-section .playlist-listing__video .playlist-listing__video-content .playlist-listing__video-title {
+    font-size: 12px;
+    line-height: 18px;
+    margin-bottom: 10px;
+  }
+  .my-playlist .playlist-listing .playlist-listing__video-section .playlist-listing__video .playlist-listing__video-content .playlist-listing__watch-now-btn {
+    height: 26px;
+    font-size: 9px;
+    line-height: 18px;
+    padding: 6px 16px;
+  }
+}
+@media (max-width: 767px) {
+  .my-playlist {
+    padding-top: 116px;
+    padding-bottom: 80px;
+  }
+  .my-playlist .recently-added .recently-added__title {
+    font-size: 16px;
+    line-height: 24px;
+  }
+  .my-playlist .recently-added .recently-added__link {
+    font-size: 14px;
+    line-height: 21px;
+  }
+  .my-playlist .recently-added .recently-added__videos {
+    gap: 8px;
+    overflow-x: scroll;
+  }
+  .my-playlist .recently-added .recently-added__videos .recently-added__video {
+    min-width: 160px;
+    max-height: 120px;
+    height: auto;
+  }
+  .my-playlist .recently-added .recently-added__videos .recently-added__video img {
+    border-radius: 8px;
+  }
+  .my-playlist .recently-added .recently-added__videos .recently-added__video .recently-added__video-content .recently-added__remove-video {
+    width: 28px;
+    height: 28px;
+    background-size: 12px;
+    top: 5px;
+    right: 5px;
+  }
+  .my-playlist .recently-added .recently-added__videos .recently-added__video .recently-added__video-content .recently-added__remove-video .recently-added__remove-video-tooltip {
+    display: none !important;
+  }
+  .my-playlist .playlist-listing .playlist-listing__playlist-tab-wrapper .playlist-listing__playlist-tab .btn-main {
+    height: 44px;
+    font-size: 14px;
+    line-height: 21px;
+    padding: 10px 24px;
+  }
+  .my-playlist .playlist-listing .playlist-listing__section-title {
+    font-size: 16px;
+    line-height: 24px;
+  }
+  .my-playlist .playlist-listing .playlist-listing__series-section .playlist-listing__series-wrapper .playlist-listing__series .playlist-listing__series-title {
+    font-size: 32px;
+    line-height: 38px;
+  }
+  .my-playlist .playlist-listing .playlist-listing__series-section .playlist-listing__series-wrapper .playlist-listing__series .playlist-listing__remove-series {
+    width: 24px;
+    height: 24px;
+    background-size: 12px;
+    top: 3px;
+    right: 3px;
+  }
+  .my-playlist .playlist-listing .playlist-listing__series-section .playlist-listing__series-episodes .playlist-listing__series-episodes-top .playlist-listing__series-link {
+    font-size: 14px;
+    line-height: 21px;
+  }
+  .my-playlist .playlist-listing .playlist-listing__series-section .playlist-listing__series-episodes .playlist-listing__series-episode .playlist-listing__episode-thumbnail {
+    max-height: inherit;
+  }
+  .my-playlist .playlist-listing .playlist-listing__series-section .playlist-listing__series-episodes .playlist-listing__series-episode .playlist-listing__episode-thumbnail {
+    max-height: inherit;
+  }
+  .my-playlist .playlist-listing .playlist-listing__series-section .playlist-listing__series-episodes .playlist-listing__series-episode .playlist-listing__episode-thumbnail img {
+    max-height: inherit;
+  }
+  .my-playlist .playlist-listing .playlist-listing__video-section .playlist-listing__video-top .playlist-listing__video-link {
+    font-size: 14px;
+    line-height: 21px;
+  }
+  .my-playlist .playlist-listing .playlist-listing__video-section .playlist-listing__video .playlist-listing__video-thumbnail {
+    max-height: inherit;
+  }
+  .my-playlist .playlist-listing .playlist-listing__video-section .playlist-listing__video .playlist-listing__video-thumbnail {
+    max-height: inherit;
+  }
+  .my-playlist .playlist-listing .playlist-listing__video-section .playlist-listing__video .playlist-listing__video-thumbnail img {
+    max-height: inherit;
+  }
+  .my-playlist .playlist-listing .playlist-listing__video-section .playlist-listing__video .playlist-listing__video-content .playlist-listing__remove-video {
+    width: 24px;
+    height: 24px;
+    background-size: 12px;
+    top: 3px;
+    right: 3px;
+  }
+}
+@media (max-width: 480px) {
+  .my-playlist .recently-added .recently-added__videos .recently-added__video {
+    min-width: 160px;
+    max-height: 100px;
+  }
+  .my-playlist .playlist-listing .playlist-listing__series-section .playlist-listing__series-wrapper {
+    max-width: 87%;
+    margin: auto;
+  }
+  .my-playlist .playlist-listing .playlist-listing__series-section .playlist-listing__series-wrapper .slick-dots li button {
+    width: 8px;
+    height: 8px;
+  }
+  .my-playlist .playlist-listing .playlist-listing__series-section .playlist-listing__series-episodes .playlist-listing__series-episodes-wrapper .slick-dots li button {
+    width: 8px;
+    height: 8px;
+  }
+  .my-playlist .playlist-listing .playlist-listing__series-section .playlist-listing__series-episodes .playlist-listing__series-episode .playlist-listing__episode-thumbnail {
+    max-height: 130px;
+  }
+  .my-playlist .playlist-listing .playlist-listing__video-section .playlist-listing__video-wrapper .slick-dots li button {
+    width: 8px;
+    height: 8px;
+  }
+  .my-playlist .playlist-listing .playlist-listing__video-section .playlist-listing__video .playlist-listing__video-thumbnail {
+    max-height: 130px;
+  }
+  .my-playlist .playlist-listing-notice {
+    padding: 50px 0;
+  }
+}
+@media screen and (max-width: 411px) {
+  .my-playlist .playlist-listing .playlist-listing__series-section .playlist-listing__series-episodes .playlist-listing__series-episode .playlist-listing__episode-thumbnail {
+    max-height: 104px;
+  }
+  .my-playlist .playlist-listing .playlist-listing__video-section .playlist-listing__video .playlist-listing__video-thumbnail {
+    max-height: 104px;
+  }
+}
+
+/*# sourceMappingURL=style-index.css.map*/

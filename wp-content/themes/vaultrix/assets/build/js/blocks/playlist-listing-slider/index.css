@@ -1,0 +1,43 @@
+/*!**************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[3].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[3].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[3].use[3]!./src/js/blocks/playlist-listing-slider/editor.scss ***!
+  \**************************************************************************************************************************************************************************************************************************************************************************/
+.playlist-listing-slider__boxes .slick-next::before, .playlist-listing-slider__boxes .slick-prev::before {
+  opacity: 0;
+}
+.playlist-listing-slider__boxes .slick-prev {
+  left: 0;
+}
+.playlist-listing-slider__boxes .playlist-listing-slider__box img {
+  width: auto;
+}
+
+.playlist-listing-slider {
+  position: relative;
+}
+.playlist-listing-slider .playlist-listing-slider__boxes:not(.slick-initialized) {
+  display: flex;
+  width: 100%;
+  height: 100%;
+}
+.playlist-listing-slider .playlist-listing-slider__boxes:not(.slick-initialized)::before {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #001e4e;
+  min-height: 100px;
+}
+.playlist-listing-slider .playlist-listing-slider__boxes:not(.slick-initialized)::after {
+  width: 100%;
+  background: url(../../../images/loading-gif.803f2436.gif) no-repeat center #001e4e;
+  height: 100%;
+  position: absolute;
+  background-size: 100px;
+  content: "";
+  left: 0;
+  top: 180px;
+  transform: translateY(-50%);
+}
+
+/*# sourceMappingURL=index.css.map*/

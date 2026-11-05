@@ -1,0 +1,29 @@
+.media-text-block {
+    .media-text-block__col-wrapper__col-media {
+        .image-preview {
+            text-align: center;
+            .upload-wrap {
+                position: relative;
+            }
+        }
+    }
+    .media-text-block__col-wrapper__col-text {
+        position: relative;
+    }
+
+    &.layout-1 {
+        overflow: hidden;
+        &:focus {
+            &::after {
+                top: 0%!important;
+                left: 50% !important;
+            }
+        }
+    }
+    &.layout-3 {
+        .media-text-block__image-wrapper {
+            text-align: center;
+            margin: 30px;
+        }
+    }
+}

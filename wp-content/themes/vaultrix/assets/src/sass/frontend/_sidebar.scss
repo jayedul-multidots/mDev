@@ -1,0 +1,56 @@
+.vaultrix-sidebar {
+    h2,
+    .wp-block-search__label {
+      font-size: 20px;
+      font-weight: 700;
+      line-height: 1.5;
+      margin-bottom: 5px;
+      color: $secondary-theme-color;
+    }
+
+    > #sidebar > ul,
+    ol {
+      margin-bottom: 20px;
+
+      > li {
+        border-bottom: none;
+      }
+
+    }
+    a {
+      color: $link-theme-color;
+      font-size: 14px;
+      transition: 0.2s ease-out all;
+
+      &:hover {
+        color: $primary-theme-color;
+      }
+    }
+
+    .widget,
+    & {
+      margin-bottom: 20px;
+
+      ul li,
+      ol li{
+        list-style: none;
+      }
+      
+      ul li:not(:last-child),
+      ol li:not(:last-child) {
+        border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+        padding-bottom: 0.5em;
+        margin-bottom: 0.5em;
+
+        > .children {
+          border-top: 1px solid rgba(0, 0, 0, 0.05);
+          margin-top: 0.5em;
+          
+          li {
+            padding-top: 0.5em;
+            margin-bottom: 0;
+          }
+        }
+      }
+    }
+}

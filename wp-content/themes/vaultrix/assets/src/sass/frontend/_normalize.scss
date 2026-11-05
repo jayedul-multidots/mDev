@@ -1,0 +1,396 @@
+/*--------------------------------------------------------------
+# Normalize
+--------------------------------------------------------------*/
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+font,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td {
+	border: 0;
+	margin: 0;
+	outline: 0;
+	padding: 0;
+	vertical-align: baseline;
+}
+
+html {
+	-webkit-font-smoothing: none;
+	text-rendering: optimizeLegibility !important;
+	-webkit-font-smoothing: antialiased !important;
+	overflow-x: hidden;
+}
+
+body {
+	margin: 0;
+	overflow-x: hidden;
+	font-family: $font-primary;
+	font-size: 18px;
+	line-height: 1.5;
+	font-weight: 500;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+* {
+	box-sizing: border-box;
+}
+
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+main,
+menu,
+nav,
+section,
+summary {
+	display: block;
+}
+
+a:active {
+	outline: 0;
+}
+
+a,
+a:visited,
+a:hover,
+a:focus,
+a:-webkit-any-link {
+	text-decoration: none;
+}
+
+a {
+	color: $link-theme-color;
+	text-decoration: none;
+}
+
+figure {
+	margin: 0;
+}
+
+button,
+input,
+optgroup,
+select,
+textarea {
+	color: inherit;
+	font: inherit;
+	margin: 0;
+}
+
+input {
+	&[type="search"],
+	&[type="text"],
+	&[type="password"] {
+		padding: 8px;
+		flex-grow: 1;
+		min-width: 3em;
+		border: 1px solid #949494;
+		font-size: inherit;
+		font-family: inherit;
+		line-height: inherit;
+	}
+}
+
+input,
+button {
+	&[type="submit"] {
+		text-align: center;
+		background: $color-primary-gradient;
+		color: #ffffff;
+		display: inline-block;
+		font-family: $font-primary;
+		font-size: 14px;
+		font-style: normal;
+		font-weight: 600;
+		line-height: 24.01px; /* 171.5% */
+		letter-spacing: -0.02px;
+		cursor: pointer;
+		word-break: break-word;
+		text-decoration: none;
+		position: relative;
+		padding: 16px 32px;
+		margin: 0;
+		border-radius: 32px;
+		transition: 150ms ease-out;
+		border: 1px solid transparent;
+		&:hover, &:active, &:focus {
+			background-color: transparent;
+			border: 1px solid #ffffff;
+		}
+	}
+}
+input[type="search"]::-webkit-search-decoration,
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-results-button,
+input[type="search"]::-webkit-search-results-decoration { display: none; }
+
+iframe,
+.mejs-container {
+	width: 100% !important;
+}
+
+p {
+	margin-bottom: 1em;
+}
+
+ol,
+ul {
+	list-style: none;
+}
+
+blockquote {
+	margin: 20px 0 30px;
+	border-left: 5px solid;
+	padding-left: 20px;
+}
+
+del {
+	text-decoration: line-through;
+}
+
+strong {
+	font-weight: 700;
+}
+
+cite,
+em,
+i {
+	font-style: italic;
+}
+
+code,
+pre {
+	font-family: "Courier New", monospace;
+	margin-bottom: 10px;
+}
+
+ins {
+	text-decoration: none;
+}
+
+sub,
+sup {
+	height: 0;
+	line-height: 1;
+	position: relative;
+	vertical-align: baseline;
+}
+
+sup {
+	bottom: 0.8em;
+}
+
+sub {
+	top: 0.3em;
+}
+
+dl {
+	margin: 0 0 1.5em;
+}
+
+dl dt {
+	font-weight: 700;
+}
+
+dd {
+	margin-left: 1.5em;
+}
+
+blockquote p {
+	margin-bottom: 0;
+}
+
+img {
+	max-width: 100%;
+	height: auto;
+}
+
+embed,
+iframe,
+object,
+video {
+	max-width: 100%;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	color: #20293a;
+	margin-bottom: 10px;
+	font-weight: 700;
+}
+
+h1 a,
+h2 a,
+h3 a,
+h4 a,
+h5 a,
+h6 a {
+	color: inherit;
+}
+
+h1 {
+	font-size: 64px;
+	@include media-breakpoint(max-1024) {
+		font-size: 50px;
+	}
+	@include media-breakpoint(max-767) {
+		font-size: 40px;
+	}
+	@include media-breakpoint(max-480) {
+		font-size: 35px;
+	}
+}
+
+h2 {
+	font-size: 48px;
+	@include media-breakpoint(max-1024) {
+		font-size: 36px;
+	}
+	@include media-breakpoint(max-767) {
+		font-size: 32px;
+	}
+	@include media-breakpoint(max-480) {
+		font-size: 28px;
+	}
+}
+
+h3 {
+	font-size: 40px;
+	@include media-breakpoint(max-1024) {
+		font-size: 30px;
+	}
+	@include media-breakpoint(max-767) {
+		font-size: 26px;
+	}
+	@include media-breakpoint(max-480) {
+		font-size: 24px;
+	}
+}
+
+h4 {
+	font-size: 32px;
+	@include media-breakpoint(max-1024) {
+		font-size: 26px;
+	}
+	@include media-breakpoint(max-767) {
+		font-size: 22px;
+	}
+	@include media-breakpoint(max-480) {
+		font-size: 20px;
+	}
+}
+
+h5 {
+	font-size: 24px;
+	@include media-breakpoint(max-1024) {
+		font-size: 22px;
+	}
+	@include media-breakpoint(max-767) {
+		font-size: 20px;
+	}
+	@include media-breakpoint(max-480) {
+		font-size: 18px;
+	}
+}
+
+h6 {
+	font-size: 18px;
+	@include media-breakpoint(max-767) {
+		font-size: 16px;
+	}
+}
+
+// .site-main {
+// 	padding-top: 90px;
+// }
+
+.btn-main {
+	a {
+		&::before {
+			position: absolute;
+			top: 0;
+			right: 0;
+			bottom: 0;
+			left: 0;
+			z-index: 1;
+			pointer-events: auto;
+			content: "";
+			background-color: rgba(0, 0, 0, 0);
+		}
+	}
+}
+
+.entry-content {
+	> *:not([class*="wp-block-vaultrix"], [class*="container"]) {
+		max-width: 1200px;
+		margin-right: auto;
+		margin-left: auto;
+		padding: 0 15px;
+	}
+}
+
+span.dp-text-highlight{
+	background: linear-gradient(90deg, #dd262c 0%, #ea6749 100%);
+	-webkit-text-fill-color: transparent;
+	-webkit-background-clip: text;
+}

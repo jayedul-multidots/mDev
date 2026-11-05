@@ -1,0 +1,84 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "name": "vaultrix/faqs",
+  "version": "0.1.0",
+  "title": "FAQ",
+  "category": "vaultrix",
+  "icon": "editor-help dp-block-icon",
+  "description": "FAQ block is the dynamic block, represented in a collapsed manner. You can add or remove FAQs from backend custom post type.",
+  "keywords": [
+    "FAQ",
+    "Dynamic",
+    "Deep Pocket"
+  ],
+  "supports": {
+    "html": false
+  },
+  "textdomain": "vaultrix",
+  "attributes": {
+    "blockID": {
+      "type": "string",
+      "default": ""
+    },
+    "heading": {
+      "type": "string",
+      "default": ""
+    },
+    "selectedFaqsIDs": {
+      "type": "string",
+      "default": null
+    },
+    "showSeeAllLink": {
+      "type": "boolean",
+      "default": true
+    },
+    "seeAllLinkText": {
+      "type": "string",
+      "default": "View more"
+    },
+    "seeAllLink": {
+      "type": "string",
+      "default": ""
+    },
+    "numberOfPosts": {
+      "type": "number",
+      "default": 6
+    },
+    "bgImage": {
+      "type": "object",
+      "default": {
+        "id": "",
+        "url": "",
+        "alt": "",
+        "width": "",
+        "height": ""
+      }
+    },
+    "headingColor": {
+      "type": "string",
+      "default": ""
+    },
+    "questionColor": {
+      "type": "string",
+      "default": ""
+    },
+    "answerColor": {
+      "type": "string",
+      "default": ""
+    },
+    "showheading": {
+      "type": "boolean",
+      "default": true
+    },
+    "contentAlignment": {
+      "type": "string",
+      "default": "left"
+    }
+  },
+  "editorScript": "file:./index.js",
+  "editorStyle": "file:./index.css",
+  "style": "file:./style-index.css",
+  "viewScript": [
+    "file:./view.js"
+  ]
+}

@@ -1,0 +1,14 @@
+.video-gallery {
+    .video__gallery-tabs-main {
+        .video__gallery-tabs {
+            .video__gallery-tab {
+                a {
+                    width: auto;
+                }
+            }
+        }
+    }
+    .video-gallery .video-gallery_main__item_video .video-gallery_main__item-icon{
+        pointer-events: none !important;
+    }
+}

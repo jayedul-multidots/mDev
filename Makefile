@@ -69,6 +69,10 @@ provision: ## Install/upgrade WordPress, activate theme and plugins
 logs: ## Follow container logs
 	$(COMPOSE) logs -f
 
+.PHONY: debug-log
+debug-log: ## Follow the WordPress debug log (PHP notices, warnings, errors)
+	$(COMPOSE) exec wordpress tail -n 50 -f /tmp/wp-debug.log
+
 .PHONY: shell
 shell: ## Shell in the wordpress container (www-data)
 	$(COMPOSE) exec -u www-data wordpress bash

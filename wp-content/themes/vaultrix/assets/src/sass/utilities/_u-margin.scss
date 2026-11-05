@@ -1,0 +1,60 @@
+/**
+* Margin utility classes
+*/
+
+$spaceAmounts: (5, 10, 15, 20, 25, 30, 35, 40, 45, 50);
+
+@each $space in $spaceAmounts {
+
+    .u-margin-a#{$space} {
+      margin: #{$space}px;
+    }
+
+    .u-margin-lr#{$space} {
+      margin-left: #{$space}px;
+      margin-right: #{$space}px;
+    }
+
+    .u-margin-tb#{$space} {
+      margin-top: #{$space}px;
+      margin-bottom: #{$space}px;
+    }
+
+    .u-margin-l#{$space} {
+      margin-left: #{$space}px;
+    }
+
+    .u-margin-r#{$space} {
+      margin-right: #{$space}px;
+    }
+
+    .u-margin-b#{$space} {
+      margin-bottom: #{$space}px;
+    }
+
+    .u-margin-t#{$space} {
+      margin-top: #{$space}px;
+    }
+}
+
+.u-margin-0 {
+	margin: 0;
+}
+
+.u-margin-lr-auto {
+	margin-left: auto;
+	margin-right: auto;
+}
+
+//Responsive
+.u-margin-t50\@max-767 {
+	@include media-breakpoint( max-767 ) {
+		margin-top: 25px;
+	}
+}
+
+.u-margin-b50\@max-767 {
+	@include media-breakpoint( max-767 ) {
+		margin-bottom: 25px;
+	}
+}

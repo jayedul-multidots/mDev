@@ -31,6 +31,7 @@ node_modules/
 /wp-content/themes/*
 !/wp-content/themes/mdev-block/
 !/wp-content/themes/mdev-fse/
+!/wp-content/themes/vaultrix/
 
 # Build artefacts
 /wp-content/plugins/mdev-gb/build/

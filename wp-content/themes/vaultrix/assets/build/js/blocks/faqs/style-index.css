@@ -1,0 +1,224 @@
+/*!******************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[3].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[3].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[3].use[3]!./src/js/blocks/faqs/style.scss ***!
+  \******************************************************************************************************************************************************************************************************************************************************/
+.faq-listing {
+  padding: 120px 0 110px;
+  background-color: #001e4e;
+  position: relative;
+  z-index: 1;
+  background-repeat: no-repeat;
+  background-position: center 100px;
+  background-size: contain;
+  position: relative;
+  background-image: url(../../../images/faq-desktop.20407fad.png);
+}
+.faq-listing .container {
+  position: relative;
+  z-index: 10;
+}
+.faq-listing .faq-listing__top {
+  text-align: center;
+  margin: 0 0 62px;
+}
+.faq-listing .faq-listing__item-header {
+  width: auto;
+  display: flex;
+}
+.faq-listing .faq-listing__heading h2 {
+  color: #FFFFFF;
+  font-size: 40px;
+  font-weight: 700;
+  line-height: 130%; /* 52px */
+}
+.faq-listing .faq-listing__link {
+  text-align: center;
+}
+.faq-listing .faq-listing__boxes {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+.faq-listing .faq-listing__boxes .faq-listing__item {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  cursor: pointer;
+  transition: all 0.5s linear;
+  background: rgba(255, 255, 255, 0.04);
+  padding: 32px;
+}
+.faq-listing .faq-listing__boxes .faq-listing__item .faq-listing__item-desc a.read-more-btn {
+  color: #6533ee;
+  margin-top: 5px;
+  display: block;
+  width: -moz-max-content;
+  width: max-content;
+}
+.faq-listing .faq-listing__boxes .faq-listing__item.active .faq-listing__item-desc {
+  display: block;
+}
+.faq-listing .faq-listing__boxes .faq-listing__item.active::after {
+  transform: rotate(180deg);
+}
+.faq-listing .faq-listing__boxes .faq-listing__item.active .faq-listing__item-icon::after {
+  transform: rotate(180deg);
+  background: linear-gradient(98deg, #D81425 0%, #FFC371 130.01%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.faq-listing .faq-listing__boxes .faq-listing__item-heading {
+  color: #ffffff;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 150%; /* 30px */
+  width: calc(100% - 30px);
+}
+.faq-listing .faq-listing__boxes .faq-listing__item-icon {
+  width: 24px;
+  position: relative;
+}
+.faq-listing .faq-listing__boxes .faq-listing__item-icon::after {
+  content: "\f078";
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  position: absolute;
+  right: 0;
+  color: #ffffff;
+  transition: all 0.3s linear;
+}
+.faq-listing .faq-listing__boxes .faq-listing__item-subtitle {
+  color: #ffffff;
+  margin: 10px 0 0;
+  font-size: 16px;
+  font-weight: 500;
+}
+.faq-listing .faq-listing__boxes .faq-listing__item-desc {
+  transition: max-height 0.5s ease;
+  display: none;
+  color: rgba(255, 255, 255, 0.64);
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 150%; /* 27px */
+  margin: 0;
+}
+.faq-listing .faq-listing__boxes .faq-listing__item-desc > p {
+  margin: 16px 0 0;
+}
+.faq-listing .faq-listing__boxes .faq-listing__item-desc ul, .faq-listing .faq-listing__boxes .faq-listing__item-desc ol {
+  padding: 0 0 0 20px;
+}
+.faq-listing .faq-listing__boxes .faq-listing__item-desc > *:not(:last-child) {
+  margin: 0 0 20px;
+}
+.faq-listing .faq-listing__boxes .faq-listing__item-desc .wp-block-heading {
+  font-style: normal;
+  font-weight: 700;
+  line-height: 120%;
+  color: #fff;
+  margin: 28px 0 16px;
+}
+.faq-listing .faq-listing__boxes .faq-listing__item-desc .wp-block-quote {
+  border-left: 0.25em solid;
+  border-color: #6941c6;
+  padding-left: 1em;
+}
+.faq-listing .faq-listing__boxes .faq-listing__item-desc .wp-block-quote p {
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 32px;
+  letter-spacing: 0.2px;
+  margin-bottom: 32px;
+}
+.faq-listing .faq-listing__boxes .faq-listing__item-desc .wp-block-quote cite {
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 160%;
+  letter-spacing: 0.16px;
+}
+.faq-listing .faq-listing__boxes .read-more-btn {
+  color: #6533ee;
+  font-weight: 400;
+  letter-spacing: 0.16px;
+}
+.faq-listing .faq-listing__link {
+  margin: 64px 0 0;
+}
+.faq-listing .faq-listing__link .btn-main {
+  padding: 12px 24px;
+  min-width: 300px;
+  font-size: 16px;
+}
+.faq-listing.left .faq-listing__heading h2 {
+  text-align: left;
+}
+.faq-listing.center .faq-listing__heading h2 {
+  text-align: center;
+}
+.faq-listing.right .faq-listing__heading h2 {
+  text-align: right;
+}
+@media screen and (min-width: 2000px) {
+  .faq-listing {
+    background-size: cover;
+  }
+}
+@media (max-width: 1024px) {
+  .faq-listing {
+    padding: 80px 0 88px;
+  }
+  .faq-listing .faq-listing__heading h2 {
+    font-size: 32px;
+    line-height: 140%;
+  }
+  .faq-listing .faq-listing__boxes {
+    gap: 24px;
+  }
+  .faq-listing .faq-listing__boxes .faq-listing__item {
+    padding: 28px;
+  }
+  .faq-listing .faq-listing__boxes .faq-listing__item-heading {
+    font-size: 18px;
+  }
+  .faq-listing .faq-listing__boxes .faq-listing__item-desc {
+    font-size: 16px;
+  }
+}
+@media (max-width: 767px) {
+  .faq-listing {
+    padding: 80px 0 80px;
+    background-image: url(../../../images/faq-mobile.aeac9aa2.png);
+    background-size: cover;
+    background-position: center;
+  }
+  .faq-listing .faq-listing__top {
+    margin: 0 0 48px;
+  }
+  .faq-listing .faq-listing__heading h2 {
+    font-size: 24px;
+  }
+  .faq-listing .faq-listing__boxes {
+    gap: 16px;
+  }
+  .faq-listing .faq-listing__boxes .faq-listing__item {
+    padding: 20px;
+  }
+  .faq-listing .faq-listing__boxes .faq-listing__item-heading {
+    font-size: 16px;
+  }
+  .faq-listing .faq-listing__boxes .faq-listing__item-subtitle {
+    font-size: 14px;
+  }
+  .faq-listing .faq-listing__boxes .faq-listing__item-desc {
+    font-size: 14px;
+  }
+  .faq-listing .faq-listing__boxes .read-more-btn {
+    font-size: 14px;
+  }
+  .faq-listing .faq-listing__link .btn-main {
+    min-width: auto;
+  }
+}
+
+/*# sourceMappingURL=style-index.css.map*/

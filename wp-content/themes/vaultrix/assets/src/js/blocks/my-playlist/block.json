@@ -1,0 +1,44 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "name": "vaultrix/my-playlist",
+  "version": "0.1.0",
+  "title": "My Playlist Block",
+  "category": "vaultrix",
+  "icon": "dashicons dashicons-excerpt-view dp-block-icon",
+  "description": "This block has listing of recently added video of playlists and listing of series and videos in tabbing format.",
+  "keywords": ["Recent", "Playlist", "Deep Pocket"],
+  "supports": {
+    "html": false
+  },
+  "textdomain": "vaultrix",
+  "attributes": {
+    "blockID": {
+			"type": "string",
+			"default": "my-playlist-80afa3ca-6e04-474e-9f43-51bf00997e1c"
+		},
+    "heading": {
+      "type": "string",
+      "default": ""
+    },
+    "viewAllText": {
+      "type": "string",
+      "default": ""
+    },
+    "viewAllLink": {
+      "type": "string",
+      "default": ""
+    },
+    "bgColor": {
+			"type": "string",
+			"default": ""
+		},
+		"headingColor": {
+			"type": "string",
+			"default": ""
+		}
+  },
+  "editorScript": "file:./index.js",
+  "style": "file:./style-index.css",
+  "editorStyle": "file:./index.css",
+  "viewScript": "file:./view.js"
+}

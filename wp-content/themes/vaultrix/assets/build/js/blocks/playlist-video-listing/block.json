@@ -1,0 +1,40 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "name": "vaultrix/playlist-video-listing",
+  "version": "0.1.0",
+  "title": "Playlist Video Listing",
+  "category": "vaultrix",
+  "icon": "playlist-video dp-block-icon",
+  "description": "This block contains listing of all videos added to playlist.",
+  "keywords": [
+    "Playlist",
+    "Listing",
+    "Video Listing",
+    "Deep Pocket"
+  ],
+  "supports": {
+    "html": false
+  },
+  "textdomain": "vaultrix",
+  "attributes": {
+    "blockID": {
+      "type": "string",
+      "default": "playlist-listing-slider-80afa3ca-6e04-474e-9f43-51bf00997e1c"
+    },
+    "heading": {
+      "type": "string",
+      "default": ""
+    },
+    "headingColor": {
+      "type": "string",
+      "default": ""
+    },
+    "bgColor": {
+      "type": "string",
+      "default": ""
+    }
+  },
+  "editorScript": "file:./index.js",
+  "style": "file:./style-index.css",
+  "viewScript": "file:./view.js"
+}

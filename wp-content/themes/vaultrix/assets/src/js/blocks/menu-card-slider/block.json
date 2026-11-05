@@ -1,0 +1,48 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"name": "vaultrix/menu-card-slider",
+	"version": "0.1.0",
+	"title": "Mega Menu Card Slider",
+	"category": "vaultrix",
+	"icon": "slides dp-block-icon",
+	"description": "This is a card block with slider which displays the series.",
+	"keywords": [  "Menu", "Card", "Slider" ],
+	"supports": {
+		"html": false
+	},
+	"textdomain": "vaultrix",
+	"attributes": {
+		"blockID": {
+			"type": "string",
+			"default": "mega-menu-card-slider-80afa3ca-6e04-474e-9f43-51bf00997e1c"
+		},
+		"cardTitleColor": {
+			"type": "string",
+			"default": ""
+		},
+		"autoplay": {
+			"type": "boolean",
+			"default": true
+		},
+		"arrows": {
+			"type": "boolean",
+			"default": true
+		},
+		"dots": {
+			"type": "boolean",
+			"default": true
+		},
+		"loopSlide": {
+			"type": "boolean",
+			"default": true
+		},
+		"selectedParentCategory": {
+			"type": "string",
+			"default": "series"
+		}
+	},
+	"editorScript": "file:./index.js",
+	"viewScript": [ "file:./view.js" ],
+	"editorStyle": "file:./index.css",
+	"style": "file:./style-index.css"
+}

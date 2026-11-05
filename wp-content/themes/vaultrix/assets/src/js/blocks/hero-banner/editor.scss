@@ -1,0 +1,23 @@
+.prj-dp-block-sidebar {
+    .highlighted-text-settings {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 2px;
+        .components-base-control {
+            margin: 0;
+            .components-base-control__field {
+                margin: 0;
+            }
+        }
+        .item-action-wrap.small-icons {
+            .move-item {
+                display: flex;
+                margin-right: 1px;
+                .dashicons {
+                    margin-right: 1px;
+                }
+            }
+        }
+    }
+}

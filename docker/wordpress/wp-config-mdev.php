@@ -34,7 +34,10 @@ if ( 'local' === WP_ENVIRONMENT_TYPE || 'development' === WP_ENVIRONMENT_TYPE ) 
 	// Skip theme caches (pattern file list, theme.json) so edits show up at once.
 	define( 'WP_DEVELOPMENT_MODE', 'all' );
 	define( 'WP_DEBUG_LOG', '/tmp/wp-debug.log' );
-	define( 'WP_DEBUG_DISPLAY', true );
+	// Log-only by default: notices printed into pages break cookies, redirects
+	// and JSON responses ("headers already sent"). Read them in the log or
+	// Query Monitor; set WP_DEBUG_DISPLAY=true in .env to print them anyway.
+	define( 'WP_DEBUG_DISPLAY', filter_var( getenv_docker( 'WP_DEBUG_DISPLAY', 'false' ), FILTER_VALIDATE_BOOLEAN ) );
 	define( 'SCRIPT_DEBUG', true );
 } else {
 	define( 'WP_DEBUG_DISPLAY', false );

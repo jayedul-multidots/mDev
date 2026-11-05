@@ -1,0 +1,99 @@
+.btn-main {
+	text-align: center;
+	background: $color-primary-gradient;
+    color: #ffffff;
+	display: inline-block;
+	font-family: $font-primary;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 24.01px; /* 171.5% */
+    letter-spacing: -0.02px;
+	cursor: pointer;
+	word-break: break-word;
+	text-decoration: none;
+	position: relative;
+	padding: 16px 32px;
+	margin: 0;
+	border-radius: 32px;
+	transition: 150ms ease-out;
+    // border: 1px solid transparent;
+	&:hover, &:active, &:focus {
+		background: transparent;
+		position: relative;
+		&::after{
+			content: "";
+			position: absolute;
+			top: 0;
+			right: 0;
+			bottom: 0;
+			left: 0;
+			padding: 1px;
+			border-radius: 99px;
+			background: linear-gradient(98deg, #D81425 0%, #FFC371 130.01%);
+			-webkit-mask: linear-gradient(#fff 0 0) content-box,linear-gradient(#fff 0 0);
+			mask: linear-gradient(#fff 0 0) content-box,linear-gradient(#fff 0 0);
+			-webkit-mask-composite: xor;
+			mask-composite: exclude;
+		}
+	}
+	@include media-breakpoint(max-767) {
+		font-size: 14px;
+		padding: 12px 24px;
+	}
+	a {
+		color: inherit;
+	}
+    &.btn-transparent{
+        background: transparent;
+        border: none;
+		position: relative;
+		&::after{
+			content: "";
+			position: absolute;
+			top: 0;
+			right: 0;
+			bottom: 0;
+			left: 0;
+			padding: 1px;
+			border-radius: 99px;
+			background: linear-gradient(98deg, #D81425 0%, #FFC371 130.01%);
+			-webkit-mask: linear-gradient(#fff 0 0) content-box,linear-gradient(#fff 0 0);
+			mask: linear-gradient(#fff 0 0) content-box,linear-gradient(#fff 0 0);
+			-webkit-mask-composite: xor;
+			mask-composite: exclude;
+		}
+        &:hover, &:active, &:focus {
+            background: $color-primary-gradient;
+        }
+    }
+	&.btn-arrow-before{
+		position: relative;
+		&::before{
+			content: "\f054";
+			font-family: "Font Awesome 5 Free";
+			font-weight: 900;
+			padding-right: 15px;
+			font-size: 20px;
+			vertical-align: middle;
+			line-height: normal;
+		}
+	}
+	&.btn-arrow-after{
+		position: relative;
+		padding-right: 64px;
+		&::before{
+			content: "\f054";
+			font-family: "Font Awesome 5 Free";
+			font-weight: 900;
+			padding-left: 15px;
+			font-size: 20px;
+			vertical-align: middle;
+			line-height: normal;
+			position: absolute;
+			right: 32px;
+			top: 50%;
+			transform: translateY(-50%);
+		}
+	}
+}

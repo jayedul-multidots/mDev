@@ -1,0 +1,69 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "name": "vaultrix/pricing-plan",
+  "version": "0.1.0",
+  "title": "Pricing Plan",
+  "category": "vaultrix",
+  "icon": "money-alt dp-block-icon",
+  "description": "This is a dynamic Pricing Plan block which displays all the membership plans which you have created.",
+  "keywords": [
+    "Pricing",
+    "Plan",
+    "Dynamic"
+  ],
+  "supports": {
+    "html": false
+  },
+  "textdomain": "vaultrix",
+  "attributes": {
+    "heading": {
+      "type": "string",
+      "default": ""
+    },
+    "description": {
+      "type": "string",
+      "default": ""
+    },
+    "buttonText": {
+      "type": "string",
+      "default": "I Want to Save My Spot"
+    },
+    "bgColor": {
+      "type": "string",
+      "default": ""
+    },
+    "headingColor": {
+      "type": "string",
+      "default": ""
+    },
+    "descriptionColor": {
+      "type": "string",
+      "default": ""
+    },
+    "contentAlignment": {
+      "type": "string",
+      "default": "left"
+    },
+    "showheading": {
+      "type": "boolean",
+      "default": true
+    },
+    "showdesc": {
+      "type": "boolean",
+      "default": true
+    },
+    "bottomThumbnailImage": {
+      "type": "object",
+      "default": {
+        "id": "",
+        "url": "",
+        "alt": "",
+        "width": "",
+        "height": ""
+      }
+    }
+  },
+  "editorScript": "file:./index.js",
+  "style": "file:./style-index.css",
+  "editorStyle": "file:./index.css"
+}

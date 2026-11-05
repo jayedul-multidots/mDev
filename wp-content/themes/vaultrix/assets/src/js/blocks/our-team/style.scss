@@ -1,0 +1,213 @@
+@import "../../../sass/mixins/breakpoints";
+@import "../../../sass/mixins/variables";
+
+.our-team {
+    padding: 102px 0;
+    background-color: $primary-theme-color;
+    background-size: cover;
+    background-position: center;
+    @include media-breakpoint(max-767) {
+        padding: 80px 0;
+    }
+    .container {
+        max-width: 942px;
+        position: relative;
+        z-index: 20;
+        @include media-breakpoint(max-767) {
+            padding: 0 24px;
+        }
+    }
+    .our-team__head {
+        &.left {
+            text-align: left;
+        }
+        &.center {
+            text-align: center;
+        }
+        &.right {
+            text-align: right;
+        }
+        max-width: 534px;
+        margin: 0 auto;
+        margin-bottom: 64px;
+        @include media-breakpoint(max-1024) {
+            margin-bottom: 80px;
+        }
+        @include media-breakpoint(max-767) {
+            margin-bottom: 48px;
+        }
+    }
+    .our-team__heading {
+        color: #ffffff;
+        font-size: 40px;
+        font-weight: 700;
+        line-height: 52px;
+        margin-bottom: 12px;
+        @include media-breakpoint(max-1024) {
+            font-size: 32px;
+            line-height: 45px;
+        }
+        @include media-breakpoint(max-767) {
+            font-size: 24px;
+            line-height: 34px;
+        }
+    }
+    .our-team__content {
+        color: rgba(255, 255, 255, 0.6);
+        font-size: 18px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 27px;
+        margin: 0;
+        @include media-breakpoint(max-767) {
+            font-size: 14px;
+            line-height: 21px;
+        }
+    }
+    .our-team__image {
+        display: flex;
+        justify-content: center;
+        position: relative;
+        z-index: 9;
+        img {
+            width: 120px !important;
+            height: 120px;
+            border-radius: 120px;
+            object-fit: cover;
+            @include media-breakpoint(max-767) {
+                width: 64px !important;
+                height: 64px;
+            }
+        }
+    }
+    .our-team-inner {
+        &:not(:last-child) {
+            margin: 0 0 56px;
+            @include media-breakpoint(max-576) {
+                margin: 0 0 32px;
+            }
+        }
+        &.has-3-columns {
+            .our-team__box {
+                flex-basis: calc(33% - 144px);
+                @include media-breakpoint(max-991) {
+                    flex-basis: calc(33% - 120px);
+                }
+                @include media-breakpoint(max-767) {
+                    flex-basis: calc(33% - 40px);
+                }
+            }
+        }
+        &.has-4-columns {
+            .our-team__box {
+                flex-basis: calc(25% - 108px);
+                @include media-breakpoint(max-991) {
+                    flex-basis: calc(25% - 54px);
+                }
+                @include media-breakpoint(max-767) {
+                    flex-basis: calc(25% - 15px);
+                }
+            }
+        }
+        .our-team__boxes {
+            flex-wrap: wrap;
+        }
+    }
+    .our-team__boxes {
+        display: flex;
+        gap: 144px;
+        justify-content: center;
+        align-items: flex-start;
+        @include media-breakpoint(max-991) {
+            gap: 70px;
+        }
+        @include media-breakpoint(max-767) {
+            gap: 20px;
+        }
+        .our-team__box {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            text-align: left;
+            gap: 24px;
+
+            @include media-breakpoint(max-991) {
+                text-align: center;
+                justify-content: center;
+                align-items: center;
+            }
+            @include media-breakpoint(max-767) {
+                width: calc(50% - 20px);
+            }
+            &:hover {
+                .our-team__image {
+                    z-index: 11;
+                }
+                .our-team__box_content {
+                    display: block;
+                    z-index: 10;
+                }
+            }
+        }
+        .our-team__title {
+            color: #ffffff;
+            margin: 0 0 10px;
+            font-size: 18px;
+            font-weight: 700;
+            line-height: 24px; /* 133.333% */
+            text-align: center;
+            @include media-breakpoint(max-767) {
+                font-size: 12px;
+                line-height: 1.2;
+                margin: 0 0 5px;
+            }
+            @include media-breakpoint(max-576) {
+                font-size: 8px;
+            }
+        }
+        .our-team__box_content {
+            border-radius: 8px;
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
+            width: 231px;
+            padding: 53px 10px 24px;
+            position: absolute;
+            top: 90px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: none;
+            @include media-breakpoint(max-991) {
+                max-width: 150px;
+                width: max-content;
+            }
+            @include media-breakpoint(max-767) {
+                top: 50px;
+                padding: 20px;
+                max-width: 150px;
+            }
+            @include media-breakpoint(max-576) {
+                padding: 20px 15px 10px 15px;
+                max-width: 130px;
+            }
+            @include media-breakpoint(max-480) {
+                padding: 20px 15px 10px 15px;
+                max-width: 90px;
+            }
+        }
+        .our-team__subtitle {
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 14px;
+            font-weight: 400;
+            line-height: normal;
+            text-align: center;
+            margin: 0;
+            @include media-breakpoint(max-767) {
+                font-size: 10px;
+                line-height: 1.2;
+            }
+            @include media-breakpoint(max-576) {
+                font-size: 6px;
+            }
+        }
+    }
+}

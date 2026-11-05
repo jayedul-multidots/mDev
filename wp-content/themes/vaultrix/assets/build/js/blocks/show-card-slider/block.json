@@ -1,0 +1,78 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "name": "vaultrix/show-card-slider",
+  "version": "0.1.0",
+  "title": "Show Card Slider",
+  "category": "vaultrix",
+  "icon": "images-alt2 dp-block-icon",
+  "description": "This is a dynamic block to display the Shows in slider layout.",
+  "keywords": [
+    "Show",
+    "Card",
+    "Slider",
+    "Deep",
+    "Pockets"
+  ],
+  "supports": {
+    "html": false
+  },
+  "textdomain": "vaultrix",
+  "attributes": {
+    "blockID": {
+      "type": "string",
+      "default": "show-card-slider-section-80afa3ca-6e04-474e-9f43-51bf00997e1c"
+    },
+    "showHeading": {
+      "type": "boolean",
+      "default": true
+    },
+    "showDesc": {
+      "type": "boolean",
+      "default": true
+    },
+    "heading": {
+      "type": "string",
+      "default": ""
+    },
+    "description": {
+      "type": "string",
+      "default": ""
+    },
+    "displayAutoSlide": {
+      "type": "boolean",
+      "default": false
+    },
+    "displayArrows": {
+      "type": "boolean",
+      "default": true
+    },
+    "contentAlignment": {
+      "type": "string",
+      "default": "center"
+    },
+    "selectedShowsIDs": {
+      "type": "string",
+      "default": null
+    },
+    "numberOfPosts": {
+      "type": "number",
+      "default": 4
+    },
+    "bgColor": {
+      "type": "string",
+      "default": ""
+    },
+    "headingColor": {
+      "type": "string",
+      "default": ""
+    },
+    "descriptionColor": {
+      "type": "string",
+      "default": ""
+    }
+  },
+  "editorScript": "file:./index.js",
+  "editorStyle": "file:./index.css",
+  "style": "file:./style-index.css",
+  "viewScript": "file:./view.js"
+}
