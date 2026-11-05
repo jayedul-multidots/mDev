@@ -52,8 +52,8 @@ $header_logo = get_field( 'header_logo', 'option' );
 							<?php
 							if ( ! empty( $header_logo ) ) {
 								$args = array(
-									'width'  => '215',
-									'height' => '26',
+									'width'  => '40',
+									'height' => '40',
 									'alt'    => 'Header logo',
 								);
 								echo wp_get_attachment_image( $header_logo, 'full', false, $args );

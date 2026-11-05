@@ -60,6 +60,12 @@
             padding: 21px 0;
         }
     }
+    .vaultrix-header__logo img {
+        display: block;
+        width: 40px;
+        height: 40px;
+        object-fit: contain;
+    }
     .container {
         max-width: 1294px;
     }

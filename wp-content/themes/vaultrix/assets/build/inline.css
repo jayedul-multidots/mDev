@@ -1391,6 +1391,13 @@ span.dp-text-highlight {
   align-items: center;
   justify-content: space-between;
 }
+.vaultrix-header .vaultrix-header__logo img {
+  display: block;
+  width: 40px;
+  height: 40px;
+  -o-object-fit: contain;
+     object-fit: contain;
+}
 .vaultrix-header .container {
   max-width: 1294px;
 }
