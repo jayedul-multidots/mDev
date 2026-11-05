@@ -10,6 +10,10 @@
  * raw URLs that the Interactivity API escapes on output (esc_html / esc_attr
  * on the server, textContent / setAttribute in the browser).
  *
+ * Cards with a video (PostCardMapper::VIDEO_FILTER) link to the video file
+ * and expose data-video-url/-type/-id on their links so a theme can open it in
+ * a player instead; for other cards those attributes are omitted.
+ *
  * @package Mdev\Gb
  *
  * @var array{id: string, prefix: string, settings: \Mdev\Gb\PostGallery\GallerySettings, query: \Mdev\Gb\PostGallery\GalleryQuery, context: array<string, mixed>} $view
@@ -83,7 +87,16 @@ $mdev_gb_wrapper  = get_block_wrapper_attributes(
 			<li class="wp-block-mdev-gb-post-gallery__item">
 				<article class="wp-block-mdev-gb-post-gallery__card">
 					<?php // Decorative duplicate of the title link: hidden from keyboard and screen readers. ?>
-					<a class="wp-block-mdev-gb-post-gallery__media" data-wp-bind--href="context.post.url" data-wp-bind--hidden="!context.post.image" tabindex="-1" aria-hidden="true">
+					<a
+						class="wp-block-mdev-gb-post-gallery__media"
+						data-wp-bind--href="context.post.url"
+						data-wp-bind--data-video-url="context.post.video.url"
+						data-wp-bind--data-video-type="context.post.video.type"
+						data-wp-bind--data-video-id="context.post.video.id"
+						data-wp-bind--hidden="!context.post.image"
+						tabindex="-1"
+						aria-hidden="true"
+					>
 						<img
 							alt=""
 							loading="lazy"
@@ -96,7 +109,13 @@ $mdev_gb_wrapper  = get_block_wrapper_attributes(
 						/>
 					</a>
 					<<?php echo $mdev_gb_heading; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- tag_escape() of h2..h6. ?> class="wp-block-mdev-gb-post-gallery__title">
-						<a data-wp-bind--href="context.post.url" data-wp-text="context.post.title"></a>
+						<a
+							data-wp-bind--href="context.post.url"
+							data-wp-bind--data-video-url="context.post.video.url"
+							data-wp-bind--data-video-type="context.post.video.type"
+							data-wp-bind--data-video-id="context.post.video.id"
+							data-wp-text="context.post.title"
+						></a>
 					</<?php echo $mdev_gb_heading; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- tag_escape() of h2..h6. ?>>
 					<?php if ( $mdev_gb_settings->show_date ) : ?>
 						<time class="wp-block-mdev-gb-post-gallery__date" data-wp-bind--datetime="context.post.datetime" data-wp-text="context.post.date"></time>

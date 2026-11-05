@@ -10,8 +10,9 @@
 	document.addEventListener(
 		'click',
 		function ( event ) {
+			// Also mDev Post Gallery card links (see vaultrix_mdev_gallery_card_video()).
 			const button = event.target.closest(
-				'.play-from-beginning[data-video-url]'
+				'.play-from-beginning[data-video-url], .wp-block-mdev-gb-post-gallery a[data-video-url]'
 			);
 
 			if ( ! button ) {

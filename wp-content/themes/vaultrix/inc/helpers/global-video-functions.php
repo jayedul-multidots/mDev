@@ -130,3 +130,34 @@ function get_trending_articles( $days = 30 ) {
 	}
 	return get_recent_videos( $limit );
 }
+
+/**
+ * Make mDev Post Gallery (mdev-gb plugin) video cards play the video's
+ * `main_video` file in the theme's watch popup instead of linking to the
+ * video post, which has no page of its own. The popup is opened by the
+ * `[data-video-url]` click listener in assets/src/js/navigation/playlist.js.
+ *
+ * @param array|null $video Video supplied by earlier callbacks, or null.
+ * @param WP_Post    $post  Post being mapped to a gallery card.
+ * @return array|null Array with `url`, `type` and `id` keys, or null.
+ */
+function vaultrix_mdev_gallery_card_video( $video, $post ) {
+	if ( ! $post instanceof WP_Post || VAULTRIX_VIDEOS_POST_TYPE !== $post->post_type ) {
+		return $video;
+	}
+
+	// ACF file field: post meta holds the attachment ID.
+	$attachment_id = absint( get_post_meta( $post->ID, 'main_video', true ) );
+	$url           = $attachment_id ? wp_get_attachment_url( $attachment_id ) : '';
+
+	if ( ! $url ) {
+		return $video;
+	}
+
+	return array(
+		'url'  => $url,
+		'type' => (string) get_post_mime_type( $attachment_id ),
+		'id'   => $attachment_id,
+	);
+}
+add_filter( 'mdev_gb_post_gallery_card_video', 'vaultrix_mdev_gallery_card_video', 10, 2 );

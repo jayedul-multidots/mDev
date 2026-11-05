@@ -20,6 +20,7 @@ export const card = ( id ) => ( {
 	date: '',
 	datetime: '',
 	image: null,
+	video: null,
 } );
 
 /**

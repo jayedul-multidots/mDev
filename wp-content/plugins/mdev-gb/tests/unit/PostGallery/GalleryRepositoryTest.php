@@ -72,7 +72,7 @@ final class GalleryRepositoryTest extends GalleryTestCase {
 		Functions\expect( 'wp_cache_get' )->once()->andReturn( false );
 		Functions\expect( 'wp_cache_set' )
 			->once()
-			->with( \Mockery::pattern( '/^post_gallery:[a-f0-9]{32}$/' ), \Mockery::type( 'array' ), GalleryRepository::CACHE_GROUP, GalleryRepository::CACHE_TTL )
+			->with( \Mockery::pattern( '/^post_gallery:2:[a-f0-9]{32}$/' ), \Mockery::type( 'array' ), GalleryRepository::CACHE_GROUP, GalleryRepository::CACHE_TTL )
 			->andReturn( true );
 
 		$query  = GalleryQuery::from_input( $this->settings(), [] );

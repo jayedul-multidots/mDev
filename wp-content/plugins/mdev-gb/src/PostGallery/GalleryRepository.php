@@ -28,6 +28,11 @@ final class GalleryRepository {
 	public const CACHE_TTL   = 5 * MINUTE_IN_SECONDS;
 
 	/**
+	 * Bumped when the cached card shape changes (2: cards carry `video`).
+	 */
+	public const CACHE_VERSION = 2;
+
+	/**
 	 * Builds a WP_Query from arguments (injected for testability).
 	 *
 	 * @var Closure(array<string, mixed>): WP_Query
@@ -90,6 +95,6 @@ final class GalleryRepository {
 	 * @return string
 	 */
 	private function cache_key( GalleryQuery $query ): string {
-		return 'post_gallery:' . md5( $query->cache_key() . ':' . wp_cache_get_last_changed( 'posts' ) );
+		return 'post_gallery:' . self::CACHE_VERSION . ':' . md5( $query->cache_key() . ':' . wp_cache_get_last_changed( 'posts' ) );
 	}
 }

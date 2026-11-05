@@ -89,6 +89,24 @@ function normalizeImage( image ) {
 }
 
 /**
+ * Keep only well-formed video data (see PostCardMapper::VIDEO_FILTER).
+ * Missing type/id stay null so their data attributes are left out.
+ *
+ * @param {unknown} video Raw video.
+ * @return {{url: string, type: string|null, id: number|null}|null} Video or null.
+ */
+function normalizeVideo( video ) {
+	if ( ! video || typeof video !== 'object' || ! toText( video.url ) ) {
+		return null;
+	}
+	return {
+		url: video.url,
+		type: toText( video.type ) || null,
+		id: Number.isInteger( video.id ) && video.id > 0 ? video.id : null,
+	};
+}
+
+/**
  * Keep only well-formed cards (positive id and a URL).
  *
  * @param {unknown} item Raw card.
@@ -112,6 +130,7 @@ function normalizeItem( item ) {
 		date: toText( item.date ),
 		datetime: toText( item.datetime ),
 		image: normalizeImage( item.image ),
+		video: normalizeVideo( item.video ),
 	};
 }
 

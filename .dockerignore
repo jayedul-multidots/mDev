@@ -18,4 +18,14 @@ Makefile
 README.md
 tests
 wp-content/plugins/*/tests
-wp-content/uploads
+
+# wp-content: send only what the Dockerfile copies (it can hold GBs locally).
+wp-content/*
+!wp-content/plugins
+wp-content/plugins/*
+!wp-content/plugins/mdev-gb
+!wp-content/themes
+wp-content/themes/*
+!wp-content/themes/mdev-block
+!wp-content/themes/mdev-fse
+!wp-content/themes/vaultrix
