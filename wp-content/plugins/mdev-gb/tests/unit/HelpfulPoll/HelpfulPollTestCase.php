@@ -18,8 +18,8 @@ use WP_Post;
 /**
  * Brain Monkey with translation/escaping stubs and an in-memory post store:
  * get_post() returns the posts added with add_post(), and
- * is_post_publicly_viewable() treats published posts of `post`/`page` as
- * public.
+ * is_post_publicly_viewable() treats published posts of `post`, `page` and
+ * the public custom post type `deep_pockets_videos` as public.
  */
 abstract class HelpfulPollTestCase extends TestCase {
 
@@ -47,7 +47,7 @@ abstract class HelpfulPollTestCase extends TestCase {
 				'wp_strip_all_tags'         => static fn ( string $text ): string => trim( strip_tags( $text ) ),
 				'get_post'                  => fn ( mixed $id ): ?WP_Post => $this->posts[ (int) $id ] ?? null,
 				'is_post_publicly_viewable' => static fn ( WP_Post $post ): bool => 'publish' === $post->post_status
-					&& in_array( $post->post_type, [ 'post', 'page' ], true ),
+					&& in_array( $post->post_type, [ 'post', 'page', 'deep_pockets_videos' ], true ),
 				'rest_url'                  => static fn ( string $path ): string => 'https://example.test/wp-json/' . ltrim( $path, '/' ),
 			]
 		);

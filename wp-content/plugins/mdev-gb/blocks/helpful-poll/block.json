@@ -6,7 +6,7 @@
 	"title": "mDev Helpful Poll",
 	"category": "mdev",
 	"icon": "thumbs-up",
-	"description": "Ask readers whether the article was helpful, with Yes and No buttons. Answers are counted per post.",
+	"description": "Ask readers whether the article was helpful, with Yes and No buttons. Answers are counted per post. Available for posts and pages only.",
 	"keywords": [ "feedback", "vote", "rating", "helpful", "survey" ],
 	"textdomain": "mdev-gb",
 	"usesContext": [ "postId", "postType" ],

@@ -51,26 +51,29 @@ final class VoteCountsTest extends HelpfulPollTestCase {
 	}
 
 	/**
-	 * Each key: integer, single, sanitized, not editable, editors-only in REST.
+	 * Each key, for posts and pages only: integer, single, sanitized, not
+	 * editable, editors-only in REST.
 	 */
-	public function test_registers_meta_for_each_answer(): void {
+	public function test_registers_meta_for_each_answer_on_posts_and_pages(): void {
 		$counts = new VoteCounts();
 
-		foreach ( [ '_mdev_gb_helpful_yes', '_mdev_gb_helpful_no' ] as $key ) {
-			Functions\expect( 'register_post_meta' )
-				->once()
-				->with(
-					'',
-					$key,
-					\Mockery::on(
-						static fn ( array $args ): bool => 'integer' === $args['type']
-							&& true === $args['single']
-							&& 0 === $args['default']
-							&& [ $counts, 'sanitize_count' ] === $args['sanitize_callback']
-							&& [ $counts, 'can_edit' ] === $args['auth_callback']
-							&& [ 'edit' ] === $args['show_in_rest']['schema']['context']
-					)
-				);
+		foreach ( [ 'post', 'page' ] as $post_type ) {
+			foreach ( [ '_mdev_gb_helpful_yes', '_mdev_gb_helpful_no' ] as $key ) {
+				Functions\expect( 'register_post_meta' )
+					->once()
+					->with(
+						$post_type,
+						$key,
+						\Mockery::on(
+							static fn ( array $args ): bool => 'integer' === $args['type']
+								&& true === $args['single']
+								&& 0 === $args['default']
+								&& [ $counts, 'sanitize_count' ] === $args['sanitize_callback']
+								&& [ $counts, 'can_edit' ] === $args['auth_callback']
+								&& [ 'edit' ] === $args['show_in_rest']['schema']['context']
+						)
+					);
+			}
 		}
 
 		$counts->register_meta();

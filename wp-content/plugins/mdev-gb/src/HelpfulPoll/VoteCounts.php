@@ -22,34 +22,48 @@ namespace Mdev\Gb\HelpfulPoll;
 final class VoteCounts {
 
 	/**
-	 * Register the meta keys for every post type. Hooked to `init`.
+	 * Register the meta keys for the post types the poll is available for.
+	 * Hooked to `init`.
 	 *
 	 * @since 0.3.0
 	 *
 	 * @return void
 	 */
 	public function register_meta(): void {
-		foreach ( Vote::cases() as $vote ) {
-			register_post_meta(
-				'',
-				$vote->meta_key(),
-				[
-					'type'              => 'integer',
-					'description'       => sprintf( 'Number of "%s" answers to the helpful poll.', $vote->value ),
-					'single'            => true,
-					'default'           => 0,
-					'sanitize_callback' => [ $this, 'sanitize_count' ],
-					'auth_callback'     => [ $this, 'can_edit' ],
-					'show_in_rest'      => [
-						'schema' => [
-							'type'    => 'integer',
-							'minimum' => 0,
-							'context' => [ 'edit' ],
-						],
-					],
-				]
-			);
+		foreach ( VotablePolicy::POST_TYPES as $post_type ) {
+			foreach ( Vote::cases() as $vote ) {
+				$this->register_key( $post_type, $vote );
+			}
 		}
+	}
+
+	/**
+	 * Register one count's meta key for one post type.
+	 *
+	 * @param string $post_type Post type.
+	 * @param Vote   $vote      Answer.
+	 * @return void
+	 */
+	private function register_key( string $post_type, Vote $vote ): void {
+		register_post_meta(
+			$post_type,
+			$vote->meta_key(),
+			[
+				'type'              => 'integer',
+				'description'       => sprintf( 'Number of "%s" answers to the helpful poll.', $vote->value ),
+				'single'            => true,
+				'default'           => 0,
+				'sanitize_callback' => [ $this, 'sanitize_count' ],
+				'auth_callback'     => [ $this, 'can_edit' ],
+				'show_in_rest'      => [
+					'schema' => [
+						'type'    => 'integer',
+						'minimum' => 0,
+						'context' => [ 'edit' ],
+					],
+				],
+			]
+		);
 	}
 
 	/**

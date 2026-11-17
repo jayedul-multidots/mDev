@@ -22,6 +22,8 @@ use WP_UnitTestCase;
  */
 final class VoteEndpointTest extends WP_UnitTestCase {
 
+	private const CUSTOM_TYPE = 'deep_pockets_videos';
+
 	/**
 	 * Fresh REST server per test, and the poll meta registered again: the
 	 * core test case unregisters every meta key after each test.
@@ -33,11 +35,93 @@ final class VoteEndpointTest extends WP_UnitTestCase {
 	}
 
 	/**
-	 * Drop the REST server built for this test.
+	 * Drop the REST server built for this test, the custom post type, and
+	 * restore the block's supports (the block registry is global).
 	 */
 	public function tear_down(): void {
 		$GLOBALS['wp_rest_server'] = null;
+		if ( post_type_exists( self::CUSTOM_TYPE ) ) {
+			unregister_post_type( self::CUSTOM_TYPE );
+		}
+		$block = \WP_Block_Type_Registry::get_instance()->get_registered( 'mdev-gb/helpful-poll' );
+		if ( null !== $block && is_array( $block->supports ) ) {
+			unset( $block->supports['inserter'] );
+		}
+		set_current_screen( 'front' );
 		parent::tear_down();
+	}
+
+	/**
+	 * A public custom post type: the poll is never available for it.
+	 *
+	 * @return void
+	 */
+	private function register_custom_type(): void {
+		register_post_type(
+			self::CUSTOM_TYPE,
+			[
+				'public'       => true,
+				'show_in_rest' => true,
+				'supports'     => [ 'title', 'editor', 'custom-fields' ],
+			]
+		);
+	}
+
+	/**
+	 * Pages accept votes like posts.
+	 */
+	public function test_pages_accept_votes(): void {
+		$page_id = self::factory()->post->create( [ 'post_type' => 'page' ] );
+
+		$this->assertSame( 201, $this->vote( $page_id, 'no' )->get_status() );
+		$this->assertSame( 1, ( new VoteCounts() )->get( $page_id )['no'] );
+	}
+
+	/**
+	 * Published posts of a public custom post type are rejected and never
+	 * render the poll.
+	 */
+	public function test_custom_post_types_are_rejected(): void {
+		$this->register_custom_type();
+		$post_id = self::factory()->post->create( [ 'post_type' => self::CUSTOM_TYPE ] );
+
+		$this->assertSame( 404, $this->vote( $post_id, 'yes' )->get_status() );
+		$this->assertFalse( metadata_exists( 'post', $post_id, Vote::Yes->meta_key() ) );
+		$this->assertSame( '', trim( $this->render( '<!-- wp:mdev-gb/helpful-poll /-->', $post_id ) ) );
+	}
+
+	/**
+	 * The admin column is added to the Posts and Pages lists only.
+	 */
+	public function test_admin_column_on_posts_and_pages_only(): void {
+		$this->register_custom_type();
+
+		$this->assertArrayHasKey( 'mdev_gb_helpful', apply_filters( 'manage_post_posts_columns', [ 'date' => 'Date' ] ) );
+		$this->assertArrayHasKey( 'mdev_gb_helpful', apply_filters( 'manage_page_posts_columns', [ 'date' => 'Date' ] ) );
+		$this->assertArrayNotHasKey( 'mdev_gb_helpful', apply_filters( 'manage_' . self::CUSTOM_TYPE . '_posts_columns', [ 'date' => 'Date' ] ) );
+	}
+
+	/**
+	 * In the editor, the block definitions sent to the browser hide the
+	 * block from the inserter for custom post types only.
+	 */
+	public function test_inserter_hidden_in_custom_post_type_editor(): void {
+		$this->register_custom_type();
+
+		set_current_screen( 'post' );
+		$this->assertArrayNotHasKey( 'inserter', $this->editor_supports() );
+
+		set_current_screen( self::CUSTOM_TYPE );
+		$this->assertFalse( $this->editor_supports()['inserter'] );
+	}
+
+	/**
+	 * The poll block's supports as the editor receives them.
+	 *
+	 * @return array<string, mixed>
+	 */
+	private function editor_supports(): array {
+		return get_block_editor_server_block_settings()['mdev-gb/helpful-poll']['supports'] ?? [];
 	}
 
 	/**

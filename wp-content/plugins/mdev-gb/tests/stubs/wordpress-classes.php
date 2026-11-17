@@ -111,3 +111,57 @@ if ( ! class_exists( 'WP_Error' ) ) {
 		}
 	}
 }
+
+if ( ! class_exists( 'WP_Screen' ) ) {
+	/**
+	 * Admin screen stand-in: tests set base and post_type.
+	 */
+	class WP_Screen {
+		public string $base = '';
+		public string $post_type = '';
+
+		public function __construct( array $props = [] ) {
+			foreach ( $props as $key => $value ) {
+				$this->$key = $value;
+			}
+		}
+	}
+}
+
+if ( ! class_exists( 'WP_Block_Type' ) ) {
+	/**
+	 * Block type stand-in.
+	 */
+	class WP_Block_Type {
+		/** @var array<string, mixed>|null */
+		public $supports = null;
+
+		public function __construct( public string $name = '', array $args = [] ) {
+			$this->supports = $args['supports'] ?? null;
+		}
+	}
+}
+
+if ( ! class_exists( 'WP_Block_Type_Registry' ) ) {
+	/**
+	 * Block type registry stand-in.
+	 */
+	class WP_Block_Type_Registry {
+		/** @var array<string, WP_Block_Type> */
+		private array $types = [];
+
+		private static ?WP_Block_Type_Registry $instance = null;
+
+		public static function get_instance(): self {
+			return self::$instance ??= new self();
+		}
+
+		public function register( WP_Block_Type $type ): void {
+			$this->types[ $type->name ] = $type;
+		}
+
+		public function get_registered( string $name ): ?WP_Block_Type {
+			return $this->types[ $name ] ?? null;
+		}
+	}
+}
