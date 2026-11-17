@@ -11,6 +11,7 @@ namespace Mdev\Gb;
 
 use Mdev\Gb\Blocks\BlockCategory;
 use Mdev\Gb\Blocks\BlockRegistrar;
+use Mdev\Gb\HelpfulPoll\Feature as HelpfulPoll;
 use Mdev\Gb\PostGallery\Feature as PostGallery;
 
 /**
@@ -45,5 +46,6 @@ final class Plugin {
 		add_filter( 'block_categories_all', [ $category, 'register' ] );
 
 		( new PostGallery( $this->plugin_dir ) )->register();
+		( new HelpfulPoll() )->register();
 	}
 }

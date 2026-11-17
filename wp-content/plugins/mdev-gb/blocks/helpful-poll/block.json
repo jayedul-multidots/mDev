@@ -1,0 +1,56 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "mdev-gb/helpful-poll",
+	"version": "0.1.0",
+	"title": "mDev Helpful Poll",
+	"category": "mdev",
+	"icon": "thumbs-up",
+	"description": "Ask readers whether the article was helpful, with Yes and No buttons. Answers are counted per post.",
+	"keywords": [ "feedback", "vote", "rating", "helpful", "survey" ],
+	"textdomain": "mdev-gb",
+	"usesContext": [ "postId", "postType" ],
+	"attributes": {
+		"question": {
+			"type": "string",
+			"default": ""
+		},
+		"yesLabel": {
+			"type": "string",
+			"default": ""
+		},
+		"noLabel": {
+			"type": "string",
+			"default": ""
+		},
+		"thanksMessage": {
+			"type": "string",
+			"default": ""
+		}
+	},
+	"supports": {
+		"anchor": true,
+		"align": [ "wide", "full" ],
+		"html": false,
+		"multiple": false,
+		"interactivity": true,
+		"color": {
+			"background": true,
+			"text": true
+		},
+		"spacing": {
+			"margin": true,
+			"padding": true
+		},
+		"typography": {
+			"fontSize": true
+		}
+	},
+	"example": {
+		"attributes": {}
+	},
+	"editorScript": "file:./index.js",
+	"style": "file:./style-index.css",
+	"viewScriptModule": "file:./view.js",
+	"render": "file:./render.php"
+}

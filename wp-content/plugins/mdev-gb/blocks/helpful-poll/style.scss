@@ -1,0 +1,53 @@
+/**
+ * Front-end and editor styles for mdev-gb/helpful-poll.
+ * Buttons use the theme's button styles (wp-element-button).
+ */
+.wp-block-mdev-gb-helpful-poll__ask {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	gap: var(--wp--preset--spacing--20, 0.5rem) var(--wp--preset--spacing--30, 1rem);
+
+	&[hidden] {
+		display: none;
+	}
+}
+
+.wp-block-mdev-gb-helpful-poll__question {
+	margin: 0;
+	font-weight: 600;
+}
+
+.wp-block-mdev-gb-helpful-poll__buttons {
+	display: flex;
+	gap: var(--wp--preset--spacing--20, 0.5rem);
+}
+
+.wp-block-mdev-gb-helpful-poll__button {
+	cursor: pointer;
+
+	&:disabled {
+		cursor: progress;
+		opacity: 0.6;
+	}
+}
+
+.wp-block-mdev-gb-helpful-poll__error {
+	flex-basis: 100%;
+	margin: 0;
+	color: #b91c1c;
+
+	&:empty {
+		display: none;
+	}
+}
+
+// Always rendered (never display: none), so it can take focus and act as a
+// live region; empty and margin-free, it takes no space before a vote.
+.wp-block-mdev-gb-helpful-poll__thanks {
+	margin: 0;
+
+	&:focus {
+		outline: none;
+	}
+}

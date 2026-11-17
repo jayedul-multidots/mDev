@@ -17,6 +17,9 @@ if ( ! class_exists( 'WP_Post' ) ) {
 	class WP_Post {
 		public int $ID = 0;
 		public string $post_title = '';
+		public string $post_status = 'publish';
+		public string $post_type = 'post';
+		public string $post_password = '';
 
 		public function __construct( array $props = [] ) {
 			foreach ( $props as $key => $value ) {
@@ -79,6 +82,32 @@ if ( ! class_exists( 'WP_REST_Response' ) ) {
 
 		public function get_headers(): array {
 			return $this->headers;
+		}
+
+		public function get_status(): int {
+			return $this->status;
+		}
+	}
+}
+
+if ( ! class_exists( 'WP_Error' ) ) {
+	/**
+	 * Error stand-in with one code, message and data.
+	 */
+	class WP_Error {
+		public function __construct( private string $code = '', private string $message = '', private mixed $data = '' ) {
+		}
+
+		public function get_error_code(): string {
+			return $this->code;
+		}
+
+		public function get_error_message(): string {
+			return $this->message;
+		}
+
+		public function get_error_data(): mixed {
+			return $this->data;
 		}
 	}
 }
