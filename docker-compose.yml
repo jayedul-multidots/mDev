@@ -41,7 +41,12 @@ services:
       WP_ADMIN_PASSWORD: ${WP_ADMIN_PASSWORD:-}
       WP_ADMIN_EMAIL: ${WP_ADMIN_EMAIL:-}
     volumes:
-      - uploads:/var/www/html/wp-content/uploads
+      # The whole wp-content lives in a host folder (relative to the project
+      # root unless absolute), so it can be browsed and backed up on the
+      # server. On every deploy scripts/deploy.sh first copies the plugins and
+      # themes shipped in the image into it (scripts/sync-wp-content.sh);
+      # uploads and anything added on the server are kept.
+      - ${WP_CONTENT_HOST_DIR:-./wp-content}:/var/www/html/wp-content
       # TLS certificate folder from the host. When it holds origin.crt + origin.key
       # (e.g. a Cloudflare Origin Certificate on the live server), Apache serves
       # HTTPS on :443; when empty (local, CI), the site is HTTP-only.
@@ -95,9 +100,6 @@ services:
         # Unique alias so `db` never collides with another service on traenet.
         aliases:
           - ${COMPOSE_PROJECT_NAME}-db
-
-volumes:
-  uploads:
 
 networks:
   traenet:

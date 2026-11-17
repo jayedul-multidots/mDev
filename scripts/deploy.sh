@@ -98,6 +98,39 @@ fi
 log "Pulling ${IMAGE}..."
 compose pull wordpress db
 
+# --- wp-content on the host ------------------------------------------------------
+# Value of KEY in .env (last one wins, surrounding quotes removed), or DEFAULT.
+env_value() {
+	local value
+	value="$(grep -E "^$1=" .env | tail -n 1 | cut -d= -f2-)" || true
+	value="${value%\"}"; value="${value#\"}"
+	value="${value%\'}"; value="${value#\'}"
+	printf '%s' "${value:-$2}"
+}
+
+# Same default as docker-compose.yml; relative paths are relative to this folder.
+WP_CONTENT_HOST_DIR="$(env_value WP_CONTENT_HOST_DIR ./wp-content)"
+case "${WP_CONTENT_HOST_DIR}" in
+	/*) ;;
+	*) WP_CONTENT_HOST_DIR="$(pwd)/${WP_CONTENT_HOST_DIR#./}" ;;
+esac
+
+# Uploads used to live in the `<project>_uploads` volume: offer it to the sync,
+# which copies it over once, when the host uploads folder is still empty. The
+# volume itself is kept (remove it by hand once the site checks out).
+sync_mounts=(
+	-v "${WP_CONTENT_HOST_DIR}:/target"
+	-v "$(pwd)/scripts/sync-wp-content.sh:/usr/local/bin/mdev-sync-wp-content:ro"
+)
+old_uploads="$(env_value COMPOSE_PROJECT_NAME "$(basename "$(pwd)")")_uploads"
+if docker_cmd volume inspect "${old_uploads}" </dev/null >/dev/null 2>&1; then
+	sync_mounts+=(-v "${old_uploads}:/old-uploads:ro")
+fi
+
+log "Syncing the image's plugins and themes into ${WP_CONTENT_HOST_DIR}..."
+docker_cmd run --rm --user root --entrypoint bash "${sync_mounts[@]}" "${IMAGE}" \
+	/usr/local/bin/mdev-sync-wp-content /var/www/html/wp-content /target </dev/null
+
 log "Starting containers..."
 compose up -d --no-build --remove-orphans --wait
 

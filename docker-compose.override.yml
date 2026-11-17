@@ -9,13 +9,12 @@ services:
     build:
       target: dev
     volumes:
-      # The entire wp-content from the host (plugins, themes, mu-plugins,
-      # uploads, caches, ...), so anything added locally is live. This hides the
-      # image's own wp-content, including WordPress's bundled default themes.
+      # The entire wp-content from the repository (plugins, themes, mu-plugins,
+      # uploads, caches, ...), so anything added locally is live. Same target
+      # as the base file's host folder, so this replaces it (WP_CONTENT_HOST_DIR
+      # does not apply locally). This hides the image's own wp-content,
+      # including WordPress's bundled default themes.
       - ./wp-content:/var/www/html/wp-content
-      # Same target as the base file's `uploads` volume, so this replaces it:
-      # uploads live in ./wp-content/uploads locally.
-      - ./wp-content/uploads:/var/www/html/wp-content/uploads
       # Whole repo outside the docroot, so vendor/ and tooling are never web-exposed.
       # Used by `composer test` etc. inside the container (MDEV_ROOT=/app).
       - ./:/app
