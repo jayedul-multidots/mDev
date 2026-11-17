@@ -10,7 +10,7 @@
 get_header();
 ?>
 
-	<main id="primary" class="site-main vaultrix-main u-padding-t80 u-bg-lightgray">
+	<main id="primary" class="site-main vaultrix-main u-padding-t80 u-padding-b80">
 		<div class="container">
 			<div class="u-flex-columns u-flex-columns@max-767">
 				<div class="u-flex-column u-flex-basis-70 u-flex-basis-70@max-767">
@@ -36,7 +36,7 @@ get_header();
 					?>
 				</div>
 				<div class="u-flex-column u-flex-basis-30 u-flex-basis-30@max-767">
-					<div class="vaultrix-sidebar u-margin-t50@max-767 u-margin-t50 u-margin-b20">
+					<div class="vaultrix-sidebar u-bg-white u-padding-a20 u-margin-t50@max-767 u-margin-t50 u-margin-b20">
 						<?php get_sidebar(); ?>
 					</div>
 				</div>

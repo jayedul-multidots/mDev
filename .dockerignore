@@ -29,3 +29,6 @@ wp-content/themes/*
 !wp-content/themes/mdev-block
 !wp-content/themes/mdev-fse
 !wp-content/themes/vaultrix
+# Vaultrix's compiled assets are committed and shipped as-is (not rebuilt in
+# the image), so re-include them after the **/build rule above.
+!wp-content/themes/vaultrix/assets/build

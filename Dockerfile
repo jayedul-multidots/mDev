@@ -94,6 +94,8 @@ COPY --from=vendor --chown=www-data:www-data /app/wp-content/plugins/ /var/www/h
 
 COPY --chown=www-data:www-data wp-content/themes/mdev-block/ /var/www/html/wp-content/themes/mdev-block/
 COPY --chown=www-data:www-data wp-content/themes/mdev-fse/ /var/www/html/wp-content/themes/mdev-fse/
+# Active site theme. Its compiled CSS/JS (assets/build/) is committed.
+COPY --chown=www-data:www-data wp-content/themes/vaultrix/ /var/www/html/wp-content/themes/vaultrix/
 
 COPY --chown=www-data:www-data wp-content/plugins/mdev-gb/mdev-gb.php wp-content/plugins/mdev-gb/readme.txt /var/www/html/wp-content/plugins/mdev-gb/
 COPY --chown=www-data:www-data wp-content/plugins/mdev-gb/src/ /var/www/html/wp-content/plugins/mdev-gb/src/

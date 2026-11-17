@@ -13,9 +13,15 @@
  */
 
 get_header();
+
+// Plain text pages get the single post layout; full-width section pages span the screen.
+$vaultrix_plain_page = vaultrix_is_plain_content_page();
 ?>
 
-	<main id="primary" class="site-main">
+	<main id="primary" class="<?php echo esc_attr( $vaultrix_plain_page ? 'site-main vaultrix-main u-padding-t80 u-padding-b80' : 'site-main' ); ?>">
+		<?php if ( $vaultrix_plain_page ) : ?>
+		<div class="container">
+		<?php endif; ?>
 		<?php
 		while ( have_posts() ) :
 			the_post();
@@ -29,6 +35,9 @@ get_header();
 
 			endwhile; // End of the loop.
 		?>
+		<?php if ( $vaultrix_plain_page ) : ?>
+		</div>
+		<?php endif; ?>
 	</main><!-- #main -->
 	
 	<!-- welcome popup code -->

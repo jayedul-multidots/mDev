@@ -10,7 +10,13 @@
 ?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-	<div class="vaultrix-post-article u-bg-white">
+	<?php
+	// Plain text pages use the same content card as single posts (template-parts/content.php).
+	$vaultrix_article_class = vaultrix_is_plain_content_page()
+		? 'vaultrix-post-article u-margin-t50 u-margin-b50 u-margin-t50@max-767 u-margin-b50@max-767 u-bg-white u-padding-a15'
+		: 'vaultrix-post-article u-bg-white';
+	?>
+	<div class="<?php echo esc_attr( $vaultrix_article_class ); ?>">
 		<div class="entry-content">
 			<?php
 			the_content();

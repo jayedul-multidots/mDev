@@ -567,3 +567,48 @@ function format_video_duration( $seconds ) {
 
 	return sprintf( '0:%02d sec', $secs );
 }
+
+/**
+ * Whether a page's content starts with plain text blocks (paragraphs,
+ * headings, lists, ...) instead of a full-width section.
+ *
+ * Full-width sections (Vaultrix blocks, groups and covers with their own
+ * background and spacing, the mDev post gallery, PMPro shortcode pages) clear
+ * the transparent header and style themselves. Plain content does neither, so
+ * page.php gives it the same contained layout as single posts: space below
+ * the header and a white content card on the site background.
+ *
+ * @param int|WP_Post|null $post Page; defaults to the current post.
+ * @return bool
+ */
+function vaultrix_is_plain_content_page( $post = null ) {
+	$post = get_post( $post );
+
+	if ( ! $post instanceof WP_Post ) {
+		return false;
+	}
+
+	/**
+	 * Blocks that, as the first block of a page, mark it as plain content.
+	 *
+	 * @param string[] $blocks Block names.
+	 */
+	$plain_blocks = apply_filters(
+		'vaultrix_plain_content_blocks',
+		array( 'core/paragraph', 'core/heading', 'core/list', 'core/quote', 'core/image', 'core/table', 'core/preformatted', 'core/pullquote', 'core/separator' )
+	);
+
+	foreach ( parse_blocks( $post->post_content ) as $block ) {
+		if ( null === $block['blockName'] ) {
+			// Whitespace between blocks is skipped; classic content is left as it was.
+			if ( '' === trim( $block['innerHTML'] ) ) {
+				continue;
+			}
+			return false;
+		}
+
+		return in_array( $block['blockName'], $plain_blocks, true );
+	}
+
+	return false;
+}
